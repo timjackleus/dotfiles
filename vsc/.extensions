@@ -1,38 +1,7 @@
-# code --install-extension {ext name}
-
-4tron.angular-material-snippets
-EditorConfig.EditorConfig
-Equinusocio.vsc-material-theme
-HookyQR.beautify
-PKief.material-icon-theme
-PeterJausovec.vscode-docker
-Rubymaniac.vscode-paste-and-indent
-SintrumIT.theme-oceanic-next-italic
-Zignd.html-css-class-completion
-abusaidm.html-snippets
-alefragnani.project-manager
-alexandersage.angular1-code-snippets
-dbaeumer.vscode-eslint
-donjayamanne.githistory
-dracula-theme.theme-dracula
-dzannotti.vscode-babel-coloring
-eg2.tslint
-eg2.vscode-npm-script
-gerane.Theme-Monokai-Soft
-infinity1207.angular2-switcher
-jakethashi.vscode-angular2-emmet
-johnpapa.Angular1
-johnpapa.Angular2
-jprestidge.theme-material-theme
-liuji-jim.vue
-ms-vscode.azure-account
-msjsdiag.debugger-for-chrome
-natewallace.angular2-inline
-robinbentley.sass-indented
-samverschueren.final-newline
-spywhere.guides
-steoates.autoimport
-techer.open-in-browser
-waderyan.gitblame
-xabikos.JavaScriptSnippets
-zhuangtongfa.Material-theme
+code --install-extension zhuangtongfa.Material-theme
+code --install-extension donjayamanne.githistory
+code --install-extension Zignd.html-css-class-completion
+code --install-extension abusaidm.html-snippets
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension HookyQR.beautify
+code --install-extension spywhere.guides
