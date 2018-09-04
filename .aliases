@@ -6,10 +6,27 @@ alias .....="cd ../../../.."
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias p="cd ~/projects"
-alias g="git"
 
-# List all files
-alias ls="ls -al"
+alias g="git"
+alias ga.='git add .'
+alias ga='git add'
+alias gc='git checkout'
+alias gc.="git checkout -- ."
+alias gd="git diff"
+alias gm='git commit -m "$@"'
+alias gp='git add -p'
+alias gp='git pull'
+alias ggp='git push'
+alias gs='git status'
+alias gus='git add -u; git status'
+
+# mv, rm, cp
+alias mv='mv -v'
+alias rm='rm -i -v'
+alias cp='cp -v'
+
+# use coreutils `ls` if possible…
+hash gls >/dev/null 2>&1 || alias gls="ls"
 
 alias showport='lsof -i :'
 alias killport='kill -9'
@@ -22,3 +39,12 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Create a new directory and enter it
+function md() {
+	mkdir -p $1 && cd $1
+}
+
+function searchHistory() {
+  cat ~/.zsh_history | grep $1
+}
