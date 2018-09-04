@@ -1,3 +1,4 @@
+// Place your settings in this file to overwrite the default settings
 {
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
@@ -5,18 +6,26 @@
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "editor.tabCompletion": true,
-  "editor.renderIndentGuides": true,
   "workbench.iconTheme": "material-icon-theme",
-  "editor.fontFamily": "'Input Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'Operator Mono', 'Input Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontWeight": "normal",
-  "window.zoomLevel": 0,
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
   "workbench.colorCustomizations": {
     "statusBar.background": "#252526",
     "editorCursor.foreground": "#ae00ff",
     "editorLineNumber.foreground": "#8a8a8a",
-    "activityBarBadge.background": "#36363b"
+    "activityBarBadge.background": "#FF79C6",
+    "list.activeSelectionForeground": "#FF79C6",
+    "list.inactiveSelectionForeground": "#FF79C6",
+    "list.highlightForeground": "#FF79C6",
+    "scrollbarSlider.activeBackground": "#FF79C650",
+    "editorSuggestWidget.highlightForeground": "#FF79C6",
+    "textLink.foreground": "#FF79C6",
+    "progressBar.background": "#FF79C6",
+    "pickerGroup.foreground": "#FF79C6",
+    "tab.activeBorder": "#FF79C6"
   },
+  "editor.formatOnSave": false,
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -27,5 +36,11 @@
   },
   "guides.enabled": false,
   "css.validate": false,
-  "workbench.colorTheme": "One Dark Pro"
+  "workbench.colorTheme": "Dracula",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html",
+    "plaintext": "jade"
+  },
+  "markdown.extension.preview.autoShowPreviewToSide": true,
 }

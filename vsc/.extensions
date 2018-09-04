@@ -1,7 +1,14 @@
-code --install-extension zhuangtongfa.Material-theme
-code --install-extension donjayamanne.githistory
-code --install-extension Zignd.html-css-class-completion
 code --install-extension abusaidm.html-snippets
+code --install-extension alefragnani.project-manager
+code --install-extension coenraads.bracket-pair-colorizer
 code --install-extension dbaeumer.vscode-eslint
+code --install-extension donjayamanne.githistory
+code --install-extension dracula-theme.theme-dracula
 code --install-extension HookyQR.beautify
+code --install-extension ms-python.python
 code --install-extension spywhere.guides
+code --install-extension steoates.autoimport
+code --install-extension techer.open-in-browser
+code --install-extension waderyan.gitblame
+code --install-extension zhuangtongfa.Material-theme
+code --install-extension Zignd.html-css-class-completion
