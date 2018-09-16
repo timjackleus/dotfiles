@@ -1,0 +1,10 @@
+
+# Search history for keyword
+function searchHistory() {
+  cat ~/.zsh_history | grep $1
+}
+
+# Create a new directory and enter it
+function md() {
+	mkdir -p "$@" && cd "$@"
+}

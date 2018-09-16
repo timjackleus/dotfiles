@@ -1,0 +1,8 @@
+# Make sure Zsh is set to default shell
+chsh -s $(which zsh)
+
+# Install zsh autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+
+# Restart to apply all changes
+source ~/.zshrc

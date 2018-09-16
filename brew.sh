@@ -10,16 +10,24 @@ brew upgrade
 brew install coreutils
 brew install moreutils
 
-brew install node # This installs 'npm' too using the recommended installation method
+# Install more recent versions of some macOS tools.
+brew install vim --with-override-system-vi
+brew install grep
+brew install openssh
+brew install screen
+brew install homebrew/php/php56 --with-gmp
 
+# Install other useful binaries.
 brew install git
-brew install nvm
-brew install zsh
+brew install node # This installs 'npm' too using the recommended installation method
 brew install npm
-brew install yarn
-brew install tig
-
+brew install nvm
 brew install p7zip
+brew install tig
+brew install tree
+brew install yarn
+brew install zsh
+brew install zsh-syntax-highlighting
 
 # Remove outdated versions from the cellar
 brew cleanup

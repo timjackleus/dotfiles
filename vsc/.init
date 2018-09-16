@@ -1,0 +1,5 @@
+# Copy settings to vscode user location
+cp settings.json ~/Library/Application\ Support/Code/User/settings.json
+
+# Install extensions
+./.extensions
