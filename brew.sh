@@ -11,11 +11,11 @@ brew install coreutils
 brew install moreutils
 
 # Install more recent versions of some macOS tools.
-brew install vim --with-override-system-vi
 brew install grep
+brew install homebrew/php/php56 --with-gmp
 brew install openssh
 brew install screen
-brew install homebrew/php/php56 --with-gmp
+brew install vim --with-override-system-vi
 
 # Install other useful binaries.
 brew install git
