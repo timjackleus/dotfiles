@@ -14,6 +14,9 @@ export LANG=en_US.UTF-8
 # Enable syntax highlightning
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# include Z
+. ~/z.sh
+
 # Plugins
 plugins=(
   brew
@@ -21,6 +24,7 @@ plugins=(
   git
   node
   npm
+  z
   zsh-completions
   zsh-nvm
   zsh-syntax-highlighting
