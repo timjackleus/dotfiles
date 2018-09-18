@@ -23,7 +23,7 @@ brew cask install utorrent
 brew cask install vlc
 
 # fonts
+brew tap caskroom/fonts
 brew cask install font-fira-code
 brew cask install font-hack
 brew cask install font-input
-brew tap caskroom/fonts

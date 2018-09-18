@@ -6,3 +6,10 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/
 
 # Restart to apply all changes
 source ~/.zshrc
+
+# Download and install powerline fonts
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts

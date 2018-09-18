@@ -6,7 +6,10 @@ SAVEHIST=100000
 export NVM_DIR="$HOME/.nvm"
 
 # Theme
-ZSH_THEME="af-magic"
+ZSH_THEME="agnoster"
+
+# Remove username@computer
+DEFAULT_USER=$USER
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
