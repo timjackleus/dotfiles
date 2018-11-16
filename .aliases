@@ -48,3 +48,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # List all globally installed npm packages
 alias npmlist='npm list -g --depth=0'
+
+# List latest HackerNews
+alias hackernews="curl -s https://hnrss.org/newest?points=500 | grep -o -e '<title>.*</title>'  | grep -o -e '\[[A-Za-z0-9 \-\:\.\,]\+\]' | tr '\]\[' ' '"
