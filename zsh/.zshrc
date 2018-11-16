@@ -4,6 +4,7 @@ SAVEHIST=100000
 
 # Nvm
 export NVM_DIR="$HOME/.nvm"
+source ~/.nvm/nvm.sh
 
 # Theme
 ZSH_THEME="agnoster"
@@ -15,7 +16,7 @@ DEFAULT_USER=$USER
 export LANG=en_US.UTF-8
 
 # include Z
-. ~/z.sh
+source ~/z.sh
 
 # Plugins
 plugins=(
