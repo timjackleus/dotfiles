@@ -10,8 +10,8 @@ $ ./.macos
 ### Install Homebrew then run all installations
 ```
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-$ ./.brew.sh
-$ ./.brew-cask.sh
+$ ./brew.sh
+$ ./brew-cask.sh
 ```
 
 ### Setup zsh
@@ -21,15 +21,16 @@ $ ./zsh/.init
 
 ### Install Oh my zsh
 ```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+Import what's needed from `./zsh/.zshrc`, `./.alias`, `./.functions`.
 
 ### Iterm2
 Import settings from the iterm2 folder
 
 ### Setup vscode
 - In vscode open command palette (cmd+shift+p)
-- search for `Shell Command: Install 'code' command in PATH command`
+- search for 'code' and look for `Shell Command: Install 'code' command in PATH command`
 - `$ ./vsc/.init`
 
 ### Setup Git
