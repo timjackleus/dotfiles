@@ -7,7 +7,6 @@ brew cask install dropbox
 brew cask install evernote
 brew cask install franz
 brew cask install google-chrome
-brew cask install google-drive
 brew cask install spotify
 
 # dev
