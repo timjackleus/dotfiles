@@ -14,9 +14,6 @@ DEFAULT_USER=$USER
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Enable syntax highlightning
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # include Z
 . ~/z.sh
 
@@ -32,3 +29,9 @@ plugins=(
   zsh-nvm
   zsh-syntax-highlighting
 )
+
+# Enable syntax highlightning
+source ~/.zsh/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
+
+# Enable autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
