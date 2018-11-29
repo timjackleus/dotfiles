@@ -23,7 +23,7 @@ $ ./zsh/.init
 ```
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
-Import what's needed from `./zsh/.zshrc`, `./.alias`, `./.functions`.
+Import what's needed from `./zsh/.zshrc`, `./.alias`, `./.functions`.
 
 ### Iterm2
 Import settings from the iterm2 folder
