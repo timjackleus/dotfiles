@@ -1,6 +1,7 @@
 # Install native apps
 
 # daily
+brew cask install slack
 brew cask install 1password
 brew cask install alfred
 brew cask install dropbox
