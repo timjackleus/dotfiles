@@ -1,6 +1,8 @@
 # Tim's dotfiles
 
-### Install xcode from App Store
+### Setup Xcode
+- Download latest Xcode from App Store
+- `$ ./xcode/.init`
 
 ### Run all macos settings then reboot when complete
 ```
