@@ -4,7 +4,7 @@ SAVEHIST=100000
 
 # Nvm
 export NVM_DIR="$HOME/.nvm"
-source ~/.nvm/nvm.sh
+  . "/usr/local/opt/nvm/nvm.sh"
 
 # Theme
 ZSH_THEME="agnoster"
