@@ -3,6 +3,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+# Always use MacVim
+alias vim='mvim -v'
+
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias p="cd ~/projects"
