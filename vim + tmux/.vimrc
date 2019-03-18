@@ -1,176 +1,180 @@
-" Make Vim more useful
-set nocompatible
 
-" required
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-"let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'elzr/vim-json'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'dracula/vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'ap/vim-css-color'
-Plugin 'sjl/gundo.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'w0rp/ale'
-Plugin 'airblade/vim-gitgutter.git'
-Plugin 'tpope/vim-fugitive.git'
-" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" Load up all of our plugins
-if filereadable(expand("~/.vimrc.bundles.local"))
-  source ~/.vimrc.bundles.local
-endif
-
-" All of your Plugins must be added before the following line
-call vundle#end()
+"""""""""" General ViM Settings """"""""""
+scriptencoding utf-8
 filetype plugin indent on
+syntax on " Use syntax highlighting
 
-" Use syntax highlighting
-syntax enable
-
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-
-" Setting up environment
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" Display line numbers on the left
-set number
-
-" Disable swap files creation
-set noswapfile
-
-set backupcopy=yes
-
-" Show the (partial) command as it’s being typed
-set showcmd
-
-" Enhance command-line completion
-set wildmenu
-
-" Buffer screen updates instead of updating all the time
-set lazyredraw
-
-" Always display status line
-set laststatus=2
-
+set encoding=utf-8  " Use utf-8 encoding
+set nocompatible " Make Vim more useful
+set ignorecase " " ignore upper/lower case when searching
+set incsearch " show partial matches for a search phrase
+set hlsearch " gnore case (for searching))
+set nofoldenable " disable folding
+set scrolloff=3 " Keep 3 lines (top/bottom) for scope
+set number " Display line numbers on the left
+set noswapfile " Disable swap files creation
+set report=0 " tell us when anything is changed via :...
+set omnifunc=syntaxcomplete#Complete " Use Autocomplete
+set mouse=a " Scrollable term-vim
+set showcmd " Show the command as it’s being typed
+set wildmenu " Enhance command-line completion
+set lazyredraw " Buffer screen updates instead of updating all the time
+set laststatus=2 " Always display status line
 set timeout timeoutlen=1500
 set shortmess=atI
-set mouse=a
-
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
-
-" Formatting
-set tabstop=2 shiftwidth=2 smarttab expandtab
+set tabstop=2
+set shiftwidth=2
+set expandtab " Convert tabs to spaces
 set backspace=indent,eol,start
+set list " Show whitespace and tabs
+set listchars=tab:\¦·,trail:· " show tabs and trailing whitespace
+set clipboard=unnamed " copy and paste with *
+autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
+"""""""""" END General ViM Settings """"""""""
 
-" Code folding
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
-set foldmethod=indent
-set foldlevel=2
 
-" Use JXS syntax on JS files
-let g:jsx_ext_required = 0
 
-" Use linting on save not on change
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-
-" Enable ESLint only for JavaScript.
-let b:ale_linters = ['eslint']
-
-" Fix files with prettier, and then ESLint.
-let b:ale_fixers = ['prettier', 'eslint']
-
-" Searching
-set showmatch
-set incsearch
-set hlsearch
-
-" Change mapleader
-let mapleader=","
-
-" CtrlP settings
+"""""""""" Plugins """"""""""
+call plug#begin('~/.vim/plugged')
+Plug 'airblade/vim-gitgutter.git'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
-" Conf files
-nnoremap <leader>ez :tabnew ~/.zshrc<CR>
-nnoremap <leader>sz :source ~/.zshrc<CR>
-nnoremap <leader>ev :tabnew $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>et :tabnew ~/.tmux.conf<CR>
-nnoremap <leader>st :source ~/.tmux.conf<CR>
+Plug 'djoshea/vim-autoread'
+Plug 'dracula/vim'
+Plug 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature
 
-" Working with tabs
-nnoremap <leader>nb :tabedit <C-R>=expand('%:p:h:h') . '/'<CR>
-nnoremap <leader>nt :tabn<CR>
-nnoremap <leader>pt :tabp<CR>
-nnoremap <leader>ct :tabclose<CR>
+Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'leafgarland/typescript-vim'
+Plug 'mattn/emmet-vim'
+let g:user_emmet_leader_key=',' " Redefine Emmit trigger
 
-" Shortcuts
-nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <leader>u :GundoToggle<CR>
-nnoremap <leader>s :mksession<CR>
-nnoremap <leader>a :Ack
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-m> :nohl<CR>
+Plug 'mileszs/ack.vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'plasticboy/vim-markdown'
+let vim_markdown_preview_hotkey='<C-m>' " Remap vim markdown preview
+let vim_markdown_preview_github=1 " Preview with Grip
 
-" Functions
-augroup reload_vimrc " {
-  autocmd!
-  autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+Plug 'sbdchd/neoformat'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+let NERDTreeShowHidden=1
+map <C-n> :NERDTreeToggle<CR>
 
-" Replace all Swedish special characters with entities.
-" adapted from http://vim.wikia.com/wiki/HTML_entities
-nnoremap <silent> ,r :call ReplaceSweChar()<CR>
-function! ReplaceSweChar()
-silent %s/Å/\&Aring;/eg
-silent %s/Ö/\&Ouml;/eg
-silent %s/Ä/\&Auml;/eg
-silent %s/É/\&Eacute;/eg
-silent %s/å/\&aring;/eg
-silent %s/ö/\&ouml;/eg
-silent %s/ä/\&auml;/eg
-silent %s/é/\&eacute;/eg
-endfunction
+Plug 'tpope/vim-fugitive.git'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
+" Use linting on save not on change
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+" Enable ESLint only for JavaScript.
+let b:ale_linters = ['eslint']
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+Plug 'othree/csscomplete.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+" highlight hex colors in color
+au BufRead,BufNewFile *.scss set filetype=scss.css
+au BufRead,BufNewFile *.sass set filetype=sass.css
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'leafgarland/typescript-vim'
+Plug 'shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
-"Use enter to create new lines w/o entering insert mode
-nnoremap <CR> o<Esc>
+Plug 'jiangmiao/auto-pairs'
 
-" Easier split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+call plug#end() " Initialize plugin system
+"""""""""" END Plugins """"""""""
 
-set splitbelow
-set splitright
+
+
+""""""""""" clipboard copy and cut
+vmap <C-x> :!pbcopy<CR>
+" yanks and copies to system clipboard
+vnoremap <C-c> "*y
+vnoremap y "*y
+vnoremap <C-v> "+p
+vnoremap p "*p
+
+""""""""" Tab indent
+vnoremap <TAB> >
+vnoremap <S-TAB> <
+nnoremap <TAB> V >
+nnoremap <S-TAB> V <
+
+""""""""" Insert mode
+imap <C-f> <Right>
+imap <C-b> <Left>
+
+" Use JXS syntax on JS files
+let g:jsx_ext_required = 0
+
+
+" Make Neoformat use Vims formatprg
+let g:neoformat_try_formatprg = 1
+
+" Use Prettier
+" TODO: Only use if prettier.rc exist?
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd FileType css,javascript,javascript.jsx setlocal formatprg=prettier\
+                                                            \--stdin\
+                                                            \--print-width\ 80\
+                                                            \--single-quote\
+                                                            \--trailing-comma\ es5
+    autocmd BufWritePre *.css,*.js,*.jsx Neoformat
+augroup END
+
+" Setting up environment
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" Change mapleader
+let mapleader=","
 
 " Customize statusbar
 let g:airline_section_y = ''
 let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
+
+" Use The Silver Searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+" bind \ (backward slash) to grep shortcut
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+augroup reload_vimrc " {
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
