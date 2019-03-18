@@ -178,3 +178,14 @@ augroup reload_vimrc " {
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
+"""""""" Fonts """"""""
+set t_ZH=[3m " Support italics
+set t_ZR=[23m " Support italics
+
+hi htmlArg gui=italic
+hi Comment gui=italic
+hi Type    gui=italic
+hi htmlArg cterm=italic
+hi Comment cterm=italic
+hi Type    cterm=italic
+
