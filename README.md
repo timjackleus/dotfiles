@@ -28,7 +28,7 @@ $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/m
 Import what's needed from `./zsh/.zshrc`, `./.alias`, `./.functions`.
 
 ### Iterm2
-Import settings from the iterm2 folder
+Setup a folder to place the configurations in by checking "Load preferences from custom folder or url" option under "Gerneral". Then copy the config file from this repo to that folder.
 
 ### Setup vscode
 - In vscode open command palette (cmd+shift+p)

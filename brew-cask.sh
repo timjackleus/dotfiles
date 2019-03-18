@@ -9,6 +9,7 @@ brew cask install franz
 brew cask install google-chrome
 brew cask install slack
 brew cask install spotify
+brew cask install google-backup-and-sync
 
 # dev
 brew cask install docker

@@ -1,7 +1,7 @@
 # Copy settings to xcode user location
-mkdir ~/Library/Developer/Xcode/UserData/FontAndColorThemes
+mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes
 cp dracula_tim.xccolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/dracula_tim.xccolortheme
 
 # Copy keybindings to xcode user location
-mkdir ~/Library/Developer/Xcode/UserData/KeyBindings
-p Default.idekeybindings ~/Library/Developer/Xcode/UserData/KeyBindings/Default.idekeybindings
+mkdir -p ~/Library/Developer/Xcode/UserData/KeyBindings
+cp Default.idekeybindings ~/Library/Developer/Xcode/UserData/KeyBindings/Default.idekeybindings
