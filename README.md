@@ -30,6 +30,11 @@ Import what's needed from `./zsh/.zshrc`, `./.alias`, `./.functions`.
 ### Iterm2
 Setup a folder to place the configurations in by checking "Load preferences from custom folder or url" option under "Gerneral". Then copy the config file from this repo to that folder.
 
+### Setup tmux and vim
+```
+$ ./vim+tmux/.init
+```
+
 ### Setup vscode
 - In vscode open command palette (cmd+shift+p)
 - search for 'code' and look for `Shell Command: Install 'code' command in PATH command`
