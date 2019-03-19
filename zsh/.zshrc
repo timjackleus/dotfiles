@@ -1,3 +1,7 @@
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # history
 SAVEHIST=100000
@@ -36,3 +40,5 @@ source ~/.zsh/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
 
 # Enable autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source $ZSH/oh-my-zsh.sh

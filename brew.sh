@@ -15,15 +15,19 @@ brew install grep
 brew install homebrew/php/php56 --with-gmp
 brew install openssh
 brew install screen
-brew install vim --with-override-system-vi
 
 # Install other useful binaries.
+brew install ctags
 brew install git
+brew install macvim --with-override-system-vim
 brew install node # This installs 'npm' too using the recommended installation method
 brew install npm
 brew install nvm
 brew install p7zip
+brew install reattach-to-user-namespace
+brew install the_silver_searcher
 brew install tig
+brew install tmux
 brew install tree
 brew install yarn
 brew install zsh

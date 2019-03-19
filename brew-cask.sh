@@ -1,7 +1,7 @@
 # Install native apps
 
 # daily
-brew cask install 1password
+brew cask install 1password6
 brew cask install alfred
 brew cask install dropbox
 brew cask install evernote
@@ -15,13 +15,13 @@ brew cask install google-backup-and-sync
 brew cask install docker
 brew cask install docker-toolbox
 brew cask install imageoptim
+brew cask install insomnia
 brew cask install iterm2
 brew cask install visual-studio-code
 
 # less often
 brew cask install calibre
 brew cask install freedome
-brew cask install utorrent
 brew cask install vlc
 
 # fonts
