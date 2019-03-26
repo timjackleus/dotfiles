@@ -23,9 +23,9 @@ $ ./zsh/.init
 
 ### Install Oh my zsh
 ```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+$ ./oh-my-zsh/.init
 ```
-Import what's needed from `./zsh/.zshrc`, `./.alias`, `./.functions`.
+Import what's needed from `./.alias`, `./.functions` to `~/.zshrc`.
 
 ### Iterm2
 Setup a folder to place the configurations in by checking "Load preferences from custom folder or url" option under "Gerneral". Then copy the config file from this repo to that folder.
