@@ -17,9 +17,10 @@ brew install openssh
 brew install screen
 
 # Install other useful binaries.
+brew install cmake
 brew install ctags
 brew install git
-brew install macvim --with-override-system-vim
+brew install neovim
 brew install node # This installs 'npm' too using the recommended installation method
 brew install npm
 brew install nvm

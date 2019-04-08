@@ -3,8 +3,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-# Always use MacVim
-alias vim='mvim -v'
+# Always use NeoVim
+alias vim='nvim'
 
 # Shortcuts
 alias dl="cd ~/Downloads"
