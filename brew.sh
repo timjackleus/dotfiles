@@ -17,6 +17,7 @@ brew install openssh
 brew install screen
 
 # Install other useful binaries.
+brew install archey
 brew install ctags
 brew install git
 brew install macvim --with-override-system-vim
