@@ -18,6 +18,7 @@ brew install screen
 
 # Install other useful binaries.
 brew install cmake
+brew install archey
 brew install ctags
 brew install git
 brew install neovim
