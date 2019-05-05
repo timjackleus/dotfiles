@@ -19,6 +19,7 @@ set shiftwidth=2
 set shortmess=atI
 set tabstop=2
 set timeout timeoutlen=1500
+set termguicolors
 autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
 """""""""" END General ViM Settings """"""""""
 
@@ -36,7 +37,7 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 Plug 'djoshea/vim-autoread'
-Plug 'arcticicestudio/nord-vim', { 'as': 'nord' }
+Plug 'joshdick/onedark.vim'
 
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature
@@ -100,14 +101,35 @@ Plug 'shougo/vimproc.vim', {
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<c-k>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 
 call plug#end() " Initialize plugin system
 """""""""" END Plugins """"""""""
 
 
 
+
 """""""""" Theme """"""""""
-colorscheme nord
+let g:onedark_terminal_italics=1
+colorscheme onedark
+"""""""""" END Theme """"""""""
 
 " Tab indent
 vnoremap <TAB> >
@@ -173,3 +195,4 @@ hi htmlArg cterm=italic
 hi Comment cterm=italic
 hi Type    cterm=italic
 """""""" END Fonts """"""""
+
