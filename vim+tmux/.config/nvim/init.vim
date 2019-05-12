@@ -28,8 +28,10 @@ autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
 
 """""""""" Plugins """"""""""
 call plug#begin('~/.config/nvim/plugged')
+
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'jiangmiao/auto-pairs' " Auto-create closing brackets
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
@@ -38,19 +40,12 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 
 Plug 'djoshea/vim-autoread'
 Plug 'joshdick/onedark.vim'
-
-Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature
 
-Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 let g:user_emmet_leader_key=',' " Redefine Emmit trigger
 
 Plug 'mileszs/ack.vim'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'plasticboy/vim-markdown'
 let vim_markdown_preview_hotkey='<C-m>' " Remap vim markdown preview
 let vim_markdown_preview_github=1 " Preview with Grip
@@ -62,63 +57,51 @@ map <C-n> :NERDTreeToggle<CR>
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_section_y = ''
-let g:airline_powerline_fonts = 1
-let g:nord_cursor_line_number_background = 1
-"let g:airline_theme='minimalist'
-" Underline support
-let g:nord_underline = 1
-
 Plug 'w0rp/ale'
-" Use linting on save not on change
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-" Enable ESLint only for JavaScript.
-let b:ale_linters = ['eslint']
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+let g:ale_fix_on_save = 1
 
-Plug 'prettier/vim-prettier'
-let g:prettier#autoformat = 1
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-Plug 'othree/csscomplete.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim'
-" highlight hex colors in color
-au BufRead,BufNewFile *.scss set filetype=scss.css
-au BufRead,BufNewFile *.sass set filetype=sass.css
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'leafgarland/typescript-vim'
-Plug 'shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
 
-Plug 'jiangmiao/auto-pairs'
-Plug 'Valloric/YouCompleteMe'
-Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<c-k>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:ulti_expand_or_jump_res = 0
-function ExpandSnippetOrCarriageReturn()
-    let snippet = UltiSnips#ExpandSnippetOrJump()
-    if g:ulti_expand_or_jump_res > 0
-        return snippet
-    else
-        return "\<CR>"
-    endif
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+Plug 'Shougo/neosnippet.vim'
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+let g:neosnippet#enable_completed_snippet = 1
+let g:neosnippet#disable_runtime_snippets = {
+      \   '_' : 1,
+      \ }
+let g:neosnippet#scope_aliases = {}
+let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript.jsx'
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+
+" Syntax Highlight
+Plug 'sheerun/vim-polyglot'
+Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end() " Initialize plugin system
 """""""""" END Plugins """"""""""
@@ -127,7 +110,7 @@ call plug#end() " Initialize plugin system
 
 
 """""""""" Theme """"""""""
-let g:onedark_terminal_italics=1
+let g:onedark_terminal_italics = 1
 colorscheme onedark
 """""""""" END Theme """"""""""
 
@@ -144,17 +127,6 @@ imap <C-b> <Left>
 " Change mapleader
 let mapleader=","
 
-
-
-
-""""""""" Javascript """""""""
-
-" Use JXS syntax on JS files
-let g:jsx_ext_required = 0
-
-
-
-""""""""" END Javascript """""""""
 
 
 
@@ -181,6 +153,7 @@ endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 """"""""" END Global Search """""""""
+
 
 
 
