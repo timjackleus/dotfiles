@@ -31,8 +31,11 @@ autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+set updatetime=100 " Update sign column every quarter second
+
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs' " Auto-create closing brackets
+Plug 'jreybert/vimagit'
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
@@ -122,8 +125,23 @@ nnoremap <S-TAB> V <
 imap <C-f> <Right>
 imap <C-b> <Left>
 
+
+
+
+"""""""""" Custom key bindings """"""""""
+
 " Change mapleader
-let mapleader=","
+let mapleader = "\<Space>"
+
+" Jump between hunks
+nmap <Leader>gn <Plug>GitGutterNextHunk " git next
+nmap <Leader>gp <Plug>GitGutterPrevHunk " git previous
+" Hunk-add and hunk-revert for chunk staging
+nmap <Leader>ga <Plug>GitGutterStageHunk " git add (chunk)
+nmap <Leader>gu <Plug>GitGutterUndoHunk " git undo (chunk)
+
+" Open vimagit pane
+nnoremap <leader>gs :Magit<CR> " git status
 
 
 
@@ -172,3 +190,4 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
