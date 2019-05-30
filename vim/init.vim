@@ -143,8 +143,9 @@ nmap <Leader>gu <Plug>GitGutterUndoHunk " git undo (chunk)
 " Open vimagit pane
 nnoremap <leader>gs :Magit<CR> " git status
 
-
-
+" Show commits for every source line
+nnoremap <Leader>gb :Gblame<CR>  " git blame
+"""""""""" END Custom key bindings """"""""""
 
 """"""""" Global Search """""""""
 
