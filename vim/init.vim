@@ -43,6 +43,7 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 Plug 'djoshea/vim-autoread'
+Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
 let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature
 
@@ -113,6 +114,11 @@ call plug#end() " Initialize plugin system
 """""""""" Theme """"""""""
 let g:onedark_terminal_italics = 1
 colorscheme onedark
+
+let g:lightline = {
+  \ 'colorscheme': 'onedark',
+  \ }
+
 """""""""" END Theme """"""""""
 
 " Tab indent
