@@ -20,6 +20,7 @@ set shortmess=atI
 set tabstop=2
 set timeout timeoutlen=1500
 set termguicolors
+set relativenumber
 autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
 """""""""" END General ViM Settings """"""""""
 
@@ -57,15 +58,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'css': ['prettier'],
-\}
-let g:ale_fix_on_save = 1
-
-nmap <silent> [c <Plug>(ale_previous_wrap)
-nmap <silent> ]c <Plug>(ale_next_wrap)
+nnoremap <M-(> :execute "normal \<Plug>Ysurroundiw)"<cr>
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " Use tab for trigger completion with characters ahead and navigate.
@@ -91,13 +84,18 @@ Plug 'Shougo/neosnippet.vim'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-let g:neosnippet#enable_completed_snippet = 1
-let g:neosnippet#disable_runtime_snippets = {
-      \   '_' : 1,
-      \ }
-let g:neosnippet#scope_aliases = {}
-let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript.jsx'
+
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+
+" Hide conceal markers
+let g:neosnippet#enable_conceal_markers = 0
+
+"let g:neosnippet#enable_completed_snippet = 1
+"let g:neosnippet#disable_runtime_snippets = {
+      "\   '_' : 1,
+      "\ }
+"let g:neosnippet#scope_aliases = {}
+"let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript.jsx'
 
 " Syntax Highlight
 Plug 'sheerun/vim-polyglot'
@@ -169,3 +167,8 @@ hi Comment cterm=italic
 hi Type    cterm=italic
 """""""" END Fonts """"""""
 
+" Inactivate arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
