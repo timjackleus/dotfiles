@@ -26,8 +26,8 @@ brew install node # This installs 'npm' too using the recommended installation m
 brew install npm
 brew install nvm
 brew install p7zip
+brew install ripgrep
 brew install reattach-to-user-namespace
-brew install the_silver_searcher
 brew install tig
 brew install tmux
 brew install tree
