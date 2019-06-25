@@ -151,6 +151,9 @@ nnoremap <leader>gs :Magit<CR> " git status
 
 " Show commits for every source line
 nnoremap <Leader>gb :Gblame<CR>  " git blame
+
+" source init.vim
+nnoremap <Leader>sc :so ~/.config/nvim/init.vim<CR>
 """""""""" END Custom key bindings """"""""""
 
 """"""""" Global Search """""""""
