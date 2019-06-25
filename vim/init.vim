@@ -65,6 +65,8 @@ let vim_markdown_preview_github=1 " Preview with Grip
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
+" :NERDTree is the only way to activete the setting bellow
+let g:NERDTreeWinSize=30
 map <C-n> :NERDTreeToggle<CR>
 
 Plug 'tpope/vim-fugitive'
