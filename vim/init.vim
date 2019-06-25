@@ -41,6 +41,13 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_working_path_mode = 'r'
+
+" Easy bindings for its various modes
+map <C-b> :CtrlPBuffer<cr>
+" nmap <leader>bb :CtrlPBuffer<cr>
+" nmap <leader>bm :CtrlPMixed<cr>
+" nmap <leader>bs :CtrlPMRU<cr>
 
 Plug 'djoshea/vim-autoread'
 Plug 'itchyny/lightline.vim'
