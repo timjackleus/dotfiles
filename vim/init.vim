@@ -101,12 +101,12 @@ let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 " Hide conceal markers
 let g:neosnippet#enable_conceal_markers = 0
 
-"let g:neosnippet#enable_completed_snippet = 1
-"let g:neosnippet#disable_runtime_snippets = {
-      "\   '_' : 1,
-      "\ }
-"let g:neosnippet#scope_aliases = {}
-"let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript.jsx'
+let g:neosnippet#enable_completed_snippet = 1
+let g:neosnippet#disable_runtime_snippets = {
+      \   '_' : 1,
+      \ }
+let g:neosnippet#scope_aliases = {}
+let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript.jsx'
 
 " Syntax Highlight
 Plug 'sheerun/vim-polyglot'
