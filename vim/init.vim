@@ -36,6 +36,7 @@ set updatetime=100 " Update sign column every quarter second
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs' " Auto-create closing brackets
 Plug 'jreybert/vimagit'
+Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
