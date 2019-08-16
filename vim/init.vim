@@ -50,8 +50,8 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 let g:ctrlp_working_path_mode = 'r'
 
-" Easy bindings for its various modes
-map <C-b> :CtrlPBuffer<cr>
+map <Leader>p :CtrlP<cr>
+map <Leader>b :CtrlPBuffer<cr>
 " nmap <leader>bb :CtrlPBuffer<cr>
 " nmap <leader>bm :CtrlPMixed<cr>
 " nmap <leader>bs :CtrlPMRU<cr>
@@ -74,7 +74,7 @@ Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
 " :NERDTree is the only way to activete the setting bellow
 let g:NERDTreeWinSize=30
-map <C-n> :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeToggle<CR>
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -101,9 +101,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 Plug 'Shougo/neosnippet.vim'
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <Leader>k <Plug>(neosnippet_expand_or_jump)
+smap <Leader>k <Plug>(neosnippet_expand_or_jump)
+xmap <Leader>k <Plug>(neosnippet_expand_target)
 
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 
@@ -144,8 +144,8 @@ nnoremap <TAB> V >
 nnoremap <S-TAB> V <
 
 " Insert mode
-imap <C-f> <Right>
-imap <C-b> <Left>
+imap <C-h> <Right>
+imap <C-l> <Left>
 
 
 
