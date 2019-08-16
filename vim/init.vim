@@ -22,7 +22,13 @@ set timeout timeoutlen=1500
 set termguicolors
 set relativenumber
 autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
-"""""""""" END General ViM Settings """"""""""
+
+" Setup a decent find
+set path+=**
+set wildmenu
+set wildignore+=**/node_modules/**
+
+""""""""" END General ViM Settings """"""""""
 
 
 
