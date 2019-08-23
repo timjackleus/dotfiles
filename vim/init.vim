@@ -39,23 +39,45 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 set updatetime=100 " Update sign column every quarter second
 
+Plug '/usr/local/opt/fzf' " Fzf fuzzy finder
+Plug 'junegunn/fzf.vim' " Fzf vim wrapper<Paste>
+
+" ripgrep
+if executable('rg')
+	let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+		set grepprg=rg\ --vimgrep
+		command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+endif
+
+let g:fzf_layout = { 'down': '~40%' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+nmap <Leader>f :GFiles<CR>
+nmap <Leader>F :Files<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>h :History<CR>
+nmap <Leader>m :Maps<CR>
+nmap <Leader>/ :Rg<Space>
+
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs' " Auto-create closing brackets
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-commentary'
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-let g:ctrlp_working_path_mode = 'r'
-
-map <Leader>p :CtrlP<cr>
-map <Leader>b :CtrlPBuffer<cr>
-" nmap <leader>bb :CtrlPBuffer<cr>
-" nmap <leader>bm :CtrlPMixed<cr>
-" nmap <leader>bs :CtrlPMRU<cr>
-
 Plug 'djoshea/vim-autoread'
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
@@ -170,30 +192,7 @@ nnoremap <Leader>gb :Gblame<CR>  " git blame
 
 " source init.vim
 nnoremap <Leader>sc :so ~/.config/nvim/init.vim<CR>
-"""""""""" END Custom key bindings """"""""""
 
-""""""""" Global Search """""""""
-
-" Use The Silver Searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-" bind \ (backward slash) to grep shortcut
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
-
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 """"""""" END Global Search """""""""
 
 
