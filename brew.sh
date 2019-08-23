@@ -16,6 +16,7 @@ brew install openssh
 
 # Install other useful binaries.
 brew install archey
+brew install bat
 brew install cmake
 brew install ctags
 brew install fzf
