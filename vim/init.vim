@@ -2,7 +2,8 @@
 filetype plugin indent on
 syntax on " Use syntax highlighting
 
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
+set clipboard=unnamed
 set cursorline " highlight current line
 set expandtab " Convert tabs to spaces
 set ignorecase " " ignore upper/lower case when searching
