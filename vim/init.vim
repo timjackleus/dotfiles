@@ -2,7 +2,6 @@
 filetype plugin indent on
 syntax on " Use syntax highlighting
 
-" set clipboard+=unnamedplus
 set clipboard=unnamed
 set cursorline " highlight current line
 set expandtab " Convert tabs to spaces
@@ -23,6 +22,14 @@ set timeout timeoutlen=1500
 set termguicolors
 set relativenumber
 autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
+
+" coc.nvim recommendations
+set nobackup " Some servers have issues with backup files
+set nowritebackup
+set cmdheight=2 " Better display for messages
+set updatetime=300 " You will have bad experience for diagnostic messages when it's default 4000.
+set shortmess+=c " don't give |ins-completion-menu| messages.
+set signcolumn=yes " always show signcolumns
 
 " Setup a decent find
 set path+=**
@@ -105,6 +112,15 @@ Plug 'tpope/vim-surround'
 nnoremap <M-(> :execute "normal \<Plug>Ysurroundiw)"<cr>
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" Install plugins
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-eslint',
+  \ 'coc-json',
+  \ 'coc-neosnippet',
+  \ 'coc-prettier',
+  \ 'coc-tsserver']
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
