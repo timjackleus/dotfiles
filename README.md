@@ -31,8 +31,6 @@ $ ./zsh/.init
 $ ./oh-my-zsh/.init
 ```
 
-Import what's needed from `./.alias`, `./.functions` to `~/.zshrc`.
-
 ### Alacritty
 
 ```
