@@ -121,6 +121,7 @@ let g:coc_global_extensions = [
   \ 'coc-neosnippet',
   \ 'coc-prettier',
   \ 'coc-tsserver']
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -192,12 +193,16 @@ imap <C-l> <Left>
 
 """""""""" Custom key bindings """"""""""
 
+onoremap <silent> j gj
+onoremap <silent> k gk
+
 " Change mapleader
 let mapleader = "\<Space>"
 
 " Jump between hunks
 nmap <Leader>gn <Plug>GitGutterNextHunk " git next
 nmap <Leader>gp <Plug>GitGutterPrevHunk " git previous
+
 " Hunk-add and hunk-revert for chunk staging
 nmap <Leader>ga <Plug>GitGutterStageHunk " git add (chunk)
 nmap <Leader>gu <Plug>GitGutterUndoHunk " git undo (chunk)

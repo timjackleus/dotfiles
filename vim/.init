@@ -2,8 +2,8 @@
 sudo pip2 install --upgrade pynvim
 sudo pip3 install --upgrade pynvim
 
-# Copy configurations to root
-cp init.vim ~/.config/nvim/init.vim
+# Symlink config (will force if file already exist)
+ln -s -f init.vim ~/.config/nvim/init.vim
 
 # Get vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
