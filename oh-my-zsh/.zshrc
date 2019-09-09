@@ -8,6 +8,14 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # history
 SAVEHIST=100000
 
+# Run compinit only once
+# for checking cached .zcompdump
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
 # Nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
