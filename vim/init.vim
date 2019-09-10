@@ -108,6 +108,7 @@ let g:NERDTreeWinSize=30
 map <Leader>n :NERDTreeToggle<CR>
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 nnoremap <M-(> :execute "normal \<Plug>Ysurroundiw)"<cr>
 
