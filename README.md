@@ -40,7 +40,8 @@ $ ./alacritty/.init
 ### Setup tmux and vim
 
 ```
-$ ./vim+tmux/.init
+$ ./tmux/.init
+$ ./vim/.init
 ```
 
 ### Setup vscode
