@@ -18,7 +18,7 @@ set scrolloff=3 " Keep 3 lines (top/bottom) for scope
 set shiftwidth=2
 set shortmess=atI
 set tabstop=2
-set timeout timeoutlen=1500
+set timeout timeoutlen=1000
 set termguicolors
 set relativenumber
 autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
@@ -39,6 +39,8 @@ set wildignore+=**/node_modules/**
 """"""""" END General ViM Settings """"""""""
 
 
+" Change mapleader
+let mapleader = "\<Space>"
 
 
 """""""""" Plugins """"""""""
@@ -110,7 +112,6 @@ map <Leader>n :NERDTreeToggle<CR>
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-nnoremap <M-(> :execute "normal \<Plug>Ysurroundiw)"<cr>
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
@@ -194,11 +195,15 @@ imap <C-l> <Left>
 
 """""""""" Custom key bindings """"""""""
 
-onoremap <silent> j gj
-onoremap <silent> k gk
+" Easy access to start of the line
+nmap 0 ^
 
-" Change mapleader
-let mapleader = "\<Space>"
+" Copy the entire buffer into the system register
+nmap <leader>co ggVG*y
+
+" Move up and down by visible lines if current line is wrapped
+nmap j gj
+nmap k gk
 
 " Jump between hunks
 nmap <Leader>gn <Plug>GitGutterNextHunk " git next
@@ -209,14 +214,16 @@ nmap <Leader>ga <Plug>GitGutterStageHunk " git add (chunk)
 nmap <Leader>gu <Plug>GitGutterUndoHunk " git undo (chunk)
 
 " Open vimagit pane
-nnoremap <leader>gs :Magit<CR> " git status
+nmap <leader>gs :Magit<CR> " git status
 
 " Show commits for every source line
-nnoremap <Leader>gb :Gblame<CR>  " git blame
+nmap <Leader>gb :Gblame<CR>  " git blame
+
+" Split edit init.vim
+nmap <leader>vr :sp ~/.config/nvim/init.vim<CR>
 
 " source init.vim
-nnoremap <Leader>sc :so ~/.config/nvim/init.vim<CR>
-
+nmap <Leader>so :so ~/.config/nvim/init.vim<CR>
 """"""""" END Global Search """""""""
 
 
