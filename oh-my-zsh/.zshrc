@@ -51,6 +51,17 @@ plugins=(
 # list branches and pick which one to checkout with fzf
 alias gcb='git checkout $(git branch | fzf)'
 
+# Always use neovim
+alias vim='nvim'
+
+alias ls="ls -lah"
+
+# Common paths
+alias dl="cd ~/Downloads"
+alias h='cd ~/.'
+
+
+
 # mv, rm, cp
 alias mv='mv -v'
 alias rm='rm -i -v'
