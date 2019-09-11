@@ -226,6 +226,10 @@ imap <C-l> <Left>
 
 """""""""" Custom key bindings """"""""""
 
+
+" Bind :Q to :q
+command! Q q
+
 " Easy access to start of the line
 nmap 0 ^
 
