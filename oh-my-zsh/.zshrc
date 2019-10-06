@@ -48,8 +48,9 @@ plugins=(
 #
 
 # most git related aliases comes from the git plugin
+#
 # list branches and pick which one to checkout with fzf
-alias gcb='git checkout $(git branch | fzf)'
+alias glb='git checkout $(git branch | fzf)'
 
 # Always use neovim
 alias vim='nvim'

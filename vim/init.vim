@@ -153,7 +153,9 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-neosnippet',
   \ 'coc-prettier',
-  \ 'coc-tsserver']
+  \ 'coc-tslint-plugin',
+  \ 'coc-tsserver',
+  \ 'coc-yaml']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -173,6 +175,24 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> xx <Plug>(coc-codeaction)
+
+" Select a function
+xmap <silent> if <Plug>(coc-funcobj-i)
+nmap <silent> af <Plug>(coc-funcobj-a)
+" Show documentation.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 Plug 'Shougo/neosnippet.vim'
 imap <Leader>k <Plug>(neosnippet_expand_or_jump)
