@@ -120,6 +120,15 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs' " Auto-create closing brackets
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-commentary'
+Plug 'metakirby5/codi.vim'
+
+let g:codi#aliases = {
+\ 'javascript.jsx': 'javascript',
+\ }
+
+map <Leader>c :Codi!! javascript<CR>
+
+
 Plug 'djoshea/vim-autoread'
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
