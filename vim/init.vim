@@ -147,6 +147,8 @@ Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
 " :NERDTree is the only way to activete the setting bellow
 let g:NERDTreeWinSize=30
+" Close nerdtree when files is opened
+let NERDTreeQuitOnOpen=1
 map <Leader>n :NERDTreeToggle<CR>
 
 Plug 'tpope/vim-fugitive'
