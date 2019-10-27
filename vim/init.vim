@@ -2,6 +2,7 @@
 filetype plugin indent on
 syntax on " Use syntax highlighting
 
+set hidden " keep undo history of files when switching buffer
 set clipboard=unnamed
 set cursorline " highlight current line
 set expandtab " Convert tabs to spaces
