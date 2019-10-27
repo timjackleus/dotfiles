@@ -119,11 +119,12 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> xx <Plug>(coc-codeaction)
+nmap <silent> gx <Plug>(coc-codeaction)
 
 " Select a function
-xmap <silent> if <Plug>(coc-funcobj-i)
-nmap <silent> af <Plug>(coc-funcobj-a)
+xmap <leader> if <Plug>(coc-funcobj-i)
+xmap <leader> af <Plug>(coc-funcobj-a)
+
 " Show documentation.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -307,8 +308,8 @@ nnoremap <TAB> V >
 nnoremap <S-TAB> V <
 
 " Insert mode
-imap <C-h> <Right>
-imap <C-l> <Left>
+inoremap <C-h> <Right>
+inoremap <C-l> <Left>
 
 
 
