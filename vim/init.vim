@@ -49,73 +49,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 set updatetime=100 " Update sign column every quarter second
 
-Plug '/usr/local/opt/fzf' " Fzf fuzzy finder
-Plug 'junegunn/fzf.vim' " Fzf vim wrapper<Paste>
-
-" ripgrep
-if executable('rg')
-	let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-		set grepprg=rg\ --vimgrep
-		command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-endif
-
-" use bat to preview files in file search
-let g:fzf_files_options = '--preview "(bat --color \"always\" --line-range 0:100 {} || head -'.&lines.' {})"'
-
-" Reverse the layout to make the FZF list top-down
-let $FZF_DEFAULT_OPTS='--layout=reverse'
-
-" Using the custom window creation function
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-
-" Function to create the custom floating window
-function! FloatingFZF()
-  " creates a scratch, unlisted, new, empty, unnamed buffer
-  " to be used in the floating window
-  let buf = nvim_create_buf(v:false, v:true)
-
-  let height = float2nr(&lines * 0.5)
-  let width = float2nr(&columns * 0.6)
-  " horizontal position (centralized)
-  let horizontal = float2nr((&columns - width) / 2)
-  " vertical position (centralized)
-  let vertical = float2nr((&lines - height) / 2)
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': vertical,
-        \ 'col': horizontal,
-        \ 'width': width,
-        \ 'height': height
-        \ }
-
-  " open the new window, floating, and enter to it
-  call nvim_open_win(buf, v:true, opts)
-endfunction
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-nmap <Leader>f :GFiles<CR>
-nmap <Leader>F :Files<CR>
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>h :History<CR>
-nmap <Leader>m :Maps<CR>
-nmap <Leader>/ :Rg<Space>
-
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs' " Auto-create closing brackets
 Plug 'jreybert/vimagit'
@@ -205,6 +138,7 @@ function! s:show_documentation()
   endif
 endfunction
 
+Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 imap <Leader>k <Plug>(neosnippet_expand_or_jump)
 smap <Leader>k <Plug>(neosnippet_expand_or_jump)
@@ -229,6 +163,130 @@ Plug 'peitalin/vim-jsx-typescript'
 call plug#end() " Initialize plugin system
 """""""""" END Plugins """"""""""
 
+" Wrap in try/catch to avoid errors on initial install before plugin is available
+try
+" === Denite setup ==="
+" Use ripgrep for searching current directory for files
+" By default, ripgrep will respect rules in .gitignore
+"   --files: Print each file that would be searched (but don't search)
+"   --glob:  Include or exclues files for searching that match the given glob
+"            (aka ignore .git files)
+"
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--hidden', '--glob', '!.git'])
+
+" Use ripgrep in place of "grep"
+call denite#custom#var('grep', 'command', ['rg'])
+
+" Custom options for ripgrep
+"   --vimgrep:  Show results with every match on it's own line
+"   --hidden:   Search hidden directories and files
+"   --heading:  Show the file name above clusters of matches from each file
+"   --S:        Search case insensitively if the pattern is all lowercase
+call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+
+" Recommended defaults for ripgrep via Denite docs
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" Remove date from buffer list
+call denite#custom#var('buffer', 'date_format', '')
+
+" Open file commands
+call denite#custom#map('insert,normal', "<C-t>", '<denite:do_action:tabopen>')
+call denite#custom#map('insert,normal', "<C-v>", '<denite:do_action:vsplit>')
+call denite#custom#map('insert,normal', "<C-h>", '<denite:do_action:split>')
+
+" Custom options for Denite
+"   auto_resize             - Auto resize the Denite window height automatically.
+"   prompt                  - Customize denite prompt
+"   direction               - Specify Denite window direction as directly below current pane
+"   winminheight            - Specify min height for Denite window
+"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
+"   prompt_highlight        - Specify color of prompt
+"   highlight_matched_char  - Matched characters highlight
+"   highlight_matched_range - matched range highlight
+let s:denite_options = {'default' : {
+\ 'split': 'floating',
+\ 'start_filter': 0,
+\ 'auto_resize': 1,
+\ 'source_names': 'short',
+\ 'statusline': 0,
+\ 'prompt': 'λ:',
+\ 'highlight_matched_char': 'WildMenu',
+\ 'highlight_matched_range': 'Visual',
+\ 'highlight_window_background': 'Visual',
+\ 'highlight_filter_background': 'StatusLine',
+\ 'highlight_prompt': 'StatusLine',
+\ 'winrow': 1,
+\ 'vertical_preview': 1
+\ }}
+
+" Loop through denite options and enable them
+function! s:profile(opts) abort
+  for l:fname in keys(a:opts)
+    for l:dopt in keys(a:opts[l:fname])
+      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+    endfor
+  endfor
+endfunction
+
+call s:profile(s:denite_options)
+catch
+  echo 'Denite not installed. It should work after running :PlugInstall'
+endtry
+
+" === Denite shorcuts === "
+"   <leader>b         - Browser currently open buffers
+"   <leader>t - Browse list of files in current directory
+"   <leader>g - Search current directory for occurences of given term and close window if no results
+"   <leader>j - Search current directory for occurences of word under cursor
+nmap <leader>b :Denite buffer<CR>
+nmap <leader>f :DeniteProjectDir file/rec<CR>
+nmap <leader>w :Denite -start-filter file/rec<CR>
+nnoremap <leader>/ :<c-u>Denite grep:. -no-empty<CR>
+nnoremap <leader>k :<c-u>DeniteCursorWord grep:.<CR>
+
+" Define mappings while in 'filter' mode
+"   <C-o>         - Switch to normal mode inside of search results
+"   <Esc>         - Exit denite window in any mode
+"   <CR>          - Open currently selected file in any mode
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+function! s:denite_filter_my_settings() abort
+  imap <silent><buffer> <c-o>
+  \ <Plug>(denite_filter_quit)
+  inoremap <silent><buffer><expr> <Esc>
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <Esc>
+  \ denite#do_map('quit')
+  inoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+endfunction
+
+" Define mappings while in denite window
+"   <CR>        - Opens currently selected file
+"   q or <Esc>  - Quit Denite window
+"   d           - Delete currenly selected file
+"   p           - Preview currently selected file
+"   <C-o> or i  - Switch to insert mode inside of filter prompt
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <Esc>
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <c-o>
+  \ denite#do_map('open_filter_buffer')
+endfunction
 
 
 
