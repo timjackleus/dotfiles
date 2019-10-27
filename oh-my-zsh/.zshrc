@@ -51,6 +51,7 @@ plugins=(
 #
 # list branches and pick which one to checkout with fzf
 alias glb='git checkout $(git branch | fzf)'
+alias gs='git status'
 
 # Always use neovim
 alias vim='nvim'
