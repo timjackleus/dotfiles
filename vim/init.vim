@@ -26,6 +26,7 @@ set tabstop=2
 set termguicolors
 set timeout timeoutlen=1000
 set updatetime=100 " Update sign column every quarter second
+set splitright " Always open new splits to the right
 autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
 
 " coc.nvim recommendations
@@ -232,6 +233,10 @@ autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
   \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> <c-v>
+  \ denite#do_map('do_action', 'vsplit')
+  nnoremap <silent><buffer><expr> <c-s>
+  \ denite#do_map('do_action', 'split')
   nnoremap <silent><buffer><expr> q
   \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> <Esc>
