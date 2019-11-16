@@ -267,6 +267,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gx <Plug>(coc-codeaction)
 
+" Remap for rename current word
+nmap <leader>r <Plug>(coc-rename)
+
 " Select a function
 xmap <leader> if <Plug>(coc-funcobj-i)
 xmap <leader> af <Plug>(coc-funcobj-a)
