@@ -209,6 +209,20 @@ noremap <Right> <NOP>
 " codi.vim
 map <Leader>c :Codi!! javascript<CR>
 
+" Replace all Swedish special characters with entities.
+" adapted from http://vim.wikia.com/wiki/HTML_entities
+nnoremap <silent> ,r :call ReplaceSweChar()<CR>
+function! ReplaceSweChar()
+  silent %s/Å/\&Aring;/eg
+  silent %s/Ö/\&Ouml;/eg
+  silent %s/Ä/\&Auml;/eg
+  silent %s/É/\&Eacute;/eg
+  silent %s/å/\&aring;/eg
+  silent %s/ö/\&ouml;/eg
+  silent %s/ä/\&auml;/eg
+  silent %s/é/\&eacute;/eg
+endfunction
+
 " Denite mappings
 nmap <leader>b :Denite buffer<CR>
 nmap <leader>f :DeniteProjectDir file/rec<CR>
