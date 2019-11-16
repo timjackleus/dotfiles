@@ -195,7 +195,7 @@ nmap <leader>gs :Magit<CR> " git status
 nmap <Leader>gb :Gblame<CR>  " git blame
 
 " Split edit init.vim
-nmap <leader>vr :sp ~/.config/nvim/init.vim<CR>
+nmap <leader>vr :vsp ~/.config/nvim/init.vim<CR>
 
 " source init.vim
 nmap <Leader>so :so ~/.config/nvim/init.vim<CR>
