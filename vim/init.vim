@@ -5,7 +5,6 @@ source ~/.config/nvim/plugins.vim
 filetype plugin indent on
 syntax on " Use syntax highlighting
 
-set clipboard=unnamed
 set cursorline " highlight current line
 set expandtab " Convert tabs to spaces
 set hidden " keep undo history of files when switching buffer
@@ -79,17 +78,17 @@ function! s:show_documentation()
   endif
 endfunction
 
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+" let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 
-" Hide conceal markers
-let g:neosnippet#enable_conceal_markers = 0
+" " Hide conceal markers
+" let g:neosnippet#enable_conceal_markers = 0
 
-let g:neosnippet#enable_completed_snippet = 1
-let g:neosnippet#disable_runtime_snippets = {
-      \   '_' : 1,
-      \ }
-let g:neosnippet#scope_aliases = {}
-let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript.jsx'
+" let g:neosnippet#enable_completed_snippet = 1
+" let g:neosnippet#disable_runtime_snippets = {
+"       \   '_' : 1,
+"       \ }
+" let g:neosnippet#scope_aliases = {}
+" let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript.jsx'
 
 " Wrap in try/catch to avoid errors on initial install before plugin is available
 try
@@ -227,7 +226,7 @@ endfunction
 nmap <leader>b :Denite buffer<CR>
 nmap <leader>f :DeniteProjectDir file/rec<CR>
 nnoremap <leader>/ :<c-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>k :<c-u>DeniteCursorWord grep:.<CR>
+nnoremap <leader>kk :<c-u>DeniteCursorWord grep:.<CR>
 
 " Define mappings while in denite 'filter' mode
 autocmd FileType denite-filter call s:denite_filter_my_settings()
@@ -295,9 +294,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 "  neosnippet.vim
-imap <Leader>k <Plug>(neosnippet_expand_or_jump)
-smap <Leader>k <Plug>(neosnippet_expand_or_jump)
-xmap <Leader>k <Plug>(neosnippet_expand_target)
+" imap <Leader>k <Plug>(neosnippet_expand_or_jump)
+" smap <Leader>k <Plug>(neosnippet_expand_or_jump)
+" xmap <Leader>k <Plug>(neosnippet_expand_target)
 """""""""" END Custom key bindings """"""""""
 
 
