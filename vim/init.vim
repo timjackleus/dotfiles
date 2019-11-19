@@ -213,6 +213,7 @@ map <Leader>c :Codi!! javascript<CR>
 " adapted from http://vim.wikia.com/wiki/HTML_entities
 nnoremap <silent> ,r :call ReplaceSweChar()<CR>
 function! ReplaceSweChar()
+  silent set noignorecase
   silent %s/Å/\&Aring;/eg
   silent %s/Ö/\&Ouml;/eg
   silent %s/Ä/\&Auml;/eg
@@ -221,6 +222,7 @@ function! ReplaceSweChar()
   silent %s/ö/\&ouml;/eg
   silent %s/ä/\&auml;/eg
   silent %s/é/\&eacute;/eg
+  silent set ignorecase
 endfunction
 
 " Denite mappings
