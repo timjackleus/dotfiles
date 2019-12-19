@@ -5,7 +5,6 @@ source ~/.config/nvim/plugins.vim
 filetype plugin indent on
 syntax on " Use syntax highlighting
 
-set clipboard=unnamed
 set cursorline " highlight current line
 set expandtab " Convert tabs to spaces
 set hidden " keep undo history of files when switching buffer
@@ -99,6 +98,9 @@ let g:neosnippet#disable_runtime_snippets = {
       \ }
 let g:neosnippet#scope_aliases = {}
 let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript.jsx'
+
+" coc-prettier
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " Wrap in try/catch to avoid errors on initial install before plugin is available
 try

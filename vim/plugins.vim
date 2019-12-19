@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-system-copy'
 Plug 'jiangmiao/auto-pairs' " Auto-create closing brackets
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-commentary'
@@ -33,6 +34,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " Install plugins
 let g:coc_global_extensions = [
