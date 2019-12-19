@@ -53,6 +53,15 @@ let g:codi#aliases = {
 " emmet-vim
 let g:user_emmet_leader_key=',' " Redefine Emmit trigger
 
+" vim-lightline
+let g:lightline = {
+  \ 'colorscheme': 'one',
+  \ 'active': {
+  \ 'right': [ [ 'lineinfo' ],
+  \            [ 'percent' ] ]
+  \},
+  \}
+
 " vim-markdown
 let vim_markdown_preview_hotkey='<C-m>' " Remap vim markdown preview
 let vim_markdown_preview_github=1 " Preview with Grip
@@ -89,6 +98,9 @@ endfunction
 "       \ }
 " let g:neosnippet#scope_aliases = {}
 " let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript.jsx'
+
+" coc-prettier
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " Wrap in try/catch to avoid errors on initial install before plugin is available
 try
@@ -212,6 +224,7 @@ map <Leader>c :Codi!! javascript<CR>
 " adapted from http://vim.wikia.com/wiki/HTML_entities
 nnoremap <silent> ,r :call ReplaceSweChar()<CR>
 function! ReplaceSweChar()
+  silent set noignorecase
   silent %s/Å/\&Aring;/eg
   silent %s/Ö/\&Ouml;/eg
   silent %s/Ä/\&Auml;/eg
@@ -220,6 +233,7 @@ function! ReplaceSweChar()
   silent %s/ö/\&ouml;/eg
   silent %s/ä/\&auml;/eg
   silent %s/é/\&eacute;/eg
+  silent set ignorecase
 endfunction
 
 " Denite mappings
