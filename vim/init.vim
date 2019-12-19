@@ -54,6 +54,15 @@ let g:codi#aliases = {
 " emmet-vim
 let g:user_emmet_leader_key=',' " Redefine Emmit trigger
 
+" vim-lightline
+let g:lightline = {
+  \ 'colorscheme': 'one',
+  \ 'active': {
+  \ 'right': [ [ 'lineinfo' ],
+  \            [ 'percent' ] ]
+  \},
+  \}
+
 " vim-markdown
 let vim_markdown_preview_hotkey='<C-m>' " Remap vim markdown preview
 let vim_markdown_preview_github=1 " Preview with Grip
