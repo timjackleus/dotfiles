@@ -41,13 +41,12 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-eslint',
   \ 'coc-json',
-  \ 'coc-neosnippet',
   \ 'coc-prettier',
+  \ 'coc-snippets',
   \ 'coc-tslint-plugin',
   \ 'coc-tsserver',
   \ 'coc-yaml']
 Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'peitalin/vim-jsx-typescript'
 
