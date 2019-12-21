@@ -111,8 +111,8 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $ZSH/oh-my-zsh.sh
 
-# use Pure
+# Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
-prompt pure
+prompt spaceship
 
  #zprof # bottom of .zshrc
