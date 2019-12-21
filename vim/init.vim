@@ -53,15 +53,6 @@ let g:codi#aliases = {
 " emmet-vim
 let g:user_emmet_leader_key=',' " Redefine Emmit trigger
 
-" vim-lightline
-let g:lightline = {
-  \ 'colorscheme': 'one',
-  \ 'active': {
-  \ 'right': [ [ 'lineinfo' ],
-  \            [ 'percent' ] ]
-  \},
-  \}
-
 " vim-markdown
 let vim_markdown_preview_hotkey='<C-m>' " Remap vim markdown preview
 let vim_markdown_preview_github=1 " Preview with Grip
@@ -146,8 +137,25 @@ let g:onedark_terminal_italics = 1
 colorscheme onedark
 
 let g:lightline = {
-  \ 'colorscheme': 'onedark',
-  \ }
+  \ 'colorscheme': 'one',
+  \ 'active': {
+  \ 'right': [ [ 'lineinfo' ],
+  \            ['gitbranch']]
+  \},
+  \'component_function': {
+  \   'gitbranch': 'fugitive#head'
+  \ },
+  \}
+
+command! LightlineReload call LightlineReload()
+
+function! LightlineReload()
+  call lightline#enable()
+  call lightline#init()
+  call lightline#colorscheme()
+  call lightline#update()
+endfunction
+
 let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature (onedark.vim)
 """""""""" END Theme """"""""""
 
