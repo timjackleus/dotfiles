@@ -228,7 +228,7 @@ endfunction
 nmap <leader>b :Denite buffer<CR>
 nmap <leader>f :DeniteProjectDir file/rec<CR>
 nnoremap <leader>/ :<c-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>kk :<c-u>DeniteCursorWord grep:.<CR>
+nnoremap <leader>k :<c-u>DeniteCursorWord grep:.<CR>
 
 " Define mappings while in denite 'filter' mode
 autocmd FileType denite-filter call s:denite_filter_my_settings()
