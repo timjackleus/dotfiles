@@ -1,0 +1,26 @@
+snippet cl "console.log()" b
+console.log( $1 );
+endsnippet
+
+snippet clc "console.log()" b
+console.log( '$1', $1 );
+endsnippet
+
+snippet rcc "react class component" b
+import React, { Component } from 'react'
+
+export class $1 extends Component {
+  render() {
+    return <div>$2</div>
+  }
+}
+endsnippet
+
+snippet rfc "react functional component" b
+import React from 'react'
+
+export const $1 = () => {
+  return <div>$0</div>
+}
+endsnippet
+
