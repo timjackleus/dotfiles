@@ -157,6 +157,9 @@ function! LightlineReload()
 endfunction
 
 let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature (onedark.vim)
+
+" set filetypes as typescript.tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 """""""""" END Theme """"""""""
 
 
@@ -298,7 +301,7 @@ xmap <leader> if <Plug>(coc-funcobj-i)
 xmap <leader> af <Plug>(coc-funcobj-a)
 
 " Show documentation.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 " fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
@@ -317,6 +320,7 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<s-tab>'
 """"""""" END Custom key bindings """"""""""
 
 
