@@ -19,7 +19,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-system-copy'
-Plug 'jiangmiao/auto-pairs' " Auto-create closing brackets
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-commentary'
 Plug 'metakirby5/codi.vim'
@@ -41,6 +40,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-eslint',
   \ 'coc-json',
+  \ 'coc-pairs',
   \ 'coc-prettier',
   \ 'coc-snippets',
   \ 'coc-tslint-plugin',
@@ -48,6 +48,5 @@ let g:coc_global_extensions = [
   \ 'coc-yaml']
 Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
-Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end() " Initialize plugin system
