@@ -64,6 +64,10 @@ let g:NERDTreeWinSize=30
 " Close nerdtree when file is opened
 let NERDTreeQuitOnOpen=1
 
+" coc-pairs
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " coc.nvim
 function! s:check_back_space() abort
   let col = col('.') - 1
