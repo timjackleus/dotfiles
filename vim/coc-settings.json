@@ -1,8 +1,8 @@
 {
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 10,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "css", "Markdown"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx", "css", "Markdown"],
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
   "snippets.userSnippetsDirectory": "~/Code/dotfiles/vim/snippets",
   "snippets.extends": {
     "javascriptreact": ["javascript"],
