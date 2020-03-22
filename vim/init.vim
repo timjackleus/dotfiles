@@ -69,11 +69,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " coc.nvim
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')
@@ -83,7 +78,10 @@ function! s:show_documentation()
 endfunction
 
 " coc-prettier
+" run on save
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+" run manually
+command! -nargs=0 CocPrettier :CocCommand prettier.formatFile
 
 " Wrap in try/catch to avoid errors on initial install before plugin is available
 try
@@ -138,6 +136,7 @@ endtry
 
 """""""""" Theme """"""""""
 let g:onedark_terminal_italics = 1
+let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature (onedark.vim)
 colorscheme onedark
 
 let g:lightline = {
@@ -160,7 +159,6 @@ function! LightlineReload()
   call lightline#update()
 endfunction
 
-let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature (onedark.vim)
 
 " set filetypes as typescript.tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
@@ -174,6 +172,7 @@ let mapleader = "\<Space>"
 
 " nerdtree
 map <Leader>n :NERDTreeToggle<CR>
+map <Leader>m :NERDTreeFind<CR>
 
 " Tab indent
 vnoremap <TAB> >
@@ -282,13 +281,6 @@ function! s:denite_my_settings() abort
 endfunction
 
 " coc.nvim
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -306,6 +298,9 @@ xmap <leader> af <Plug>(coc-funcobj-a)
 
 " Show documentation.
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
