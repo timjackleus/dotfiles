@@ -91,8 +91,8 @@ alias cdicloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 #
 
 # Search history for keyword
-function searchHistory() {
-  cat ~/.zsh_history | grep $1
+function fh() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
 }
 
 # Create a new directory and enter it
