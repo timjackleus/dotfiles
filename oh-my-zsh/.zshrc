@@ -66,7 +66,6 @@ alias h='cd ~/.'
 
 # mv, rm, cp
 alias mv='mv -v'
-alias rm='rm -i -v'
 alias cp='cp -v'
 
 # Get week number
