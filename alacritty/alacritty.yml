@@ -4,38 +4,35 @@ debug:
   # Keep the log file after quitting Alacritty.
   persistent_logging: false
 
-env:
-  TERM: xterm-256color-italic
+# env:
+#   TERM: xterm-256color
 
 window:
   padding:
     x: 2
     y: 2
   dynamic_padding: false
-  decorations: transparent
+  decorations: buttonless
   startup_mode: Windowed
 
 scrolling:
   history: 10000
   multiplier: 3
-  auto_scroll: false
-
-tabspaces: 8
 
 font:
   normal:
-    family: OperatorMono Nerd Font
-    style: Book
+    family: IBM Plex Mono
+    style: Regular
 
   bold:
-    family: OperatorMono Nerd Font
-    style: Medium
+    family: IBM Plex Mono
+    style: Bold
 
   italic:
-    family: OperatorMono Nerd Font
-    style: Book Italic
+    family: IBM Plex Mono
+    style: Italic
 
-  size: 15.0
+  size: 13
 
   offset:
     x: 0

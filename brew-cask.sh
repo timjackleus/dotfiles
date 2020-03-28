@@ -28,4 +28,6 @@ brew cask install vlc
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
 brew cask install font-hack
+brew cask install font-ibm-plex
 brew cask install font-input
+brew cask install font-victor-mono

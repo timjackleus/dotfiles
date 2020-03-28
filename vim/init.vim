@@ -325,13 +325,13 @@ let g:coc_snippet_prev = '<s-tab>'
 
 
 """""""" Fonts """"""""
-set t_ZH=[3m " Support italics
-set t_ZR=[23m " Support italics
+" set t_ZH=[3m " Support italics
+" set t_ZR=[23m " Support italics
 
-hi htmlArg gui=italic
-hi Comment gui=italic
-hi Type    gui=italic
-hi htmlArg cterm=italic
-hi Comment cterm=italic
-hi Type    cterm=italic
+" hi htmlArg gui=italic
+" hi Comment gui=italic
+" hi Type    gui=italic
+" hi htmlArg cterm=italic
+" hi Comment cterm=italic
+" hi Type    cterm=italic
 """""""" END Fonts """"""""
