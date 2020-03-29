@@ -16,23 +16,17 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-system-copy'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'djoshea/vim-autoread'
+Plug 'ianks/vim-tsx', { 'for': 'typescript.tsx' }
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
-Plug 'wesQ3/vim-windowswap'
 Plug 'jreybert/vimagit'
 Plug 'mattn/emmet-vim'
 Plug 'metakirby5/codi.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Install plugins
 let g:coc_global_extensions = [
@@ -44,8 +38,16 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-yaml']
-Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
-Plug 'ianks/vim-tsx', { 'for': 'typescript.tsx' }
+Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'wesQ3/vim-windowswap'
 
 call plug#end() " Initialize plugin system
