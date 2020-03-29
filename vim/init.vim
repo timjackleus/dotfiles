@@ -3,7 +3,6 @@ source ~/.config/nvim/plugins.vim
 
 """""""""" General ViM Settings """"""""""
 filetype plugin indent on
-syntax on " Use syntax highlighting
 
 set cursorline " highlight current line
 set expandtab " Convert tabs to spaces
@@ -22,7 +21,6 @@ set scrolloff=3 " Keep 3 lines (top/bottom) for scope
 set shiftwidth=2
 set shortmess=atI
 set tabstop=2
-set termguicolors
 set timeout timeoutlen=1000
 set updatetime=100 " Update sign column every quarter second
 set splitright " Always open new splits to the right
@@ -135,9 +133,19 @@ endtry
 
 
 """""""""" Theme """"""""""
-let g:onedark_terminal_italics = 1
-let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature (onedark.vim)
-colorscheme onedark
+if !exists('g:syntax_on')
+  syntax on
+  let g:onedark_terminal_italics = 1
+  let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature (onedark.vim)
+end
+
+if !&termguicolors
+  set termguicolors
+endif
+
+if !exists('g:colors_name')
+  colorscheme onedark
+endif
 
 let g:lightline = {
   \ 'colorscheme': 'one',
