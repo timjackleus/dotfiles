@@ -25,6 +25,8 @@ Plug 'ianks/vim-tsx', { 'for': 'typescript.tsx' }
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'jreybert/vimagit'
+Plug 'justinmk/vim-sneak'
+Plug 'liuchengxu/vim-which-key'
 Plug 'mattn/emmet-vim'
 Plug 'metakirby5/codi.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

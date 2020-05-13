@@ -21,7 +21,7 @@ set scrolloff=3 " Keep 3 lines (top/bottom) for scope
 set shiftwidth=2
 set shortmess=atI
 set tabstop=2
-set timeout timeoutlen=1000
+set timeout timeoutlen=500
 set updatetime=100 " Update sign column every quarter second
 set splitright " Always open new splits to the right
 autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
@@ -133,6 +133,8 @@ endtry
 
 
 """""""""" Theme """"""""""
+" Avoid executing all syntax- or colorscheme-related vim configs
+" for the second time (i.e., when re-sourced).
 if !exists('g:syntax_on')
   syntax on
   let g:onedark_terminal_italics = 1
@@ -178,6 +180,9 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 " Change mapleader
 let mapleader = "\<Space>"
 
+" which-key for keymapping list
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
 " nerdtree
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>m :NERDTreeFind<CR>
@@ -195,7 +200,7 @@ command! Q q
 nmap 0 ^
 
 " Copy the entire buffer into the system register
-nmap <leader>co ggVG*y
+nmap <leader>co <esc>ggVGy<CR>
 
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
