@@ -14,6 +14,9 @@ window:
   dynamic_padding: false
   decorations: buttonless
   startup_mode: Windowed
+  dimensions:
+    columns: 200
+    lines: 55
 
 scrolling:
   history: 10000
