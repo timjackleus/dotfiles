@@ -181,7 +181,25 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 let mapleader = "\<Space>"
 
 " which-key for keymapping list
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+
+" Create map to add keys to
+let g:which_key_map =  {}
+let g:which_key_sep = '→'
+let g:which_key_map['/'] = [ ':Denite:. -no-empty<CR>'  , 'global search' ]
+let g:which_key_map['co'] = [ '<esc>ggVGy<CR>'  , 'copy whole buffer' ]
+let g:which_key_map['n'] = [ ':NERDTreeToggle<CR>'  , 'NERDTreeToggle' ]
+let g:which_key_map['m'] = [ ':NERDTreeFind<CR>'  , 'NERDTreeFind' ]
+let g:which_key_map['c'] = [ ':Codi!! javascript<CR>'  , 'codi js' ]
+
+let g:which_key_map.g = {
+      \ 'name' : '+git' ,
+      \ 's' : [':Magit<CR>'                        , 'Magit buffer'],
+      \ }
+
+" Register which key map
+call which_key#register('<Space>', "g:which_key_map")
 
 " nerdtree
 map <Leader>n :NERDTreeToggle<CR>
