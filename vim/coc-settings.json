@@ -1,12 +1,38 @@
 {
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 10,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx", "css", "Markdown"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "css",
+    "Markdown"
+  ],
+  "coc.preferences.colorSupport": false,
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "typescript.tsx"
+  ],
   "snippets.userSnippetsDirectory": "~/Code/dotfiles/vim/snippets",
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescriptreact": ["javascript"],
     "typescript": ["javascript"]
+  },
+  "explorer.buffer.showHiddenBuffers": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.keyMappings": {
+    "gj": false,
+    "gk": false,
+    ".": false,
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit",
+    "s": "open:split"
   }
 }

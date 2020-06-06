@@ -55,12 +55,29 @@ let g:user_emmet_leader_key=',' " Redefine Emmit trigger
 let vim_markdown_preview_hotkey='<C-m>' " Remap vim markdown preview
 let vim_markdown_preview_github=1 " Preview with Grip
 
-" nerdtree
-let NERDTreeShowHidden=1
-" :NERDTree is the only way to activete the setting bellow
-let g:NERDTreeWinSize=30
-" Close nerdtree when file is opened
-let NERDTreeQuitOnOpen=1
+" coc-explorer
+" floating window setup
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\      'root-uri': '~/.vim',
+\   },
+\   'floating': {
+\      'position': 'floating',
+\   },
+\   'floatingLeftside': {
+\      'position': 'floating',
+\      'floating-position': 'left-center',
+\      'floating-width': 50,
+\   },
+\   'floatingRightside': {
+\      'position': 'floating',
+\      'floating-position': 'left-center',
+\      'floating-width': 50,
+\   },
+\   'simplify': {
+\     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   }
+\ }
 
 " coc-pairs
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
@@ -189,8 +206,6 @@ let g:which_key_map =  {}
 let g:which_key_sep = '→'
 let g:which_key_map['/'] = [ ':Denite:. -no-empty<CR>'  , 'global search' ]
 let g:which_key_map['co'] = [ '<esc>ggVGy<CR>'  , 'copy whole buffer' ]
-let g:which_key_map['n'] = [ ':NERDTreeToggle<CR>'  , 'NERDTreeToggle' ]
-let g:which_key_map['m'] = [ ':NERDTreeFind<CR>'  , 'NERDTreeFind' ]
 let g:which_key_map['c'] = [ ':Codi!! javascript<CR>'  , 'codi js' ]
 
 let g:which_key_map.g = {
@@ -201,9 +216,11 @@ let g:which_key_map.g = {
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
 
-" nerdtree
-map <Leader>n :NERDTreeToggle<CR>
-map <Leader>m :NERDTreeFind<CR>
+" coc-explorer
+" Use regular explorer since floating is still to buggy
+" nmap <space>e :CocCommand explorer --quit-on-open --preset floating<CR>
+nmap <space>e :CocCommand explorer --quit-on-open<CR>
+
 
 " Tab indent
 vnoremap <TAB> >

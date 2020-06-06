@@ -34,6 +34,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-eslint',
+  \ 'coc-explorer',
   \ 'coc-json',
   \ 'coc-pairs',
   \ 'coc-prettier',
@@ -42,7 +43,6 @@ let g:coc_global_extensions = [
   \ 'coc-yaml']
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-abolish'
