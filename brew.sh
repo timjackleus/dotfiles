@@ -34,5 +34,9 @@ brew install yarn
 brew install zsh
 brew install zsh-syntax-highlighting
 
+# for movie editing e.g making gifs
+brew install ffmpeg
+brew install gifsicle
+
 # Remove outdated versions from the cellar
 brew cleanup

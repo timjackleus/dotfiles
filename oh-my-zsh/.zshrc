@@ -85,6 +85,12 @@ alias npmlist='npm list -g --depth=0'
 
 alias cdicloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 
+alias tmuxt='tmux attach\; choose-tree -Zs'
+
+# convert .mov file to .gif for presentations etc
+function movtogif () {
+  ffmpeg -i $1 -pix_fmt rgb8 -r 10 output.gif && gifsicle -O3 output.gif -o output.gif
+}
 
 #
 # --- Functions ---
