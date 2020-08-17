@@ -166,6 +166,9 @@ if !exists('g:colors_name')
   colorscheme onedark
 endif
 
+" set color of floating windows
+highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#c678dd guibg=#282D33
+
 let g:lightline = {
   \ 'colorscheme': 'one',
   \ 'active': {
@@ -218,9 +221,8 @@ call which_key#register('<Space>', "g:which_key_map")
 
 " coc-explorer
 " Use regular explorer since floating is still to buggy
-" nmap <space>e :CocCommand explorer --quit-on-open --preset floating<CR>
-nmap <space>e :CocCommand explorer --quit-on-open<CR>
-
+nmap <Leader>e :CocCommand explorer --quit-on-open --preset floating<CR>
+" nmap <Leader>e :CocCommand explorer --quit-on-open<CR>
 
 " Tab indent
 vnoremap <TAB> >
