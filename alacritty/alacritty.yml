@@ -22,17 +22,18 @@ scrolling:
   history: 10000
   multiplier: 3
 
+# Blex = IBM Plex mono with Nerdfont patch
 font:
   normal:
-    family: IBM Plex Mono
-    style: Regular
+    family: BlexMono Nerd Font Mono
+    style: Light
 
   bold:
-    family: IBM Plex Mono
+    family: BlexMono Nerd Font Mono
     style: Bold
 
   italic:
-    family: IBM Plex Mono
+    family: BlexMono Nerd Font Mono
     style: Italic
 
   size: 13

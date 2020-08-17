@@ -374,19 +374,19 @@ let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
 "organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+nmap <leader>uo :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 """"""""" END Custom key bindings """"""""""
 
 
 
 """""""" Fonts """"""""
-" set t_ZH=[3m " Support italics
-" set t_ZR=[23m " Support italics
+set t_ZH=[3m " Support italics
+set t_ZR=[23m " Support italics
 
-" hi htmlArg gui=italic
-" hi Comment gui=italic
-" hi Type    gui=italic
-" hi htmlArg cterm=italic
-" hi Comment cterm=italic
-" hi Type    cterm=italic
+hi htmlArg gui=italic
+hi Comment gui=italic
+hi Type    gui=italic
+hi htmlArg cterm=italic
+hi Comment cterm=italic
+hi Type    cterm=italic
 """""""" END Fonts """"""""
