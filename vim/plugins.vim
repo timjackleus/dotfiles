@@ -29,6 +29,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'liuchengxu/vim-which-key'
 Plug 'mattn/emmet-vim'
 Plug 'metakirby5/codi.vim'
+Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Install plugins
 let g:coc_global_extensions = [
@@ -40,6 +41,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-snippets',
   \ 'coc-tsserver',
+  \ 'coc-vimlsp',
   \ 'coc-yaml']
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
