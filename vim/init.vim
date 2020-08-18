@@ -189,7 +189,6 @@ function! LightlineReload()
   call lightline#update()
 endfunction
 
-
 " set filetypes as typescript.tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 """""""""" END Theme """"""""""
@@ -207,13 +206,36 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 " Create map to add keys to
 let g:which_key_map =  {}
 let g:which_key_sep = '→'
-let g:which_key_map['/'] = [ ':Denite:. -no-empty<CR>'  , 'global search' ]
-let g:which_key_map['co'] = [ '<esc>ggVGy<CR>'  , 'copy whole buffer' ]
-let g:which_key_map['c'] = [ ':Codi!! javascript<CR>'  , 'codi js' ]
+let g:which_key_map['/'] = 'global search'
+let g:which_key_map['co'] = 'copy buffer to register'
+let g:which_key_map['cp'] = 'copy buffer to clipboard'
+let g:which_key_map['cj'] = 'codi js'
+let g:which_key_map['b'] = 'buffers'
+let g:which_key_map['e'] = 'explorer'
+let g:which_key_map['f'] = 'file search'
+let g:which_key_map['k'] = 'cursor word search'
+let g:which_key_map['so'] = 'source vim'
+let g:which_key_map['ve'] = 'vertical edit vim'
+let g:which_key_map['cc'] = 'comment current line'
+let g:which_key_map['r'] = 'rename'
+let g:which_key_map['www'] = 'windowswap'
+
+let g:which_key_map['M'] = 'which_key_ignore'
+let g:which_key_map['c '] = 'which_key_ignore'
+let g:which_key_map['c '] = 'which_key_ignore'
+let g:which_key_map['w'] = 'which_key_ignore'
+let g:which_key_map['cA'] = 'which_key_ignore'
 
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
-      \ 's' : [':Magit<CR>'                        , 'Magit buffer'],
+      \ 's' : 'magit buffer',
+      \ 'b' : 'git blame',
+      \ }
+
+let g:which_key_map.u = {
+      \ 'name' : '+utils' ,
+      \ 'e' : 'entities',
+      \ 'o' : 'organize imports',
       \ }
 
 " Register which key map
@@ -239,6 +261,9 @@ nmap 0 ^
 " Copy the entire buffer into the system register
 nmap <leader>co <esc>ggVGy<CR>
 
+" Copy the entire buffer into the clipboard
+nmap <leader>cp <esc>ggVGcp<CR>
+
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
 nmap k gk
@@ -255,10 +280,10 @@ nmap <Leader>gu <Plug>GitGutterUndoHunk " git undo (chunk)
 nmap <leader>gs :Magit<CR> " git status
 
 " Show commits for every source line
-nmap <Leader>gb :Gblame<CR>  " git blame
+nmap <Leader>gb :Git blame<CR>  " git blame
 
 " Split edit init.vim
-nmap <leader>vr :vsp ~/.config/nvim/init.vim<CR>
+nmap <leader>ve :vsp ~/.config/nvim/init.vim<CR>
 
 " source init.vim
 nmap <Leader>so :so ~/.config/nvim/init.vim<CR>
@@ -270,11 +295,11 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " codi.vim
-map <Leader>c :Codi!! javascript<CR>
+map <Leader>cj :Codi!! javascript<CR>
 
 " Replace all Swedish special characters with entities.
 " adapted from http://vim.wikia.com/wiki/HTML_entities
-nnoremap <silent> ,r :call ReplaceSweChar()<CR>
+map <Leader>ue :call ReplaceSweChar()<CR>
 function! ReplaceSweChar()
   silent set noignorecase
   silent %s/Å/\&Aring;/eg
@@ -356,7 +381,7 @@ nnoremap <silent> gh :call <SID>show_documentation()<CR>
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" fix autofix problem of current line
+" autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 "  coc-snippets
