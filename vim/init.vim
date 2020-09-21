@@ -230,12 +230,10 @@ let g:which_key_map['so'] = 'source vim'
 let g:which_key_map['ve'] = 'vertical edit vim'
 let g:which_key_map['cc'] = 'comment current line'
 let g:which_key_map['r'] = 'rename'
-let g:which_key_map['www'] = 'windowswap'
+let g:which_key_map['ww'] = 'windowswap'
 
 let g:which_key_map['M'] = 'which_key_ignore'
 let g:which_key_map['c '] = 'which_key_ignore'
-let g:which_key_map['c '] = 'which_key_ignore'
-let g:which_key_map['w'] = 'which_key_ignore'
 let g:which_key_map['cA'] = 'which_key_ignore'
 
 let g:which_key_map.g = {
@@ -284,12 +282,8 @@ nmap j gj
 nmap k gk
 
 " Jump between hunks
-nmap <Leader>gn <Plug>GitGutterNextHunk " git next
-nmap <Leader>gp <Plug>GitGutterPrevHunk " git previous
-
-" Hunk-add and hunk-revert for chunk staging
-nmap <Leader>ga <Plug>GitGutterStageHunk " git add (chunk)
-nmap <Leader>gu <Plug>GitGutterUndoHunk " git undo (chunk)
+nmap ]c <Plug>(GitGutterNextHunk) " git next
+nmap [c <Plug>(GitGutterPrevHunk) " git previous
 
 " Open vimagit pane
 nmap <leader>gs :Magit<CR> " git status
@@ -371,6 +365,8 @@ function! s:denite_my_settings() abort
 endfunction
 
 " coc.nvim
+" trigger completion.
+inoremap <silent><expr> <c-k> coc#refresh()
 "
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -407,6 +403,9 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -432,3 +431,4 @@ hi htmlArg cterm=italic
 hi Comment cterm=italic
 hi Type    cterm=italic
 """""""" END Fonts """"""""
+
