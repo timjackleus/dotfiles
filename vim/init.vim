@@ -43,6 +43,14 @@ set wildignore+=**/node_modules/**
 
 
 """""""""" Plugin settings """"""""""
+
+" switch.vim
+let g:switch_custom_definitions =
+    \ [
+    \   ['foo', 'bar', 'baz'],
+    \   ['true', 'false']
+    \ ]
+
 " codi.vim
 let g:codi#aliases = {
 \ 'javascript.jsx': 'javascript',

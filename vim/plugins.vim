@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
+Plug 'AndrewRadev/switch.vim'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'djoshea/vim-autoread'
