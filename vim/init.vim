@@ -253,6 +253,9 @@ let g:which_key_map.u = {
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
 
+" rhubarb
+nmap <Leader>gg :GBrowse<CR>
+
 " coc-explorer
 " Use regular explorer since floating is still to buggy
 nmap <Leader>e :CocCommand explorer --quit-on-open --preset floating<CR>

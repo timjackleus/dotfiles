@@ -52,7 +52,9 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
 Plug 'wesQ3/vim-windowswap'
 
 call plug#end() " Initialize plugin system
