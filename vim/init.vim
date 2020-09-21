@@ -153,6 +153,10 @@ call s:profile(s:denite_options)
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
+
+" sneak
+" let g:sneak#label = 1
+let g:sneak#s_next = 1
 """""""""" END Plugins settings """"""""""
 
 
