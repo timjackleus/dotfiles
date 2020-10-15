@@ -116,8 +116,8 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $ZSH/oh-my-zsh.sh
 
-# Set Spaceship ZSH as a prompt
+# Set Custom promp
 autoload -U promptinit; promptinit
-prompt spaceship
+prompt pure
 
  #zprof # bottom of .zshrc
