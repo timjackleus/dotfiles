@@ -2,14 +2,15 @@
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 10,
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact",
-    "typescript.tsx",
+    "Markdown",
     "css",
-    "Markdown"
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact"
   ],
   "coc.preferences.colorSupport": false,
   "eslint.filetypes": [
@@ -30,9 +31,9 @@
   "explorer.keyMappings": {
     "gj": false,
     "gk": false,
-    ".": false,
     "<cr>": ["expandable?", "expand", "open"],
     "v": "open:vsplit",
-    "s": "open:split"
+    "s": "open:split",
+    "<esc>": "quit"
   }
 }
