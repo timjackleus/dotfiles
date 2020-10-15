@@ -179,7 +179,7 @@ if !exists('g:colors_name')
 endif
 
 " set color of floating windows
-highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#c678dd guibg=#282D33
+highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#c678dd guibg=#24282d
 
 let g:lightline = {
   \ 'colorscheme': 'one',
