@@ -7,16 +7,17 @@ brew cask install enpass
 brew cask install franz
 brew cask install google-backup-and-sync
 brew cask install google-chrome
+brew cask install karabiner-elements
 brew cask install notion
 brew cask install slack
 brew cask install spotify
 
 # dev
+brew cask install alacritty
 brew cask install docker
 brew cask install docker-toolbox
 brew cask install imageoptim
 brew cask install insomnia
-brew cask install iterm2
 brew cask install visual-studio-code
 
 # less often
