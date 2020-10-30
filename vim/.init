@@ -14,5 +14,5 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 # Support italics in vim everywhere
 # https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be
 tic -x .terminfo/xterm-256color-italic.terminfo
-tic -x .terminfo/xtmux-256color.terminfo
+tic -x .terminfo/tmux-256color.terminfo
 
