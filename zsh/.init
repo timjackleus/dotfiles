@@ -7,6 +7,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosu
 # Install zsh syntax highlightning
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlightning
 
+# Install pure-prompt
+npm install --global pure-prompt
+
 # Download and install powerline fonts
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts

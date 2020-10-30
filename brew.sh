@@ -18,6 +18,7 @@ brew install openssh
 brew install archey
 brew install bat
 brew install cmake
+brew install fish
 brew install fzf
 brew install git
 brew install neovim
@@ -31,7 +32,6 @@ brew install tig
 brew install tmux
 brew install tree
 brew install yarn
-brew install zsh
 brew install zsh-syntax-highlighting
 
 # for movie editing e.g making gifs

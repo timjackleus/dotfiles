@@ -19,16 +19,10 @@ $ ./brew.sh
 $ ./brew-cask.sh
 ```
 
-### Setup zsh
+### Setup fish
 
 ```
-$ ./zsh/.init
-```
-
-### Install Oh my zsh
-
-```
-$ ./oh-my-zsh/.init
+$ ./fish/.init
 ```
 
 ### Alacritty
