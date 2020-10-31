@@ -1,11 +1,16 @@
-curl -L https://get.oh-my.fish | fish
+# change default shell to fish
+chsh -s /usr/local/bin/fish
+
+# install fisher plugin manager
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
 # omf install spacefish theme
 omf install spacefish
 
 # create symlinks
-ln -s $PWD/fish/omf.fish ~/.config/fish/conf.d/omf.fish
 ln -s $PWD/fish/config.fish ~/.config/fish/config.fish
+ln -s $PWD/fish/.fish_variables ~/.config/fish/.fish_variables
+ln -s $PWD/fish/fishfile ~/.config/fish/fishfile
 
 # plugins
 omf install https://github.com/jhillyerd/plugin-git
