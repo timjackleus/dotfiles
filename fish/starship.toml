@@ -1,0 +1,8 @@
+[character]
+success_symbol = "[❯](bold purple)"
+
+[package]
+disabled = true
+
+[gcloud]
+disabled = true

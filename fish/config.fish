@@ -1,3 +1,6 @@
+# Use startfish theme
+starship init fish | source
+
 # Set default editor
 set -U EDITOR nvim
 

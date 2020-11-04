@@ -4,13 +4,12 @@ chsh -s /usr/local/bin/fish
 # install fisher plugin manager
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
-# omf install spacefish theme
-omf install spacefish
+# link starship theme config
+ln -s $PWD/fish/starship.toml ~/.config/starship.toml
 
 # create symlinks
 ln -s $PWD/fish/config.fish ~/.config/fish/config.fish
-ln -s $PWD/fish/.fish_variables ~/.config/fish/.fish_variables
 ln -s $PWD/fish/fishfile ~/.config/fish/fishfile
 
-# plugins
-omf install https://github.com/jhillyerd/plugin-git
+# Run fisher and istall all plugins
+fisher
