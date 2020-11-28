@@ -50,6 +50,12 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 # Interpret trackpad tap as clicks
 sudo defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 
+# Disable smart quotes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable smart dashes
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
@@ -204,6 +210,15 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 # Disable continuous spell checking
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
+
+###############################################################################
+# Misc
+###############################################################################
+#
+# Fix some wierd errors that can be ignored
+# https://github.com/nodejs/node-gyp/issues/569
+xcode-select --install # Install Command Line Tools if you haven't already.
+sudo xcode-select --switch /Library/Developer/CommandLineTools # Enable command line tools
 
 ###############################################################################
 # Last notes                                                                  #
