@@ -4,9 +4,10 @@ starship init fish | source
 # Set default editor
 set -U EDITOR nvim
 
-export TERM=xterm-256color
+# Runs a tmux-friendly version of fzf
+set -U FZF_TMUX 1
 
-alias glb='git checkout (git branch | fzf)'
+export TERM=xterm-256color
 
 alias gs='git status'
 
@@ -35,6 +36,10 @@ alias cdicloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 alias tmuxt='tmux attach\; choose-tree -Zs'
 
 alias ssh='TERM=xterm-256color ssh'
+
+function glb -d "Fuzzy-find and checkout a branch"
+  git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+end
 
 # Fish syntax highlighting
 # inspired by onedark
