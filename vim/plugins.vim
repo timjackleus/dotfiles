@@ -43,8 +43,8 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-prettier',
   \ 'coc-snippets',
+  \ 'coc-svelte',
   \ 'coc-tsserver',
-  \ 'coc-vimlsp',
   \ 'coc-yaml']
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
