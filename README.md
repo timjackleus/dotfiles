@@ -5,6 +5,11 @@
 - Download latest Xcode from App Store
 - `$ ./xcode/.init`
 
+#### Or just install the Xcode CLI
+- `$ sudo xcode-select --install`
+This is usually not working due to failing connection to server... In that case manually download the latest Command Line Tools here
+- https://developer.apple.com/download/more/
+
 ### Run all macos settings then reboot when complete
 
 ```
