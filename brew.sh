@@ -21,7 +21,7 @@ brew install cmake
 brew install fish
 brew install fzf
 brew install git
-brew install neovim
+brew install neovim --HEAD
 brew install node # This installs 'npm' too using the recommended installation method
 brew install npm
 brew install nvm

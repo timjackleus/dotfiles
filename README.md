@@ -42,6 +42,13 @@ $ ./alacritty/.init
 $ ./tmux/.init
 $ ./vim/.init
 ```
+Since treesitter requires nvim 0.5, the following process might be needed:
+```
+$ brew install neovim --HEAD
+$ brew install luarocks
+$ brew detach luajit
+$ brew install luajit --HEAD
+```
 
 ### Setup vscode
 
