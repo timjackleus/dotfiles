@@ -27,12 +27,12 @@ Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'jreybert/vimagit'
 Plug 'justinmk/vim-sneak'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'liuchengxu/vim-which-key'
 Plug 'mattn/emmet-vim'
 Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
 " Install plugins
 let g:coc_global_extensions = [
   \ 'coc-css',
@@ -49,6 +49,9 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-yaml']
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
@@ -62,5 +65,4 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'wesQ3/vim-windowswap'
-
 call plug#end() " Initialize plugin system

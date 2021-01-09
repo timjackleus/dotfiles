@@ -106,57 +106,24 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " run manually
 command! -nargs=0 CocPrettier :CocCommand prettier.formatFile
 
-" Wrap in try/catch to avoid errors on initial install before plugin is available
-try
-" === Denite setup ==="
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--hidden', '--glob', '!.git'])
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
-
-" Recommended defaults for ripgrep via Denite docs
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-call denite#custom#var('buffer', 'date_format', '')
-call denite#custom#map('insert,normal', "<C-t>", '<denite:do_action:tabopen>')
-call denite#custom#map('insert,normal', "<C-v>", '<denite:do_action:vsplit>')
-call denite#custom#map('insert,normal', "<C-h>", '<denite:do_action:split>')
-
-let s:denite_options = {'default' : {
-\ 'split': 'floating',
-\ 'start_filter': 0,
-\ 'auto_resize': 1,
-\ 'source_names': 'short',
-\ 'statusline': 0,
-\ 'prompt': 'λ:',
-\ 'highlight_matched_char': 'WildMenu',
-\ 'highlight_matched_range': 'Visual',
-\ 'highlight_window_background': 'Visual',
-\ 'highlight_filter_background': 'StatusLine',
-\ 'highlight_prompt': 'StatusLine',
-\ 'winrow': 1,
-\ 'vertical_preview': 1
-\ }}
-
-" Loop through denite options and enable them
-function! s:profile(opts) abort
-  for l:fname in keys(a:opts)
-    for l:dopt in keys(a:opts[l:fname])
-      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
-    endfor
-  endfor
-endfunction
-
-call s:profile(s:denite_options)
-catch
-  echo 'Denite not installed. It should work after running :PlugInstall'
-endtry
-
 " sneak
 " let g:sneak#label = 1
 let g:sneak#s_next = 1
+
+" Telescope
+" Avoid insert mode at first esc
+lua <<EOF
+local actions = require('telescope.actions')
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+}
+EOF
 """""""""" END Plugins settings """"""""""
 
 
@@ -225,6 +192,12 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+" Border highlight groups.
+highlight TelescopeBorder         guifg=#ffffff
+highlight TelescopePromptBorder   guifg=#56b6C2
+highlight TelescopeResultsBorder  guifg=#61AFEF
+highlight TelescopePreviewBorder  guifg=#C678DD
 
 """""""""" END Theme """"""""""
 
@@ -345,47 +318,13 @@ function! ReplaceSweChar()
   silent set ignorecase
 endfunction
 
-" Denite mappings
-nmap <leader>b :Denite buffer<CR>
-nmap <leader>f :DeniteProjectDir file/rec<CR>
-nnoremap <leader>/ :<c-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>k :<c-u>DeniteCursorWord grep:.<CR>
-
-" Define mappings while in denite 'filter' mode
-autocmd FileType denite-filter call s:denite_filter_my_settings()
-function! s:denite_filter_my_settings() abort
-  imap <silent><buffer> <c-o>
-  \ <Plug>(denite_filter_quit)
-  inoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  inoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-endfunction
-
-" Define mappings while in denite window
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-    nnoremap <silent><buffer><expr> <c-v>
-  \ denite#do_map('do_action', 'vsplit')
-  nnoremap <silent><buffer><expr> <c-s>
-  \ denite#do_map('do_action', 'split')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <c-o>
-  \ denite#do_map('open_filter_buffer')
-endfunction
+" Telescope mappings
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>/ <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>tc <cmd>Telescope git_commits<cr>
+nnoremap <leader>tb <cmd>Telescope git_bcommits<cr>
 
 " coc.nvim
 " trigger completion.
