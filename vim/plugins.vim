@@ -16,9 +16,9 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/switch.vim'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'djoshea/vim-autoread'
@@ -32,6 +32,7 @@ Plug 'mattn/emmet-vim'
 Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
 " Install plugins
 let g:coc_global_extensions = [
   \ 'coc-css',
@@ -44,8 +45,11 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-snippets',
   \ 'coc-svelte',
+  \ 'coc-tailwindcss',
   \ 'coc-tsserver',
   \ 'coc-yaml']
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'

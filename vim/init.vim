@@ -178,6 +178,11 @@ if !exists('g:colors_name')
   colorscheme onedark
 endif
 
+" overrides
+hi Normal guifg=#abb2bf ctermfg=249 guibg=#282c34 ctermbg=235 gui=NONE cterm=NONE
+hi TabLineFill guifg=NONE ctermfg=NONE guibg=#282c34 ctermbg=235 gui=NONE cterm=NONE
+hi SignColumn guifg=NONE ctermfg=NONE guibg=#282c34 ctermbg=235 gui=NONE cterm=NONE
+
 " set color of floating windows
 highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#c678dd guibg=#24282d
 
@@ -203,6 +208,24 @@ endfunction
 
 " set filetypes as typescript.tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
+" set colors of startify
+hi StartifyHeader cterm=italic guifg=#c678dd guibg=#282c34
+hi StartifyNumber  guifg=#56B6C2
+
+" activate nvim-colorizer
+lua require'colorizer'.setup()
+
+" activate treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF
+
 """""""""" END Theme """"""""""
 
 
