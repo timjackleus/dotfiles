@@ -29,11 +29,13 @@
   "explorer.buffer.showHiddenBuffers": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappings": {
-    "gj": false,
-    "gk": false,
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:vsplit",
-    "s": "open:split",
-    "<esc>": "quit"
+    "global": {
+      "gj": false,
+      "gk": false,
+      "<cr>": ["expandable?", "expand", "open"],
+      "v": "open:vsplit",
+      "s": "open:split",
+      "<esc>": "quit"
+    }
   }
 }

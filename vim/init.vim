@@ -366,7 +366,7 @@ endfunction
 
 " coc.nvim
 " trigger completion.
-inoremap <silent><expr> <c-k> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 "
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -375,7 +375,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gp <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gx <Plug>(coc-codeaction)
 
