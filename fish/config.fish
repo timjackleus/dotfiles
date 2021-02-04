@@ -8,6 +8,10 @@ set -U EDITOR nvim
 set -U FZF_TMUX 1
 
 export TERM=xterm-256color
+export BAT_THEME="ansi-dark"
+
+# set locale (used in tmux bar etc)
+export LC_ALL=en_SE.UTF-8
 
 alias gs='git status'
 

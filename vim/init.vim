@@ -113,7 +113,7 @@ let g:sneak#s_next = 1
 
 " Telescope
 " Avoid insert mode at first esc
-lua <<EOF
+  lua <<EOF
 local actions = require('telescope.actions')
 require('telescope').setup{
   defaults = {
@@ -331,6 +331,7 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>tc <cmd>Telescope git_commits<cr>
 nnoremap <leader>tb <cmd>Telescope git_bcommits<cr>
+nnoremap <leader>k <cmd>Telescope grep_string<cr>
 
 " coc.nvim
 " trigger completion.
