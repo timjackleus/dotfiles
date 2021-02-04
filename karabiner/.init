@@ -1,2 +1,2 @@
 # Symlink config (will force if file already exist)
-ln -s karabiner.json ~/.config/karabiner/karabiner.json
+ln -s $PWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json

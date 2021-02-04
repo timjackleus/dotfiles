@@ -2,7 +2,7 @@
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Symlink config (will force if file already exist)
-ln -s .zshrc ~/.zshrc
+ln -s $PWD/oh-my-zsh/.zshrc ~/.zshrc
 
 # Restart to apply all changes
 source ~/.zshrc
