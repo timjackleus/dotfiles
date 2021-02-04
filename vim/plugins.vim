@@ -57,7 +57,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish' " Convert to camelCase etc
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
