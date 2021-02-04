@@ -1,6 +1,4 @@
 {
-  "suggest.echodocSupport": true,
-  "suggest.maxCompleteItemCount": 10,
   "coc.preferences.formatOnSaveFiletypes": [
     "Markdown",
     "css",
@@ -13,8 +11,7 @@
     "typescript.tsx",
     "typescriptreact"
   ],
-  "coc.preferences.colorSupport": false,
-  "eslint.filetypes": [
+  "eslint.probe": [
     "javascript",
     "typescript",
     "typescriptreact",
@@ -27,16 +24,16 @@
     "typescriptreact": ["javascript"],
     "typescript": ["javascript"]
   },
+  "explorer.file.showHiddenFiles": true,
   "explorer.buffer.showHiddenBuffers": true,
   "explorer.icon.enableNerdfont": true,
-  "explorer.keyMappings": {
-    "global": {
-      "gj": false,
-      "gk": false,
-      "<cr>": ["expandable?", "expand", "open"],
-      "v": "open:vsplit",
-      "s": "open:split",
-      "<esc>": "quit"
-    }
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.keyMappings.global": {
+    "gj": false,
+    "gk": false,
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit",
+    "s": "open:split",
+    "<esc>": "quit"
   }
 }

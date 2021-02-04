@@ -24,6 +24,7 @@ set tabstop=2
 set timeout timeoutlen=500
 set updatetime=100 " Update sign column every quarter second
 set splitright " Always open new splits to the right
+set pumheight=20 " Limit the height of autocompletions
 autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
 
 " coc.nvim recommendations
@@ -198,6 +199,11 @@ highlight TelescopeBorder         guifg=#ffffff
 highlight TelescopePromptBorder   guifg=#56b6C2
 highlight TelescopeResultsBorder  guifg=#61AFEF
 highlight TelescopePreviewBorder  guifg=#C678DD
+
+" colors of coc-eslint popup
+hi! CocErrorSign guifg=#d1666a
+" hi! CocInfoSign guibg=#353b45
+hi! CocWarningSign guifg=#E5C07B
 
 """""""""" END Theme """"""""""
 
