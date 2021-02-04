@@ -1,34 +1,35 @@
 # Install native apps
 
 # daily
-brew cask install alfred
-brew cask install dropbox
-brew cask install enpass
-brew cask install franz
-brew cask install google-backup-and-sync
-brew cask install google-chrome
-brew cask install karabiner-elements
-brew cask install notion
-brew cask install slack
-brew cask install spotify
+brew install --cask alfred
+brew install --cask dropbox
+brew install --cask enpass
+brew install --cask franz
+brew install --cask google-backup-and-sync
+brew install --cask google-chrome
+brew install --cask karabiner-elements
+brew install --cask microsoft-edge
+brew install --cask notion
+brew install --cask slack
+brew install --cask spotify
 
 # dev
-brew cask install alacritty
-brew cask install docker
-brew cask install docker-toolbox
-brew cask install imageoptim
-brew cask install insomnia
-brew cask install visual-studio-code
+brew install --cask alacritty
+brew install --cask docker
+brew install --cask docker-toolbox
+brew install --cask imageoptim
+brew install --cask insomnia
+brew install --cask visual-studio-code
 
 # less often
-brew cask install calibre
-brew cask install freedome
-brew cask install vlc
+brew install --cask calibre
+brew install --cask freedome
+brew install --cask vlc
 
 # fonts
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
-brew cask install font-hack
-brew cask install font-ibm-plex
-brew cask install font-input
-brew cask install font-victor-mono
+brew install --cask font-fira-code
+brew install --cask font-hack
+brew install --cask font-ibm-plex
+brew install --cask font-input
+brew install --cask font-victor-mono
