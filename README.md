@@ -50,12 +50,6 @@ $ brew detach luajit
 $ brew install luajit --HEAD
 ```
 
-### Setup vscode
-
-- In vscode open command palette (cmd+shift+p)
-- search for 'code' and look for `Shell Command: Install 'code' command in PATH command`
-- `$ ./vsc/.init`
-
 ### Setup Git
 
 ```
