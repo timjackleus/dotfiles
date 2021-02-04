@@ -385,6 +385,12 @@ let g:coc_snippet_prev = '<s-tab>'
 
 "organize imports of the current buffer.
 nmap <leader>uo :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+
+" jumplist keys
+map <C-p> <C-^>
+" unmap c-i to get the default behavior
+" something is overriding it..
+unmap <C-i>
 """"""""" END Custom key bindings """"""""""
 
 
