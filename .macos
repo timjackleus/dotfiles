@@ -1,6 +1,8 @@
-
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
+
+# Adjust toolbar title rollover delay
+defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
@@ -21,7 +23,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write com.apple.CrashReporter DialogType -string "none"
 
 # Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+# defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -104,10 +106,6 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Use column view in all Finder windows by default
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
-# Remove Dropbox’s green checkmark icons in Finder
-file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-[ -e "${file}" ] && mv -f "${file}" "${file}.bak"
-
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
@@ -135,6 +133,9 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 
 # Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
@@ -171,14 +172,11 @@ defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGro
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 ###############################################################################
-# Terminal & iTerm 2                                                          #
+# Terminal
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
-
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 ###############################################################################
 # Time Machine                                                                #
