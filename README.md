@@ -50,6 +50,12 @@ $ brew detach luajit
 $ brew install luajit --HEAD
 ```
 
+### Setup keyboard
+```
+$ ./keyboard/.init
+$ ./karabiner/.init
+```
+
 ### Setup Git
 
 ```
