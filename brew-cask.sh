@@ -4,6 +4,7 @@
 brew install --cask alfred
 brew install --cask dropbox
 brew install --cask enpass
+brew install --cask firefox-developer-edition
 brew install --cask franz
 brew install --cask google-backup-and-sync
 brew install --cask google-chrome
