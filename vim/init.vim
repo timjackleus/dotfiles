@@ -67,24 +67,8 @@ let vim_markdown_preview_github=1 " Preview with Grip
 " coc-explorer
 " floating window setup
 let g:coc_explorer_global_presets = {
-\   '.vim': {
-\      'root-uri': '~/.vim',
-\   },
 \   'floating': {
 \      'position': 'floating',
-\   },
-\   'floatingLeftside': {
-\      'position': 'floating',
-\      'floating-position': 'left-center',
-\      'floating-width': 50,
-\   },
-\   'floatingRightside': {
-\      'position': 'floating',
-\      'floating-position': 'left-center',
-\      'floating-width': 50,
-\   },
-\   'simplify': {
-\     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
 \   }
 \ }
 
@@ -257,15 +241,21 @@ call which_key#register('<Space>', "g:which_key_map")
 nmap <Leader>gg :GBrowse<CR>
 
 " coc-explorer
-" Use regular explorer since floating is still to buggy
 nmap <Leader>e :CocCommand explorer --quit-on-open --preset floating<CR>
-" nmap <Leader>e :CocCommand explorer --quit-on-open<CR>
+" nmap <Leader>e :CocCommand explorer --position floating<CR>
+" nmap <Leader>e :CocCommand explorer <CR>
 
 " Tab indent
 vnoremap <TAB> >
 vnoremap <S-TAB> <
 nnoremap <TAB> V >
 nnoremap <S-TAB> V <
+
+" Move visually selected lines up or down in various modes
+" nnoremap I :m .-2<CR>==
+" nnoremap U :m .+1<CR>==
+" vnoremap I :m '<-2<CR>gv=gv
+" vnoremap U :m '>+1<CR>gv=gv
 
 " Bind :Q to :q
 command! Q q
