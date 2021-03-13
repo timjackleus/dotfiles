@@ -62,4 +62,4 @@ $ ./karabiner/.init
 $ ./.extra (not included in repo)
 ```
 
-Follow [this guide](https://sourabhbajaj.com/mac-setup/Git/) to setup SSH
+Follow [this guide](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent) to setup SSH
