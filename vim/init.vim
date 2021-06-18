@@ -171,7 +171,7 @@ lua require'colorizer'.setup()
 " activate treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  -- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
   },
@@ -381,6 +381,11 @@ map <C-p> <C-^>
 " unmap c-i to get the default behavior
 " something is overriding it..
 unmap <C-i>
+
+" increment / decrement numbers
+map <C-s> <C-a>
+" unmap <c-a>
+
 """"""""" END Custom key bindings """"""""""
 
 
