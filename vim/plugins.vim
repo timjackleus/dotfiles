@@ -19,20 +19,19 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/switch.vim'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'djoshea/vim-autoread'
-Plug 'ianks/vim-tsx', { 'for': 'typescript.tsx' }
 Plug 'itchyny/lightline.vim'
-Plug 'joshdick/onedark.vim'
 Plug 'jreybert/vimagit'
 Plug 'justinmk/vim-sneak'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'liuchengxu/vim-which-key'
 Plug 'mattn/emmet-vim'
-Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/jsonc.vim',
 " Install plugins
 let g:coc_global_extensions = [
   \ 'coc-css',
@@ -45,18 +44,18 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-snippets',
   \ 'coc-svelte',
-  \ 'coc-tailwindcss',
   \ 'coc-tsserver',
   \ 'coc-yaml']
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
-Plug 'sheerun/vim-polyglot'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'Shougo/context_filetype.vim'
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-abolish' " Convert to camelCase etc
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'

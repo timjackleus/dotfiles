@@ -6,6 +6,7 @@
     "javascript",
     "javascriptreact",
     "json",
+    "jsonc",
     "svelte",
     "typescript",
     "typescript.tsx",
@@ -16,14 +17,15 @@
     "typescript",
     "typescriptreact",
     "javascriptreact",
-    "typescript.tsx"
+    "typescript.tsx",
+    "svelte"
   ],
-  "css.validate": false,
   "snippets.userSnippetsDirectory": "~/Code/dotfiles/vim/snippets",
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescriptreact": ["javascript"],
-    "typescript": ["javascript"]
+    "typescript": ["javascript"],
+    "svelte": ["javascript", "svelte"]
   },
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
