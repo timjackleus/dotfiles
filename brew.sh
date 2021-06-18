@@ -16,11 +16,13 @@ brew install openssh
 
 # Install other useful binaries.
 brew install archey
+brew install awscli
 brew install bat
 brew install cmake
 brew install fish
 brew install fzf
 brew install git
+brew install git-lfs
 brew install neovim --HEAD
 brew install node # This installs 'npm' too using the recommended installation method
 brew install npm
