@@ -11,8 +11,8 @@ brew install coreutils
 brew install moreutils
 
 # Install more recent versions of some macOS tools.
-brew install homebrew/php/php56 --with-gmp
 brew install openssh
+brew install grep
 
 # Install other useful binaries.
 brew install archey
@@ -23,7 +23,7 @@ brew install fish
 brew install fzf
 brew install git
 brew install git-lfs
-brew install neovim --HEAD
+brew install neovim
 brew install node # This installs 'npm' too using the recommended installation method
 brew install npm
 brew install nvm

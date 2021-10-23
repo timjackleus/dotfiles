@@ -6,7 +6,7 @@ brew install --cask dropbox
 brew install --cask enpass
 brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask franz
-brew install --cask google-backup-and-sync
+brew install --cask google-drive
 brew install --cask google-chrome
 brew install --cask karabiner-elements
 brew install --cask microsoft-edge
