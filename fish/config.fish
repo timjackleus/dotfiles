@@ -11,7 +11,7 @@ export TERM=xterm-256color
 export BAT_THEME="TwoDark"
 
 # set locale (used in tmux bar etc)
-export LC_ALL=en_SE.UTF-8
+export LC_ALL=en_US.UTF-8
 
 alias gs='git status'
 
@@ -71,3 +71,6 @@ set -g fish_pager_color_completion 'white'
 set -g fish_pager_color_prefix 'brgreen'
 set -g fish_pager_color_description 'white'
 set -g fish_pager_color_progress 'white'
+
+# The next line updates PATH for Netlify's Git Credential Helper.
+# test -f '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc' && source '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc'
