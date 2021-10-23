@@ -36,5 +36,6 @@
     "v": "open:vsplit",
     "s": "open:split",
     "<esc>": "quit"
-  }
+  },
+  "svelte.enable-ts-plugin": true
 }
