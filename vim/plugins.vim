@@ -56,6 +56,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Shougo/context_filetype.vim'
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'TimUntersberger/neogit'
 Plug 'tpope/vim-abolish' " Convert to camelCase etc
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'

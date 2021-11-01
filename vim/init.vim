@@ -109,6 +109,17 @@ require('telescope').setup{
   }
 }
 EOF
+
+" NeoGit
+lua << EOF
+local neogit = require("neogit")
+
+neogit.setup {
+  commit_popup = {
+      kind = "split",
+  },
+}
+EOF
 """""""""" END Plugins settings """"""""""
 
 
@@ -224,7 +235,7 @@ let g:which_key_map['cA'] = 'which_key_ignore'
 
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
-      \ 's' : 'magit buffer',
+      \ 's' : 'Neogit buffer',
       \ 'b' : 'git blame',
       \ }
 
@@ -277,8 +288,8 @@ nmap k gk
 nmap ]c <Plug>(GitGutterNextHunk) " git next
 nmap [c <Plug>(GitGutterPrevHunk) " git previous
 
-" Open vimagit pane
-nmap <leader>gs :Magit<CR> " git status
+" Open Neogit pane
+nmap <leader>gs :Neogit<CR> " git status
 
 " Show commits for every source line
 nmap <Leader>gb :Git blame<CR>  " git blame
@@ -322,6 +333,10 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>tc <cmd>Telescope git_commits<cr>
 nnoremap <leader>tb <cmd>Telescope git_bcommits<cr>
 nnoremap <leader>k <cmd>Telescope grep_string<cr>
+
+" Sneak mappings
+map e <Plug>Sneak_s
+map E <Plug>Sneak_S
 
 " coc.nvim
 " trigger completion.
