@@ -101,12 +101,26 @@ let g:sneak#s_next = 1
 local actions = require('telescope.actions')
 require('telescope').setup{
   defaults = {
+    file_ignore_patterns = { "node_modules" },
     mappings = {
       i = {
-        ["<esc>"] = actions.close
+        ["<esc>"] = actions.close,
       },
     },
-  }
+  },
+  pickers = {
+    buffers = {
+      sort_lastused = true,
+      mappings = {
+        i = {
+          ["<c-d>"] = require("telescope.actions").delete_buffer,
+        },
+        n = {
+          ["<c-d>"] = require("telescope.actions").delete_buffer,
+        }
+      }
+    },
+  },
 }
 EOF
 
