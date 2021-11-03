@@ -335,8 +335,8 @@ nnoremap <leader>tb <cmd>Telescope git_bcommits<cr>
 nnoremap <leader>k <cmd>Telescope grep_string<cr>
 
 " Sneak mappings
-map e <Plug>Sneak_s
-map E <Plug>Sneak_S
+map sn <Plug>Sneak_s
+map sp <Plug>Sneak_S
 
 " coc.nvim
 " trigger completion.
