@@ -1,4 +1,7 @@
-# Use startfish theme
+# Set fish path
+fish_add_path /opt/homebrew/bin
+
+# Use Starship theme
 starship init fish | source
 
 # Set default editor
