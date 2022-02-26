@@ -37,7 +37,7 @@ brew install tree
 brew install yarn
 brew install zsh-syntax-highlighting
 
-# for movie editing e.g making gifs
+# for movie editing e.g. making gifs
 brew install ffmpeg
 brew install gifsicle
 
