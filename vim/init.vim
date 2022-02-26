@@ -141,30 +141,70 @@ EOF
 """""""""" Theme """"""""""
 " Avoid executing all syntax- or colorscheme-related vim configs
 " for the second time (i.e., when re-sourced).
-if !exists('g:syntax_on')
-  syntax on
-  let g:onedark_terminal_italics = 1
-  let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature (onedark.vim)
-end
+" if !exists('g:syntax_on')
+"   syntax on
+"   let g:onedark_terminal_italics = 1
+"   let g:vim_json_syntax_conceal = 0 " disable the auto-hide quotations feature (onedark.vim)
+" end
 
 if !&termguicolors
   set termguicolors
 endif
 
 if !exists('g:colors_name')
-  colorscheme onedark
+  " colorscheme onedark
+  colorscheme catppuccin
 endif
 
+lua <<EOF
+  local cp = require'catppuccin.api.colors'.get_colors()
+
+  require("catppuccin").remap({
+      ErrorMsg = { fg = cp.red, style = "bold" },
+          TSProperty = { fg = cp.yellow, style = "NONE" },
+    TSInclude = { fg = cp.teal, style = "NONE" },
+    TSOperator = { fg = cp.sky, style = "bold" },
+    TSKeywordOperator = { fg = cp.sky, style = "bold" },
+    TSPunctSpecial = { fg = cp.maroon, style = "bold" },
+    TSFloat = { fg = cp.peach, style = "bold" },
+    TSNumber = { fg = cp.peach, style = "bold" },
+    TSBoolean = { fg = cp.peach, style = "bold" },
+    TSConditional = { fg = cp.mauve, style = "bold" },
+    TSRepeat = { fg = cp.mauve, style = "bold" },
+    TSException = { fg = cp.peach, style = "NONE" },
+    TSConstBuiltin = { fg = cp.lavender, style = "NONE" },
+    TSFuncBuiltin = { fg = cp.peach, style = "NONE" },
+    TSTypeBuiltin = { fg = cp.yellow, style = "NONE" },
+    TSVariableBuiltin = { fg = cp.teal, style = "NONE" },
+    TSFunction = { fg = cp.blue, style = "NONE" },
+    TSParameter = { fg = cp.rosewater, style = "NONE" },
+    TSKeywordFunction = { fg = cp.maroon, style = "NONE" },
+    TSKeyword = { fg = cp.red, style = "NONE" },
+    TSMethod = { fg = cp.blue, style = "NONE" },
+    TSNamespace = { fg = cp.rosewater, style = "NONE" },
+    TSStringRegex = { fg = cp.peach, style = "NONE" },
+    TSVariable = { fg = cp.white, style = "NONE" },
+    TSTagAttribute = { fg = cp.mauve, style = "NONE" },
+    TSURI = { fg = cp.rosewater, style = "underline" },
+    TSLiteral = { fg = cp.teal, style = "NONE" },
+    TSEmphasis = { fg = cp.maroon, style = "NONE" },
+    TSStringEscape = { fg = cp.pink, style = "NONE" },
+    bashTSFuncBuiltin = { fg = cp.red, style = "NONE" },
+    bashTSParameter = { fg = cp.yellow, style = "NONE" },
+    typescriptTSProperty = { fg = cp.lavender, style = "NONE" },
+    cssTSProperty = { fg = cp.yellow, style = "NONE" },
+  })
+EOF
 " overrides
-hi Normal guifg=#abb2bf ctermfg=249 guibg=#282c34 ctermbg=235 gui=NONE cterm=NONE
-hi TabLineFill guifg=NONE ctermfg=NONE guibg=#282c34 ctermbg=235 gui=NONE cterm=NONE
-hi SignColumn guifg=NONE ctermfg=NONE guibg=#282c34 ctermbg=235 gui=NONE cterm=NONE
+" hi Normal guifg=#abb2bf ctermfg=249 guibg=#282c34 ctermbg=235 gui=NONE cterm=NONE
+" hi TabLineFill guifg=NONE ctermfg=NONE guibg=#282c34 ctermbg=235 gui=NONE cterm=NONE
+" hi SignColumn guifg=NONE ctermfg=NONE guibg=#282c34 ctermbg=235 gui=NONE cterm=NONE
 
 " set color of floating windows
-highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#c678dd guibg=#24282d
+highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#DDB6F2 guibg=#161320
 
 let g:lightline = {
-  \ 'colorscheme': 'one',
+      \ 'colorscheme': 'catppuccin',
   \ 'active': {
   \ 'right': [ [ 'lineinfo' ],
   \            ['gitbranch']]
@@ -187,8 +227,8 @@ endfunction
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 " set colors of startify
-hi StartifyHeader cterm=italic guifg=#c678dd guibg=#282c34
-hi StartifyNumber  guifg=#56B6C2
+hi StartifyHeader cterm=italic guifg=#DDB6F2 guibg=#1E1E2E
+hi StartifyNumber  guifg=#F2CDCD
 
 " activate nvim-colorizer
 lua require'colorizer'.setup()
@@ -205,14 +245,14 @@ EOF
 
 " Border highlight groups.
 highlight TelescopeBorder         guifg=#ffffff
-highlight TelescopePromptBorder   guifg=#56b6C2
-highlight TelescopeResultsBorder  guifg=#61AFEF
-highlight TelescopePreviewBorder  guifg=#C678DD
+highlight TelescopePromptBorder   guifg=#F2CDCD
+highlight TelescopeResultsBorder  guifg=#DDB6F2
+highlight TelescopePreviewBorder  guifg=#96CDFB
 
 " colors of coc-eslint popup
-hi! CocErrorSign guifg=#d1666a
+hi! CocErrorSign guifg=#F28FAD
 " hi! CocInfoSign guibg=#353b45
-hi! CocWarningSign guifg=#E5C07B
+hi! CocWarningSign guifg=#FAE3B0
 
 """""""""" END Theme """"""""""
 

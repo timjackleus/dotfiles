@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/switch.vim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-system-copy'
