@@ -1,8 +1,11 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
-    "Markdown",
+    "mdx",
+    "markdown",
+    "markdown.mdx",
     "css",
     "html",
+    "lua",
     "javascript",
     "javascriptreact",
     "json",
