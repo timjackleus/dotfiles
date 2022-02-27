@@ -109,6 +109,9 @@ require('telescope').setup{
     },
   },
   pickers = {
+    find_files = {
+      hidden = true
+    },
     buffers = {
       sort_lastused = true,
       mappings = {
