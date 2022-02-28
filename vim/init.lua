@@ -16,11 +16,8 @@ return require('packer').startup(function()
   use {
 		'neoclide/coc.nvim',
 		branch = 'release',
-		run = ':cocInstall coc-css coc-eslint coc-explorer coc-go coc-highlight coc-html coc-json coc-lua coc-pairs coc-prettier coc-snippets coc-svelte coc-tsserver coc-yaml'
-
+		run = ':CocInstall coc-css coc-eslint coc-explorer coc-go coc-highlight coc-html coc-json coc-lua coc-pairs coc-prettier coc-snippets coc-svelte coc-tsserver coc-yaml coc-emmet'
 	}
-  use 'folke/tokyonight.nvim'
-	use 'navarasu/onedark.nvim'
 	use({
 	"catppuccin/nvim",
 		as = "catppuccin"
@@ -39,15 +36,10 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     	requires = {
 				{'nvim-lua/plenary.nvim'},
-				{ "nvim-telescope/telescope-github.nvim" }
+				{ 'nvim-telescope/telescope-github.nvim' }
 		}
   }
-  use {
-    "blackCauldron7/surround.nvim",
-    config = function()
-      require"surround".setup {mappings_style = "surround"}
-    end
-  }
+	-- use { 'echasnovski/mini.nvim', branch = 'stable' }
   use {
     'windwp/nvim-spectre',
     	requires = {
@@ -55,4 +47,3 @@ return require('packer').startup(function()
 		}
   }
 end)
-

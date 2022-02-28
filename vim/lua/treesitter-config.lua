@@ -1,9 +1,4 @@
-local present, treesitter = pcall(require, "treesitter")
-
-if not present then
-   return
-end
-treesitter.setup {
+require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   context_commentstring = {
     enable = true
