@@ -8,6 +8,7 @@ require('coc-config')
 require('mappings')
 require('neogit-config')
 require('lualine-config')
+require('gitblame-config')
 
 local use = require('packer').use
 
@@ -18,11 +19,14 @@ return require('packer').startup(function()
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use { 'tpope/vim-commentary' }
   use { 'christoomey/vim-system-copy' }
+	use {"ellisonleao/glow.nvim"}
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
 	use { 'tpope/vim-surround' }
 	use { "catppuccin/nvim", as = "catppuccin" }
   use { 'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   use { 'windwp/nvim-spectre', requires = { {'nvim-lua/plenary.nvim'} } }
+	use { "mattn/emmet-vim" }
+	use { "f-person/git-blame.nvim" }
   use {
 		'neoclide/coc.nvim',
 		branch = 'release',

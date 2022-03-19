@@ -6,8 +6,4 @@ vim.cmd [[
 	\ }
 ]]
 
-vim.cmd [[
-	command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-	command! -nargs=0 CocPrettier :CocCommand prettier.formatFile
-]]
 
