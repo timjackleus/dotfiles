@@ -1,6 +1,9 @@
-vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+-- vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+vim.cmd [[
+	let g:python3_host_prog = expand('/opt/homebrew/opt/python@3.10/bin/python3.10')
+]]
 
-require('treesitter-config')
+
 require('basics')
 require('colors')
 require('telescope-config')
@@ -9,6 +12,7 @@ require('mappings')
 require('neogit-config')
 require('lualine-config')
 require('gitblame-config')
+require('treesitter-config')
 
 local use = require('packer').use
 

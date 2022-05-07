@@ -24,3 +24,34 @@ export const $1 = () => {
 }
 endsnippet
 
+snippet sss "Svelte simple store" b
+import { writable } from 'svelte/store';
+
+export const $1 = writable<string[]>([]);
+endsnippet
+
+snippet scs "Svelte custom store" b
+import { writable } from 'svelte/store';
+import type { Writable } from 'svelte/store';
+
+const $2 = (initialValue: any[]) => {
+	const { set, subscribe, update }: Writable<Exercise[]> = writable(initialValue);
+
+	return {
+		set,
+		subscribe,
+		customMethod: (newData: any): void => {
+
+			update((value) => {
+				if (value) {
+					return [...value, newData];
+				}
+				return newData;
+			});
+		},
+	};
+};
+
+export const $1 = $2([]);
+
+endsnippet

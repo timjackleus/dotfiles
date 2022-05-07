@@ -45,7 +45,8 @@ map("n", "<leader>gs", ":Neogit<CR>", { noremap = true, silent = true})
 map("n", "<leader>gb", ":GitBlameToggle<CR>", { noremap = true, silent = true })
 
 -- TELESCOPE
-map('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", { noremap = true })
+-- map('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", { noremap = true })
+map('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>", { noremap = true })
 map('n', '<leader>/', "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
 map('n', '<leader>b', "<cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
 map('n', '<leader>k', "<cmd>lua require('telescope.builtin').grep_string()<CR>", { noremap = true })

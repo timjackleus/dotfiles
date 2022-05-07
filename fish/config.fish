@@ -20,6 +20,8 @@ alias gs='git status'
 
 alias vim='nvim'
 
+alias npm='pnpm'
+
 # Common paths
 alias dl="cd ~/Downloads"
 alias h='cd ~/.'
