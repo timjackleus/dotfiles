@@ -1,24 +1,25 @@
 local v = vim
-local set = v.opt
+local vset = v.opt
 v.g.mapleader = ' '
 
-set.cursorline = true
-set.hidden = true
-set.ignorecase = true
-set.mouse = 'a'
-set.number = true -- display line numbers
-set.numberwidth = 4
-set.relativenumber = true
-set.pumheight = 20 -- limit the height of autocompletion
-set.relativenumber = true
-set.scrolloff = 3
-set.shiftwidth = 2
-set.signcolumn = 'yes'
-set.splitbelow = true
-set.splitright = true
-set.swapfile = false
-set.tabstop = 2
-set.termguicolors = true
+vset.cursorline = true
+vset.hidden = true
+vset.ignorecase = true
+vset.mouse = 'a'
+vset.number = true -- display line numbers
+vset.numberwidth = 4
+vset.relativenumber = true
+vset.pumheight = 20 -- limit the height of autocompletion
+vset.relativenumber = true
+vset.scrolloff = 3
+vset.shiftwidth = 2
+vset.signcolumn = 'yes'
+vset.splitbelow = true
+vset.splitright = true
+vset.swapfile = false
+vset.tabstop = 2
+vset.termguicolors = true
+
 -- set.listchars = { tab = '▸ ', trail = '·'} -- highlight trailing spaces and tabs
 -- set.listchars = { tab = ' ', trail = '·'} -- highlight trailing spaces and tabs
 
