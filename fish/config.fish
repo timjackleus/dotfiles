@@ -12,6 +12,7 @@ set -U FZF_TMUX 1
 
 export TERM=xterm-256color
 export BAT_THEME="TwoDark"
+# export PATH=/opt/homebrew/bin:$PATH
 
 # set locale (used in tmux bar etc)
 export LC_ALL=en_US.UTF-8
@@ -19,6 +20,8 @@ export LC_ALL=en_US.UTF-8
 alias gs='git status'
 
 alias vim='nvim'
+
+alias npm='pnpm'
 
 # Common paths
 alias dl="cd ~/Downloads"

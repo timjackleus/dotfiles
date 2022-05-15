@@ -1,12 +1,17 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
-    "Markdown",
+    "go",
     "css",
     "html",
     "javascript",
     "javascriptreact",
     "json",
     "jsonc",
+    "lua",
+    "markdown",
+    "markdown.mdx",
+    "mdx",
+    "mjml",
     "svelte",
     "typescript",
     "typescript.tsx",
@@ -23,9 +28,10 @@
   "snippets.userSnippetsDirectory": "~/Code/dotfiles/vim/snippets",
   "snippets.extends": {
     "javascriptreact": ["javascript"],
-    "typescriptreact": ["javascript"],
+    "mjml": ["html"],
+    "svelte": ["javascript", "svelte"],
     "typescript": ["javascript"],
-    "svelte": ["javascript", "svelte"]
+    "typescriptreact": ["javascript"]
   },
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,

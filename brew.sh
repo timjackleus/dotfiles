@@ -23,6 +23,9 @@ brew install fish
 brew install fzf
 brew install git
 brew install git-lfs
+brew install gh
+brew install go
+brew install gnu-sed
 brew install neovim
 brew install node # This installs 'npm' too using the recommended installation method
 brew install npm
