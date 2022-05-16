@@ -21,28 +21,14 @@ map("n", "<leader>co", "<esc>ggVGy<CR>", { silent = true})
 -- Copy the entire buffer into the clipboard
 map("n", "<leader>cp", "<esc>ggVGcp<CR>", { silent = true})
 
--- COC
-map("n", "<leader>.", "<Plug>(coc-codeaction)")
-map("n", "<leader>l", "<cmd>CocCommand eslint.executeAutofix<CR>")
-map("n", "gd", "<Plug>(coc-definition)", { silent = true })
-map("n", "<leader>r", "<Plug>(coc-rename)")
-map('n', '<Leader>e', '<cmd>CocCommand explorer --quit-on-open --preset floating<CR>')
-map("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
-map("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'", { silent = true, expr = true })
-map("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", { expr = true })
-map("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'", { silent = true, expr = true })
-map("n", "gh", "<cmd>call CocActionAsync('doHover')<CR>", { silent = true })
-map("n", "[g", "<cmd>call CocAction('diagnosticPrevious')<cr>")
-map("n", "]g", "<cmd>call CocAction('diagnosticNext')<cr>")
-map("n", "<leader>qf", "<Plug>(coc-fix-current)", { silent = true })
-map("n", "[c", "<Plug>(coc-git-prevchunk)")
-map("n", "]c", "<Plug>(coc-git-nextchunk)")
-
 -- NEOGIT
 map("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
 
 -- GIT BLAME
 map("n", "<leader>gb", "<cmd>GitBlameToggle<CR>", { silent = true })
+
+-- NVIM TREE
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { silent = true })
 
 -- TELESCOPE
 -- map('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>")

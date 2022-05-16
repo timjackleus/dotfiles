@@ -1,16 +1,12 @@
-vim.cmd [[
-	let g:python3_host_prog = expand('/opt/homebrew/opt/python@3.10/bin/python3.10')
-]]
-
 require('basics')
 require('colors')
 require('telescope-config')
-require('coc-config')
 require('mappings')
 require('neogit-config')
 require('lualine-config')
 require('gitblame-config')
 require('treesitter-config')
+require('nvim-tree-config')
 
 require('Comment').setup()
 
@@ -36,14 +32,17 @@ return require('packer').startup(function()
   use { 'windwp/nvim-spectre', requires = { {'nvim-lua/plenary.nvim'} } }
 	use { "mattn/emmet-vim" }
 	use { "f-person/git-blame.nvim" }
-  use { 'neoclide/coc.nvim',
-		branch = 'release',
-		run = ':CocInstall coc-css coc-eslint coc-explorer coc-go coc-highlight coc-html coc-json coc-lua coc-pairs coc-prettier coc-snippets coc-svelte coc-tsserver coc-yaml coc-emmet'
-	}
   use { 'nvim-telescope/telescope.nvim',
     	requires = {
 				{'nvim-lua/plenary.nvim'},
 				{ 'nvim-telescope/telescope-github.nvim' }
 		}
   }
+	use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+}
 end)
