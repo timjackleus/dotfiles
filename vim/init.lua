@@ -18,10 +18,9 @@ return require('packer').startup(function()
 	use { 'mhinz/vim-startify' }
   use { 'nvim-treesitter/nvim-treesitter' }
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-	use {
-    'numToStr/Comment.nvim',
+	use { 'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
 	}
   use { 'christoomey/vim-system-copy' }
@@ -35,27 +34,26 @@ return require('packer').startup(function()
 	use { "f-person/git-blame.nvim" }
 	use { 'neovim/nvim-lspconfig' }
   use { 'nvim-telescope/telescope.nvim',
-    	requires = {
-				{'nvim-lua/plenary.nvim'},
-				{ 'nvim-telescope/telescope-github.nvim' }
+    requires = {
+			{'nvim-lua/plenary.nvim'},
+			{ 'nvim-telescope/telescope-github.nvim' }
 		}
   }
-	use {
-    'kyazdani42/nvim-tree.lua',
+	use { 'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
-	use {
-			"hrsh7th/nvim-cmp",
-			requires = {
-					"hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", 'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-path', 'hrsh7th/cmp-emoji', 'L3MON4D3/LuaSnip'
-			}
+	use { "hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", 'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-path', 'hrsh7th/cmp-emoji', 'L3MON4D3/LuaSnip'
+		}
 	}
-	use {
-			'tzachar/cmp-tabnine',
-			run = './install.sh',
-			requires = 'hrsh7th/nvim-cmp'
+	use { 'tzachar/cmp-tabnine',
+		run = './install.sh',
+		requires = 'hrsh7th/nvim-cmp'
 	}
+	use('jose-elias-alvarez/null-ls.nvim')
+	use('MunifTanjim/prettier.nvim')
 end)
