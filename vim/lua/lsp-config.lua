@@ -1,21 +1,49 @@
   -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+local on_attach = function (client, bufnr)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = 0})
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer = 0})
+	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer = 0})
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
+	vim.keymap.set("n", "[g", vim.diagnostic.goto_next, { buffer = 0 })
+	vim.keymap.set("n", "]g", vim.diagnostic.goto_prev, { buffer = 0 })
+	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 })
+	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
+end
+
+	-- Lua setup
+-- brew install lua-language-server
+require'lspconfig'.sumneko_lua.setup {
+	capabilities = capabilities;
+	on_attach = on_attach;
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = {'vim'},
+			},
+		},
+	},
+}
+
+-- tsserver
+-- npm install -g typescript typescript-language-server
+require'lspconfig'.tsserver.setup{
+	capabilities = capabilities;
+	on_attach = on_attach;
+}
+
+-- Svelte setup
+-- npm install -g svelte-language-server
+require'lspconfig'.svelte.setup{
+	capabilities = capabilities;
+	on_attach = on_attach;
+}
+
 -- Golang setup
 require'lspconfig'.gopls.setup{
 	capabilities = capabilities;
-	on_attach = function ()
-
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = 0})
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer = 0})
-		vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer = 0})
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
-
-		vim.keymap.set("n", "[g", vim.diagnostic.goto_next, { buffer = 0 })
-		vim.keymap.set("n", "]g", vim.diagnostic.goto_prev, { buffer = 0 })
-		vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 })
-		vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
-	end,
+	on_attach = on_attach
 }
 
  -- Setup nvim-cmp.
