@@ -1,5 +1,11 @@
   -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local present, cmpNvimLsp = pcall(require, "cmp_nvim_lsp")
+
+if not present then
+   return
+end
+
+local capabilities = cmpNvimLsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local on_attach = function (client, bufnr)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = 0})
