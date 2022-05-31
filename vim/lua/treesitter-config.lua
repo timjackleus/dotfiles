@@ -1,4 +1,10 @@
-require'nvim-treesitter.configs'.setup {
+local present, treesitter = pcall(require, "nvim-treesitter.configs")
+
+if not present then
+   return
+end
+
+local options = {
   ensure_installed = {
 		'bash',
 		'css',
@@ -30,3 +36,5 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
+
+treesitter.setup(options)

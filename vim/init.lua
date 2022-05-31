@@ -7,6 +7,7 @@ require('lualine-config')
 require('gitblame-config')
 require('treesitter-config')
 require('nvim-tree-config')
+require('lsp-installer-config') -- must be called before lsp-config
 require('lsp-config')
 require('prettier-config')
 
@@ -34,6 +35,9 @@ return require('packer').startup(function()
 	use { 'mattn/emmet-vim' }
 	use { 'f-person/git-blame.nvim' }
 	use { 'neovim/nvim-lspconfig' }
+	use {
+    "williamboman/nvim-lsp-installer",
+	}
   use { 'nvim-telescope/telescope.nvim',
     requires = {
 			{'nvim-lua/plenary.nvim'},
