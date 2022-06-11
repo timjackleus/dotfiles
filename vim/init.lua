@@ -12,6 +12,7 @@ require('lsp-config')
 require('prettier-config')
 
 require('Comment').setup()
+require('nvim-autopairs').setup();
 
 local use = require('packer').use
 
@@ -61,4 +62,5 @@ return require('packer').startup(function()
 	}
 	use {'jose-elias-alvarez/null-ls.nvim'}
 	use {'MunifTanjim/prettier.nvim'}
+	use { 'windwp/nvim-autopairs' }
 end)
