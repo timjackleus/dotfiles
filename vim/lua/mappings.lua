@@ -1,7 +1,10 @@
 local v = vim
 local map = v.keymap.set
 
-vim.g.user_emmet_leader_key = ','
+-- Remap space as leader key
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- BASICS
 map('n', 'vs', '<cmd>vs<CR>')
@@ -11,10 +14,12 @@ map('n', '<C-H>', '<C-W><C-H>')
 map('n', '<C-K>', '<C-W><C-K>')
 map('n', '<C-J>', '<C-W><C-J>')
 map('n', '<C-S>', '<cmd>%s/')
-map('n', 'j', 'gj')
-map('n', 'k', 'gk')
 map("t", "<Esc>", "<C-\\><C-n>", { silent = true})
 map("n", "<C-P>", "<C-^>")
+
+--Remap for dealing with word wrap
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Copy the entire buffer into the system register
 map("n", "<leader>co", "<esc>ggVGy<CR>", { silent = true})
@@ -37,9 +42,13 @@ map('n', '<leader>/', "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 map('n', '<leader>b', "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map('n', '<leader>k', "<cmd>lua require('telescope.builtin').grep_string()<CR>")
 map('n', '<leader>pr', "<cmd>lua require('telescope').extensions.gh.pull_request()<CR>")
+
 --- SPECTRE
 map('n', '<leader>sr', "<cmd>lua require('spectre').open()<CR>")
 map('n', '<leader>sw', "<cmd>lua require('spectre').open_visual({select_word=true})<CR>")
 
 -- GLOW - Preview markdown files
 map("n", "<leader>mp", "<cmd>Glow<CR>", { silent = true})
+
+-- EMMET
+vim.g.user_emmet_leader_key = ','

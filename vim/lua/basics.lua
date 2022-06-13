@@ -1,6 +1,5 @@
 local v = vim
 local vset = v.opt
-v.g.mapleader = ' '
 
 vset.cursorline = true
 vset.hidden = true
