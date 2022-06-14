@@ -6,6 +6,22 @@ if not present then
 end
 
 local capabilities = cmpNvimLsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local null_ls = require('null-ls')
+local lsp_format = require('lsp-format')
+
+lsp_format.setup {
+  javascript = {
+    indent_width = 2,
+    order = { 'eslint', 'null-ls' }
+  },
+  typescript = {
+    indent_width = 2,
+    order = { 'eslint', 'null-ls' }
+  },
+  html = {
+    indent_width = 2
+  }
+}
 
 local on_attach = function (client, bufnr)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = 0})
@@ -16,6 +32,8 @@ local on_attach = function (client, bufnr)
 	vim.keymap.set("n", "]g", vim.diagnostic.goto_prev, { buffer = 0 })
 	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 })
 	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
+
+	lsp_format.on_attach(client)
 end
 
 	-- Lua setup
@@ -31,6 +49,14 @@ require'lspconfig'.sumneko_lua.setup {
 		},
 	},
 }
+
+	-- Null-ls setup
+require'null-ls'.setup({
+  sources = {
+    null_ls.builtins.formatting.prettierd
+  },
+  on_attach = on_attach
+})
 
 -- tsserver
 -- npm install -g typescript typescript-language-server

@@ -9,9 +9,7 @@ require('treesitter-config')
 require('nvim-tree-config')
 require('lsp-installer-config') -- must be called before lsp-config
 require('lsp-config')
-require('prettier-config')
 
-require('Comment').setup()
 require('nvim-autopairs').setup();
 
 local use = require('packer').use
@@ -61,6 +59,6 @@ return require('packer').startup(function()
 		requires = 'hrsh7th/nvim-cmp'
 	}
 	use {'jose-elias-alvarez/null-ls.nvim'}
-	use {'MunifTanjim/prettier.nvim'}
 	use { 'windwp/nvim-autopairs' }
+	use { "lukas-reineke/lsp-format.nvim" }
 end)
