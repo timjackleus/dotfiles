@@ -1,15 +1,15 @@
 local present, catppuccin = pcall(require, "catppuccin")
 
 if not present then
-   return
+	return
 end
 
-local cp = require'catppuccin.api.colors'.get_colors()
+local cp = require("catppuccin.api.colors").get_colors()
 
 -- overrides
 catppuccin.remap({
-  ErrorMsg = { fg = cp.red, style = "bold" },
-  TSProperty = { fg = cp.yellow, style = "NONE" },
+	ErrorMsg = { fg = cp.red, style = "bold" },
+	TSProperty = { fg = cp.yellow, style = "NONE" },
 	TSInclude = { fg = cp.teal, style = "NONE" },
 	TSOperator = { fg = cp.sky, style = "bold" },
 	TSKeywordOperator = { fg = cp.sky, style = "bold" },
@@ -43,7 +43,7 @@ catppuccin.remap({
 	cssTSProperty = { fg = cp.yellow, style = "NONE" },
 })
 
-catppuccin.setup {
+catppuccin.setup({
 	transparent_background = false,
 	term_colors = false,
 	styles = {
@@ -98,13 +98,13 @@ catppuccin.setup {
 		hop = false,
 		notify = true,
 		telekasten = true,
-	}
-}
+	},
+})
 
-vim.cmd[[colorscheme catppuccin]]
+vim.cmd([[colorscheme catppuccin]])
 
-require('lualine').setup {
+require("lualine").setup({
 	options = {
-		theme = 'catppuccin'
-	}
-}
+		theme = "catppuccin",
+	},
+})
