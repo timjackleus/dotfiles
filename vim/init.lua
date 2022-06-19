@@ -33,9 +33,7 @@ return require("packer").startup(function()
 	use({ "f-person/git-blame.nvim" })
 	use({ "neovim/nvim-lspconfig" })
 	use({ "lewis6991/gitsigns.nvim" })
-	use({
-		"williamboman/nvim-lsp-installer",
-	})
+	use({ "williamboman/nvim-lsp-installer" })
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -48,7 +46,6 @@ return require("packer").startup(function()
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 	use({
 		"hrsh7th/nvim-cmp",
@@ -61,19 +58,8 @@ return require("packer").startup(function()
 			"L3MON4D3/LuaSnip",
 		},
 	})
-	use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+	use({ "saadparwaiz1/cmp_luasnip" })
 	use({ "jose-elias-alvarez/null-ls.nvim" })
 	use({ "windwp/nvim-autopairs" })
 	use({ "lukas-reineke/lsp-format.nvim" })
-	-- use {
-	-- 	"folke/trouble.nvim",
-	-- 	requires = "kyazdani42/nvim-web-devicons",
-	-- 	config = function()
-	-- 		require("trouble").setup {
-	-- 			-- your configuration comes here
-	-- 			-- or leave it empty to use the default settings
-	-- 			-- refer to the configuration section below
-	-- 		}
-	-- 	end
-	-- }
 end)
