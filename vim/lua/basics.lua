@@ -18,7 +18,7 @@ vset.splitright = true
 vset.swapfile = false
 vset.tabstop = 2
 vset.termguicolors = true
-vset.updatetime = 150
+-- vset.updatetime = 150
 
 -- set.listchars = { tab = '▸ ', trail = '·'} -- highlight trailing spaces and tabs
 -- set.listchars = { tab = ' ', trail = '·'} -- highlight trailing spaces and tabs
