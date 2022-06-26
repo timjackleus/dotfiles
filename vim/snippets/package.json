@@ -6,6 +6,12 @@
 				"javascript", "typescript", "svelte"
 			],
 			"path": "./javascript.json"
+		},
+    {
+			"language": [
+				"svelte"
+			],
+			"path": "./svelte.json"
 		}]
 	}
 }
