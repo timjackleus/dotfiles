@@ -1,13 +1,11 @@
 {
 	"name": "custom snippets",
 	"contributes": {
-		"snippets": [
-			{
-				"language": [
-					"javascript", "typescript", "svelte"
-				],
-				"path": "./javascript.json"
-			}
-		]
+		"snippets": [{
+			"language": [
+				"javascript", "typescript", "svelte"
+			],
+			"path": "./javascript.json"
+		}]
 	}
 }
