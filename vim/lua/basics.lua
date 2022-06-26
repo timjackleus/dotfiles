@@ -19,7 +19,7 @@ vset.swapfile = false
 vset.tabstop = 2
 vset.termguicolors = true
 vset.expandtab = true -- convert tabs to spaces. Not happy with it though
--- vset.updatetime = 150
+vset.updatetime = 250
 
 -- set.listchars = { tab = '▸ ', trail = '·'} -- highlight trailing spaces and tabs
 -- set.listchars = { tab = ' ', trail = '·'} -- highlight trailing spaces and tabs
