@@ -1,12 +1,12 @@
 local present, telescope = pcall(require, "telescope")
 
 if not present then
-   return
+  return
 end
 
-local actions = require('telescope.actions')
+local actions = require("telescope.actions")
 
-telescope.setup {
+telescope.setup({
   defaults = {
     file_ignore_patterns = { "node_modules", ".git/*" },
     mappings = {
@@ -24,9 +24,8 @@ telescope.setup {
         },
         n = {
           ["<c-d>"] = require("telescope.actions").delete_buffer,
-        }
-      }
+        },
+      },
     },
   },
-}
-
+})

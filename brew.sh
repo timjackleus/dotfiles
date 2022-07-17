@@ -34,6 +34,7 @@ brew install p7zip
 brew install reattach-to-user-namespace
 brew install ripgrep
 brew install starship
+brew install stylua
 brew install tig
 brew install tmux
 brew install tree

@@ -1,12 +1,40 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "bash", "css", "dockerfile", "fish", "go", "html", "http", "javascript", "jsdoc", "json", "lua", "python", "rust", "scss", "svelte", "tsx", "typescript", "vim", "yaml" },
+local present, treesitter = pcall(require, "nvim-treesitter.configs")
+
+if not present then
+  return
+end
+
+local options = {
+  ensure_installed = {
+    "bash",
+    "css",
+    "dockerfile",
+    "fish",
+    "go",
+    "html",
+    "http",
+    "javascript",
+    "jsdoc",
+    "json",
+    "lua",
+    "python",
+    "rust",
+    "scss",
+    "svelte",
+    "tsx",
+    "typescript",
+    "vim",
+    "yaml",
+  },
   context_commentstring = {
-    enable = true
+    enable = true,
   },
   highlight = {
-    enable = true
+    enable = true,
   },
   indent = {
-    enable = true
-  }
+    enable = true,
+  },
 }
+
+treesitter.setup(options)

@@ -1,12 +1,14 @@
 local present, neogit = pcall(require, "neogit")
 
 if not present then
-   return
+  return
 end
 
-neogit.setup {
+local options = {
   commit_popup = {
-      kind = "split",
+    kind = "split",
   },
-  kind = 'vsplit',
+  kind = "vsplit",
 }
+
+neogit.setup(options)
