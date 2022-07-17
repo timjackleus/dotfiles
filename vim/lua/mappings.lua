@@ -37,7 +37,8 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { silent = true })
 
 -- TELESCOPE
 -- map('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>")
-map("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>")
+map("n", "<leader>f", "<cmd>lua require('telescope.builtin').git_files({hidden = true})<cr>")
+map("n", "<leader>af", "<cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>")
 map("n", "<leader>/", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 map("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<leader>k", "<cmd>lua require('telescope.builtin').grep_string()<CR>")
@@ -52,3 +53,7 @@ map("n", "<leader>mp", "<cmd>Glow<CR>", { silent = true })
 
 -- EMMET
 vim.g.user_emmet_leader_key = ","
+
+-- HOP
+map("n", "ss", "<cmd>lua require'hop'.hint_char2({})<CR>")
+map("n", "<leader>sv", "<cmd>lua require'hop'.hint_lines({})<CR>")

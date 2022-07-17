@@ -10,6 +10,7 @@ require("nvim-tree-config")
 require("lsp-installer-config") -- must be called before lsp-config
 require("lsp-config")
 require("gitsigns-config")
+require("hop-config")
 
 require("nvim-autopairs").setup()
 require("Comment").setup()
@@ -63,4 +64,8 @@ return require("packer").startup(function()
   use({ "windwp/nvim-autopairs" })
   use({ "lukas-reineke/lsp-format.nvim" })
   use({ "rafamadriz/friendly-snippets" })
+  use({
+    "phaazon/hop.nvim",
+    branch = "v1", -- optional but strongly recommended
+  })
 end)
