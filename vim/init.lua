@@ -6,7 +6,7 @@ require("neogit-config")
 require("lualine-config")
 require("gitblame-config")
 require("treesitter-config")
-require("nvim-tree-config")
+require("neotree-config")
 require("lsp-installer-config") -- must be called before lsp-config
 require("lsp-config")
 require("gitsigns-config")
@@ -43,9 +43,12 @@ return require("packer").startup(function()
     },
   })
   use({
-    "kyazdani42/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
     requires = {
-      "kyazdani42/nvim-web-devicons", -- optional, for file icon
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
     },
   })
   use({

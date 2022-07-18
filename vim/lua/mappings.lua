@@ -33,7 +33,7 @@ map("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
 map("n", "<leader>gb", "<cmd>GitBlameToggle<CR>", { silent = true })
 
 -- NVIM TREE
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { silent = true })
+map("n", "<leader>e", "<cmd>NeoTreeFloatToggle<CR>", { silent = true })
 
 -- TELESCOPE
 -- map('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>")
