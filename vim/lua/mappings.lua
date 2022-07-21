@@ -13,9 +13,10 @@ map("n", "<C-L>", "<C-W><C-L>")
 map("n", "<C-H>", "<C-W><C-H>")
 map("n", "<C-K>", "<C-W><C-K>")
 map("n", "<C-J>", "<C-W><C-J>")
-map("n", "<C-S>", "<cmd>%s/")
+map("n", "<C-S>", ":%s/")
 map("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 map("n", "<C-P>", "<C-^>")
+map("n", "<C-N>", "<cmd>luafile %<CR>", print("nvim reloaded"))
 
 --Remap for dealing with word wrap
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
