@@ -37,9 +37,7 @@ map("n", "<leader>gb", "<cmd>GitBlameToggle<CR>", { silent = true })
 map("n", "<leader>e", "<cmd>NeoTreeFloatToggle<CR>", { silent = true })
 
 -- TELESCOPE
--- map('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>")
-map("n", "<leader>f", "<cmd>lua require('telescope.builtin').git_files({hidden = true})<cr>")
-map("n", "<leader>af", "<cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>")
+map("n", "<Leader>f", "<cmd>lua require('telescope-config').project_files()<CR>", { noremap = true, silent = true })
 map("n", "<leader>/", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 map("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<leader>k", "<cmd>lua require('telescope.builtin').grep_string()<CR>")
