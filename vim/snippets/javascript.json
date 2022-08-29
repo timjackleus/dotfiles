@@ -1,18 +1,36 @@
 {
-	"Console log": {
-		"prefix": "cl",
-		"body": [
-			"console.log( $1 );",
-			""
-		],
-		"description": "console.log"
-	},
-	"Console log w. comment": {
-		"prefix": "clc",
-		"body": [
-			"console.log( '$1', $1 );",
-			""
-		],
-		"description": "console.log with comment"
-	}
+  "Console log": {
+    "prefix": "cl",
+    "body": ["console.log( $1 );", ""],
+    "description": "console.log"
+  },
+  "Console log w. comment": {
+    "prefix": "clc",
+    "body": ["console.log( '$1', $1 );", ""],
+    "description": "console.log with comment"
+  },
+  "Multiple Svelte SSR requests": {
+    "prefix": "sssr",
+    "body": [
+      "import { error } from '@sveltejs/kit';",
+      "import type { PageLoad } from './\\$types';",
+      "",
+      "export const load: PageLoad = async ({ fetch, params }) => {",
+      "  const [${1:first response}, ${2:second response}] = await Promise.all([",
+      "    fetch(`/api/v1/merchant/sessions/${params.id}`),",
+      "    fetch('/api/v1/merchant/stores')",
+      "  ]);",
+      "",
+      "  if ($1.ok && $2.ok) {",
+      "    return {",
+      "      session: (await $1.json()) as OrderSearchResponse,",
+      "      stores: (await $2.json()) as MerchantStore[]",
+      "    };",
+      "  }",
+      "  throw error(404, '');",
+      "};",
+      ""
+    ],
+    "description": "Multiple Svelte SSR requests"
+  }
 }
