@@ -23,9 +23,9 @@ map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Copy the entire buffer into the system register
-map("n", "<leader>co", "<esc>ggVGy<CR>", { silent = true })
+map("n", "<leader>co", "<cmd>%y<CR>", { silent = true })
 -- Copy the entire buffer into the clipboard
-map("n", "<leader>cp", "<esc>ggVGcp<CR>", { silent = true })
+map("n", "<leader>cy", "<esc>ggVGcp<CR>", { silent = true })
 
 -- NEOGIT
 map("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
@@ -37,11 +37,13 @@ map("n", "<leader>gb", "<cmd>GitBlameToggle<CR>", { silent = true })
 map("n", "<leader>e", "<cmd>NeoTreeFloatToggle<CR>", { silent = true })
 
 -- TELESCOPE
-map("n", "<Leader>f", "<cmd>lua require('telescope-config').project_files()<CR>", { noremap = true, silent = true })
-map("n", "<leader>/", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
+map("n", "<Leader>ff", "<cmd>lua require('telescope-config').project_files()<CR>", { noremap = true, silent = true })
+-- map("n", "<leader>/", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
+map("n", "<Leader>/", "<cmd>Telescope live_grep<CR>", { silent = true })
 map("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<leader>k", "<cmd>lua require('telescope.builtin').grep_string()<CR>")
 map("n", "<leader>pr", "<cmd>lua require('telescope').extensions.gh.pull_request()<CR>")
+map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>")
 
 --- SPECTRE
 map("n", "<leader>sr", "<cmd>lua require('spectre').open()<CR>")

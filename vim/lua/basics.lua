@@ -3,6 +3,7 @@ local vset = v.opt
 
 vset.cursorline = true
 vset.hidden = true
+vset.lazyredraw = true -- improve speed, not sure of downside in practice?
 vset.ignorecase = true
 vset.mouse = "a"
 vset.number = true -- display line numbers
@@ -19,13 +20,13 @@ vset.swapfile = false
 vset.tabstop = 2
 vset.termguicolors = true
 vset.expandtab = true -- convert tabs to spaces. Not happy with it though
-vset.updatetime = 250
+vset.updatetime = 100
+vset.list = true
+-- vset.spell = true
+vset.listchars = { tab = ">-" }
 
 -- remove trailing whitespaces
-v.cmd([[
-  autocmd BufWritePre * %s/\s\+$//e
-]])
-
-v.g["netrw_banner"] = 0
-v.g["netrw_liststyle"] = 3
-v.g["netrw_winsize"] = 25
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
