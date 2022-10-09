@@ -27,15 +27,10 @@ local options = {
 		"vim",
 		"yaml",
 	},
-	context_commentstring = {
-		enable = true,
-	},
-	highlight = {
-		enable = true,
-	},
-	indent = {
-		enable = true,
-	},
+	auto_install = true,
+	highlight = { enable = true },
+	context_commentstring = { enable = true },
+	indent = { enable = true },
 }
 
 treesitter.setup(options)
