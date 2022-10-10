@@ -55,6 +55,12 @@ map("n", "<leader>mp", "<cmd>Glow<CR>", { silent = true })
 -- EMMET
 vim.g.user_emmet_leader_key = ","
 
+-- HARPOON
+map("n", "<Leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", { desc = "harpoon - mark" })
+map("n", "<Leader>hm", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = "harpoon - toggle menu" })
+map("n", "<leader>hh", "<cmd>lua require('harpoon.ui').nav_next()<CR>", { desc = "harpoon - next file" })
+map("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", { desc = "harpoon - prev file" })
+
 -- HOP
 map("n", "ss", "<cmd>lua require'hop'.hint_char2({})<CR>")
 map("n", "<leader>sv", "<cmd>lua require'hop'.hint_lines({})<CR>")
