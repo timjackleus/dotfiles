@@ -24,6 +24,7 @@ map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Copy the entire buffer into the system register
 map("n", "<leader>co", "<cmd>%y<CR>", { silent = true })
+
 -- Copy the entire buffer into the clipboard
 map("n", "<leader>cy", "<esc>ggVGcp<CR>", { silent = true })
 
@@ -38,7 +39,6 @@ map("n", "<leader>e", "<cmd>NeoTreeFloatToggle<CR>", { silent = true })
 
 -- TELESCOPE
 map("n", "<Leader>ff", "<cmd>lua require('telescope-config').project_files()<CR>", { noremap = true, silent = true })
--- map("n", "<leader>/", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 map("n", "<Leader>/", "<cmd>Telescope live_grep<CR>", { silent = true })
 map("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<leader>k", "<cmd>lua require('telescope.builtin').grep_string()<CR>")
@@ -57,7 +57,7 @@ vim.g.user_emmet_leader_key = ","
 
 -- HARPOON
 map("n", "<Leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", { desc = "harpoon - mark" })
-map("n", "<Leader>hm", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = "harpoon - toggle menu" })
+map("n", "<Leader>hm", "<cmd>Telescope harpoon marks<CR>", { desc = "harpoon - toggle menu" })
 map("n", "<leader>hh", "<cmd>lua require('harpoon.ui').nav_next()<CR>", { desc = "harpoon - next file" })
 map("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", { desc = "harpoon - prev file" })
 

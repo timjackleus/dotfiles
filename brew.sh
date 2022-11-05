@@ -19,13 +19,14 @@ brew install archey
 brew install awscli
 brew install bat
 brew install cmake
+brew install deno
 brew install fish
 brew install fzf
+brew install gh
 brew install git
 brew install git-lfs
-brew install gh
-brew install go
 brew install gnu-sed
+brew install go
 brew install neovim
 brew install node # This installs 'npm' too using the recommended installation method
 brew install npm
@@ -34,6 +35,7 @@ brew install p7zip
 brew install reattach-to-user-namespace
 brew install ripgrep
 brew install starship
+brew install stylua
 brew install stylua
 brew install tig
 brew install tmux

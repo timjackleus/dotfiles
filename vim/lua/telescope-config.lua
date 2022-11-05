@@ -8,6 +8,8 @@ local M = {}
 
 local actions = require("telescope.actions")
 
+telescope.load_extension("harpoon")
+
 telescope.setup({
 	defaults = {
 		file_ignore_patterns = { "node_modules", ".git/*" },

@@ -1,7 +1,11 @@
 -- manage icons
 local function lspSymbol(name, icon)
 	local hl = "DiagnosticSign" .. name
-	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+	vim.fn.sign_define(hl, {
+		text = icon,
+		numhl = hl,
+		texthl = hl,
+	})
 end
 
 lspSymbol("Error", "")
@@ -19,7 +23,9 @@ vim.diagnostic.config({
 local lspconfig = require("lspconfig")
 
 local on_attach = function(_, bufnr)
-	local opts = { buffer = bufnr }
+	local opts = {
+		buffer = bufnr,
+	}
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
@@ -30,18 +36,33 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
-	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
-	vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { buffer = 0 })
-	vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { buffer = 0 })
-	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 })
-	vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", { buffer = 0 })
+	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {
+		buffer = 0,
+	})
+	vim.keymap.set("n", "]g", vim.diagnostic.goto_next, {
+		buffer = 0,
+	})
+	vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, {
+		buffer = 0,
+	})
+	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", {
+		buffer = 0,
+	})
+	vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", {
+		buffer = 0,
+	})
 
 	vim.api.nvim_create_autocmd("CursorHold", {
 		buffer = bufnr,
 		callback = function()
 			local option = {
 				focusable = false,
-				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+				close_events = {
+					"BufLeave",
+					"CursorMoved",
+					"InsertEnter",
+					"FocusLost",
+				},
 				border = "single",
 				source = "always",
 				prefix = " ",
@@ -54,7 +75,7 @@ end
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- Enable the following language servers
 local servers = { "svelte", "gopls", "eslint", "angularls" }
@@ -107,8 +128,12 @@ require("lspconfig").sumneko_lua.setup({
 	capabilities = capabilities,
 	settings = {
 		Lua = {
+			-- Disable this in favour of stylua
+			format = { enable = false },
 			diagnostics = {
-				globals = { "vim" },
+				globals = {
+					"vim",
+				},
 			},
 			telemetry = {
 				enable = false,
@@ -129,11 +154,15 @@ require("null-ls").setup({
 	on_attach = function(client, bufnr)
 		-- more info https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
 		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ buffer = bufnr })
+			vim.api.nvim_clear_autocmds({
+				buffer = bufnr,
+			})
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				buffer = bufnr,
 				callback = function()
-					vim.lsp.buf.format({ bufnr = bufnr })
+					vim.lsp.buf.format({
+						bufnr = bufnr,
+					})
 				end,
 			})
 		end
@@ -145,7 +174,11 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 local luasnip = require("luasnip")
 
 -- get custom snippets in vsc style
-require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
+require("luasnip.loaders.from_vscode").lazy_load({
+	paths = {
+		"./snippets",
+	},
+})
 
 local cmp = require("cmp")
 cmp.setup({
@@ -159,7 +192,9 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<CR>"] = cmp.mapping.confirm({
+			select = true,
+		}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
