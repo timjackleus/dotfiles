@@ -26,6 +26,7 @@ brew install --cask visual-studio-code
 # less often
 brew install --cask calibre
 brew install --cask freedome
+brew install --cask licecap
 brew install --cask vlc
 
 # fonts

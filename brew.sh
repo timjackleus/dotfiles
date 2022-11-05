@@ -36,16 +36,11 @@ brew install reattach-to-user-namespace
 brew install ripgrep
 brew install starship
 brew install stylua
-brew install stylua
 brew install tig
 brew install tmux
 brew install tree
 brew install yarn
 brew install zsh-syntax-highlighting
-
-# for movie editing e.g. making gifs
-brew install ffmpeg
-brew install gifsicle
 
 # Remove outdated versions from the cellar
 brew cleanup
