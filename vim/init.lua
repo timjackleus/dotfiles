@@ -86,4 +86,5 @@ return require("packer").startup(function()
 			})
 		end,
 	})
+	use({ "glepnir/lspsaga.nvim", branch = "main" })
 end)

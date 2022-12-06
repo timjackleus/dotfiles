@@ -13,14 +13,35 @@ lspSymbol("Info", "")
 lspSymbol("Hint", "")
 lspSymbol("Warn", "")
 
-vim.diagnostic.config({
-	virtual_text = false,
-	signs = true,
-	underline = true,
-	update_in_insert = false,
+local saga = require("lspsaga")
+
+saga.init_lsp_saga({
+	symbol_in_winbar = {
+		in_custom = true,
+	},
 })
 
+vim.keymap.set("n", "ge", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+vim.keymap.set("n", "rn", "<cmd>Lspsaga rename<CR>", { silent = true })
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+vim.keymap.set("n", "[e", function()
+	require("lspsaga.diagnostic").goto_prev()
+end, { silent = true })
+vim.keymap.set("n", "]e", function()
+	require("lspsaga.diagnostic").goto_next()
+end, { silent = true })
+
 local lspconfig = require("lspconfig")
+
+local function formatFile(bufnr)
+	vim.lsp.buf.format({
+		bufnr = bufnr,
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+	})
+end
 
 local on_attach = function(_, bufnr)
 	local opts = {
@@ -31,46 +52,12 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
-	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-	vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
-	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {
-		buffer = 0,
-	})
-	vim.keymap.set("n", "]g", vim.diagnostic.goto_next, {
-		buffer = 0,
-	})
-	vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, {
-		buffer = 0,
-	})
-	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", {
-		buffer = 0,
-	})
-	vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", {
-		buffer = 0,
-	})
-
-	vim.api.nvim_create_autocmd("CursorHold", {
-		buffer = bufnr,
-		callback = function()
-			local option = {
-				focusable = false,
-				close_events = {
-					"BufLeave",
-					"CursorMoved",
-					"InsertEnter",
-					"FocusLost",
-				},
-				border = "single",
-				source = "always",
-				prefix = " ",
-				scope = "cursor",
-			}
-			vim.diagnostic.open_float(nil, option)
-		end,
-	})
+	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 })
+	-- vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format()<cr>", { buffer = 0 })
+	--
+	vim.keymap.set("n", "<leader>fo", formatFile, { buffer = 0 })
 end
 
 -- nvim-cmp supports additional completion capabilities
@@ -78,7 +65,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { "svelte", "gopls", "eslint", "angularls" }
+local servers = { "svelte", "gopls", "eslint", "angularls", "cssls" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
@@ -162,6 +149,9 @@ require("null-ls").setup({
 				callback = function()
 					vim.lsp.buf.format({
 						bufnr = bufnr,
+						filter = function(client)
+							return client.name == "null-ls"
+						end,
 					})
 				end,
 			})
