@@ -27,7 +27,6 @@ local use = require("packer").use
 
 return require("packer").startup(function()
 	use({ "wbthomason/packer.nvim" })
-	use({ "mhinz/vim-startify" })
 	use({ "nvim-treesitter/nvim-treesitter" })
 	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 	use({ "numToStr/Comment.nvim" })
