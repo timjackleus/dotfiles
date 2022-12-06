@@ -21,9 +21,8 @@ vset.tabstop = 2
 vset.termguicolors = true
 vset.expandtab = true -- convert tabs to spaces. Not happy with it though
 vset.updatetime = 100
-vset.list = true
--- vset.spell = true
-vset.listchars = { tab = ">-" }
+vset.list = false
+vset.wrap = false
 
 -- remove trailing whitespaces
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
