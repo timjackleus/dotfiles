@@ -38,14 +38,14 @@ map("n", "<leader>gb", "<cmd>GitBlameToggle<CR>", { silent = true })
 map("n", "<leader>e", "<cmd>NeoTreeFloatToggle<CR>", { silent = true })
 
 -- TELESCOPE
-map("n", "<Leader>ff", "<cmd>lua require('telescope-config').project_files()<CR>", { noremap = true, silent = true })
+map("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true })
 map("n", "<Leader>/", "<cmd>Telescope live_grep<CR>", { silent = true })
-map("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
-map("n", "<leader>k", "<cmd>lua require('telescope.builtin').grep_string()<CR>")
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true })
+map("n", "<leader>fk", "<cmd>Telescope grep_string<CR>", { noremap = true, silent = true })
 map("n", "<leader>pr", "<cmd>lua require('telescope').extensions.gh.pull_request()<CR>")
-map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>")
 
---- SPECTRE
+--- SPECTRE (search and replace)
 map("n", "<leader>sr", "<cmd>lua require('spectre').open()<CR>")
 map("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>")
 
@@ -53,7 +53,7 @@ map("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=tru
 map("n", "<leader>mp", "<cmd>Glow<CR>", { silent = true })
 
 -- EMMET
-vim.g.user_emmet_leader_key = ","
+-- vim.g.user_emmet_leader_key = ","
 
 -- HARPOON
 map("n", "<Leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", { desc = "harpoon - mark" })

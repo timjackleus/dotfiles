@@ -4,4 +4,4 @@ if not present then
 	return
 end
 
-hop.setup({ keys = "etovxqpdygfblzhckisuran" })
+hop.setup()
