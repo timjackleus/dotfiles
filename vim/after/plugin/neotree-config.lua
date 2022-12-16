@@ -20,7 +20,6 @@ neotree.setup({
 			visible = true,
 			hide_dotfiles = false,
 			hide_gitignored = true,
-			hide_hidden = false,
 		},
 	},
 })
