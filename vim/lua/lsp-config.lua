@@ -1,3 +1,7 @@
+local status, lspconfig = pcall(require, "lspconfig")
+if not status then
+	return
+end
 -- manage icons
 local function lspSymbol(name, icon)
 	local hl = "DiagnosticSign" .. name
@@ -12,27 +16,6 @@ lspSymbol("Error", "")
 lspSymbol("Info", "")
 lspSymbol("Hint", "")
 lspSymbol("Warn", "")
-
-local saga = require("lspsaga")
-
-saga.init_lsp_saga({
-	symbol_in_winbar = {
-		in_custom = true,
-	},
-})
-
-vim.keymap.set("n", "ge", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
-vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-vim.keymap.set("n", "rn", "<cmd>Lspsaga rename<CR>", { silent = true })
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-vim.keymap.set("n", "[e", function()
-	require("lspsaga.diagnostic").goto_prev()
-end, { silent = true })
-vim.keymap.set("n", "]e", function()
-	require("lspsaga.diagnostic").goto_next()
-end, { silent = true })
-
-local lspconfig = require("lspconfig")
 
 local function formatFile(bufnr)
 	vim.lsp.buf.format({
@@ -73,23 +56,23 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-require("lspconfig").denols.setup({
+lspconfig.denols.setup({
 	-- Omitting some options
-	root_dir = require("lspconfig").util.root_pattern("deno.json"),
+	root_dir = lspconfig.util.root_pattern("deno.json"),
 
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-require("lspconfig").tsserver.setup({
+lspconfig.tsserver.setup({
 	-- Omitting some options
-	root_dir = require("lspconfig").util.root_pattern("package.json"),
+	root_dir = lspconfig.util.root_pattern("package.json"),
 
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-require("lspconfig").intelephense.setup({
+lspconfig.intelephense.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	intelephense = {
@@ -110,7 +93,7 @@ require("lspconfig").intelephense.setup({
 	},
 })
 
-require("lspconfig").sumneko_lua.setup({
+lspconfig.sumneko_lua.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -128,35 +111,3 @@ require("lspconfig").sumneko_lua.setup({
 		},
 	},
 })
-
-require("null-ls").setup({
-	debug = true,
-	sources = {
-		require("null-ls").builtins.diagnostics.eslint_d,
-		require("null-ls").builtins.formatting.stylua,
-		require("null-ls").builtins.formatting.eslint_d,
-		require("null-ls").builtins.formatting.gofmt,
-		require("null-ls").builtins.formatting.prettierd,
-	},
-	on_attach = function(client, bufnr)
-		-- more info https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({
-				buffer = bufnr,
-			})
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({
-						bufnr = bufnr,
-						filter = function(client)
-							return client.name == "null-ls"
-						end,
-					})
-				end,
-			})
-		end
-	end,
-})
--- Setup nvim-cmp.
-vim.opt.completeopt = { "menu", "menuone", "noselect" }

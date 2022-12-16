@@ -7,7 +7,9 @@ end
 
 require("basics")
 require("mappings")
+require("lsp-saga")
 require("lsp-config")
+require("null-ls-config")
 require("hop-config")
 
 require("nvim-autopairs").setup()
@@ -61,11 +63,11 @@ return require("packer").startup(function()
 			"L3MON4D3/LuaSnip",
 		},
 	})
-	use({ "saadparwaiz1/cmp_luasnip" })
-	use({ "jose-elias-alvarez/null-ls.nvim" })
-	use({ "windwp/nvim-autopairs" })
-	use({ "lukas-reineke/lsp-format.nvim" })
-	use({ "rafamadriz/friendly-snippets" })
+	use("saadparwaiz1/cmp_luasnip")
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("windwp/nvim-autopairs")
+	use("lukas-reineke/lsp-format.nvim")
+	use("rafamadriz/friendly-snippets")
 	use({ "phaazon/hop.nvim", branch = "v2" })
 	use({
 		"kylechui/nvim-surround",

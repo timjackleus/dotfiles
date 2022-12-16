@@ -44,6 +44,7 @@ map("n", "<Leader>/", "<cmd>Telescope live_grep<CR>", { silent = true })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true })
 map("n", "<leader>fk", "<cmd>Telescope grep_string<CR>", { noremap = true, silent = true })
 map("n", "<leader>pr", "<cmd>lua require('telescope').extensions.gh.pull_request()<CR>")
+map("n", "<leader>fq", "Telescope quickfix<CR>", { noremap = true, silent = true })
 
 --- SPECTRE (search and replace)
 map("n", "<leader>sr", "<cmd>lua require('spectre').open()<CR>")

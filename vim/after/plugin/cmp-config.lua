@@ -9,6 +9,9 @@ require("luasnip.loaders.from_vscode").lazy_load({
 	},
 })
 
+-- Setup nvim-cmp.
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
