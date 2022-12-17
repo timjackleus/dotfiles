@@ -18,15 +18,38 @@ map("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 map("n", "<C-P>", "<C-^>")
 map("n", "<C-N>", "<cmd>luafile %<CR>", print("nvim reloaded"), { buffer = true })
 
+-- move highlighted rows
+map("v", "K", ":m	'<-2<CR>gv=gv")
+map("v", "J", ":m	'>+1<CR>gv=gv")
+
+-- keep cursor position after join line
+map("n", "J", "mzJ`z")
+
+-- yank to clipboard
+map("n", "<leader>y", '"+y')
+map("v", "<leader>y", '"+y')
+map("n", "<leader>Y", '"+Y')
+
+-- dissable Q
+map("n", "Q", "<nop>")
+
 --Remap for dealing with word wrap
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- search and replace in buffer
+map("n", "<leader>sa", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Copy the entire buffer into the system register
 map("n", "<leader>co", "<cmd>%y<CR>", { silent = true })
 
 -- Copy the entire buffer into the clipboard
 map("n", "<leader>cy", "<esc>ggVGcp<CR>", { silent = true })
+
+-- use m to scroll down, and keep cursor in middle
+map("n", "<C-m>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 
 -- NEOGIT
 map("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
