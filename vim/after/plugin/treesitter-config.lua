@@ -10,6 +10,7 @@ local options = {
 		"dockerfile",
 		"fish",
 		"go",
+		"help",
 		"html",
 		"http",
 		"javascript",

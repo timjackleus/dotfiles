@@ -57,8 +57,11 @@ map("n", "<leader>mp", "<cmd>Glow<CR>", { silent = true })
 -- vim.g.user_emmet_leader_key = ","
 
 -- HARPOON
-map("n", "<Leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", { desc = "harpoon - mark" })
-map("n", "<Leader>hm", "<cmd>Telescope harpoon marks<CR>", { desc = "harpoon - toggle menu" })
+map("n", "<Leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>", { desc = "harpoon - mark" })
+map("n", "<c-e>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = "harpoon - toggle menu" })
+map("n", "<c-f>", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", { desc = "harpoon - nav file 1" })
+map("n", "<c-d>", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", { desc = "harpoon - nav file 2" })
+map("n", "<c-s>", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", { desc = "harpoon - nav file 3" })
 map("n", "<leader>hh", "<cmd>lua require('harpoon.ui').nav_next()<CR>", { desc = "harpoon - next file" })
 map("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", { desc = "harpoon - prev file" })
 

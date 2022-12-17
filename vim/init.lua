@@ -23,7 +23,7 @@ return require("packer").startup(function()
 	use("nvim-lua/plenary.nvim") -- common utilities, req by many plugins
 	use("kyazdani42/nvim-web-devicons") -- File icons
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
-	use("nvim-treesitter/nvim-treesitter")
+	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("TimUntersberger/neogit")
 	use("numToStr/Comment.nvim")
 	use("christoomey/vim-system-copy")
