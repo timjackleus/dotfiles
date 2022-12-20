@@ -33,6 +33,13 @@ map("n", "<leader>Y", '"+Y')
 -- dissable Q
 map("n", "Q", "<nop>")
 
+-- place next search term in vertical center
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
+-- paste without overriding last yanked
+map("x", "<leader>p", '"_dp')
+
 --Remap for dealing with word wrap
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -75,9 +82,6 @@ map("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=tru
 
 -- GLOW - Preview markdown files
 map("n", "<leader>mp", "<cmd>Glow<CR>", { silent = true })
-
--- EMMET
--- vim.g.user_emmet_leader_key = ","
 
 -- HARPOON
 map("n", "<Leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>", { desc = "harpoon - mark" })
