@@ -68,7 +68,7 @@ map("n", "<leader>gb", "<cmd>GitBlameToggle<CR>", { silent = true })
 map("n", "<leader>e", "<cmd>NeoTreeFloatToggle<CR>", { silent = true })
 
 -- TELESCOPE
-map("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
+map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", { noremap = true, silent = true })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true })
 map("n", "<Leader>/", "<cmd>Telescope live_grep<CR>", { silent = true })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true })
