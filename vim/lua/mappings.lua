@@ -19,6 +19,10 @@ map("n", "<C-P>", "<C-^>")
 map("n", "<C-N>", "<cmd>luafile %<CR>", print("nvim reloaded"), { buffer = true })
 
 -- move highlighted rows
+map("n", "d]", ":cnext<CR>")
+map("n", "d[", ":cprev<CR>")
+
+-- move highlighted rows
 map("v", "K", ":m	'<-2<CR>gv=gv")
 map("v", "J", ":m	'>+1<CR>gv=gv")
 
