@@ -38,7 +38,7 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 	vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
 	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 })
-	-- vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format()<cr>", { buffer = 0 })
+	vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format()<cr>", { buffer = 0 })
 	--
 	vim.keymap.set("n", "<leader>fo", formatFile, { buffer = 0 })
 end
@@ -48,21 +48,13 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { "svelte", "gopls", "eslint", "angularls", "cssls" }
+local servers = { "svelte", "gopls", "eslint", "cssls", "emmet_ls", "angularls" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
 end
-
-lspconfig.denols.setup({
-	-- Omitting some options
-	root_dir = lspconfig.util.root_pattern("deno.json"),
-
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
 
 lspconfig.tsserver.setup({
 	-- Omitting some options

@@ -10,6 +10,6 @@ end
 mason.setup({})
 
 lspconfig.setup({
-	ensure_installed = { "sumneko_lua", "angularls", "gopls", "cssls", "tsserver", "svelte", "eslint" },
+	ensure_installed = { "sumneko_lua", "angularls", "gopls", "cssls", "tsserver", "svelte", "eslint", "emmet_ls" },
 	automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
 })
