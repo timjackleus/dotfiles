@@ -20,7 +20,7 @@ null_ls.setup({
 		require("null-ls").builtins.formatting.eslint_d,
 		require("null-ls").builtins.formatting.gofmt,
 		require("null-ls").builtins.formatting.prettierd.with({
-			filetypes = { "svelte" },
+			filetypes = { "svelte", "html", "css" },
 		}),
 	},
 	on_attach = function(client, bufnr)
