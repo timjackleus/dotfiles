@@ -28,7 +28,6 @@ brew install git-lfs
 brew install gnu-sed
 brew install go
 brew install neovim
-brew install node # This installs 'npm' too using the recommended installation method
 brew install npm
 brew install nvm
 brew install p7zip
