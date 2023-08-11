@@ -9,6 +9,7 @@ local lsp_formatting = function(bufnr)
 			return client.name == "null-ls"
 		end,
 		bufnr = bufnr,
+		timeout_ms = 2000,
 	})
 end
 
@@ -20,7 +21,7 @@ null_ls.setup({
 		require("null-ls").builtins.formatting.eslint_d,
 		require("null-ls").builtins.formatting.gofmt,
 		require("null-ls").builtins.formatting.prettierd.with({
-			filetypes = { "svelte", "html", "css" },
+			filetypes = { "svelte", "html", "css", "typescript" },
 		}),
 	},
 	on_attach = function(client, bufnr)

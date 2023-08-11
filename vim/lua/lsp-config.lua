@@ -38,9 +38,11 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 	vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
 	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer = 0 })
-	vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format()<cr>", { buffer = 0 })
+	-- vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format()<cr>", { buffer = 0 })
 	--
-	vim.keymap.set("n", "<leader>fo", formatFile, { buffer = 0 })
+	-- vim.keymap.set("n", "<leader>fo", formatFile, { buffer = 0 })
+
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>fo", "", { callback = vim.lsp.buf.format })
 end
 
 -- nvim-cmp supports additional completion capabilities
@@ -85,7 +87,7 @@ lspconfig.intelephense.setup({
 	},
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {

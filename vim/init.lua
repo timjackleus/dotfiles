@@ -7,7 +7,6 @@ end
 
 require("basics")
 require("mappings")
-require("lsp-saga")
 require("lsp-config")
 require("null-ls-config")
 require("hop-config")
@@ -15,6 +14,7 @@ require("hop-config")
 require("nvim-autopairs").setup()
 require("Comment").setup()
 require("nvim-surround").setup()
+require("colorizer").setup()
 
 local use = require("packer").use
 
@@ -29,9 +29,10 @@ return require("packer").startup(function()
 	use("ellisonleao/glow.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("nvim-lualine/lualine.nvim")
-	use("windwp/nvim-spectre")
-	use("ThePrimeagen/harpoon")
 	use("dinhhuy258/git.nvim")
+	use("windwp/nvim-spectre")
+	use("norcalli/nvim-colorizer.lua")
+	use("ThePrimeagen/harpoon")
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
@@ -72,5 +73,28 @@ return require("packer").startup(function()
 			require("nvim-surround").setup({})
 		end,
 	})
-	use({ "glepnir/lspsaga.nvim", branch = "main" })
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = function()
+			require("lspsaga").setup({ symbol_in_winbar = { enable = false } })
+		end,
+	})
+	use({
+		"alexghergh/nvim-tmux-navigation",
+		config = function()
+			require("nvim-tmux-navigation").setup({
+				disable_when_zoomed = true, -- defaults to false
+				keybindings = {
+					left = "<C-h>",
+					down = "<C-j>",
+					up = "<C-k>",
+					right = "<C-l>",
+					last_active = "<C-\\>",
+					next = "<C-Space>",
+				},
+			})
+		end,
+	})
 end)
+

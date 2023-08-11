@@ -1,8 +1,10 @@
 local vset = vim.opt
 
+vim.g.gitblame_enabled = 0
+
 vset.cursorline = true
 vset.hidden = true
-vset.lazyredraw = true -- improve speed, not sure of downside in practice?
+-- vset.lazyredraw = true -- improve speed, not sure of downside in practice?
 vset.ignorecase = true
 vset.mouse = "a" -- enable mouse in all modes
 vset.number = true -- display line numbers
@@ -20,6 +22,7 @@ vset.termguicolors = true
 vset.updatetime = 100
 vset.list = false
 vset.wrap = false
+vset.winbar = ""
 vset.wildignore:append({ "*/node_modules/*" })
 
 -- remove trailing whitespaces
