@@ -39,6 +39,8 @@ $ ./alacritty/.init
 
 ### Setup tmux and vim
 
+Currently based on [LazyVim](https://www.lazyvim.org/).
+
 ```
 $ ./tmux/.init
 $ ./vim/.init
