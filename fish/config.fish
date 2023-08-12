@@ -14,6 +14,11 @@ export TERM=xterm-256color
 export BAT_THEME="TwoDark"
 # export PATH=/opt/homebrew/bin:$PATH
 
+# set node version with nvm if .nvmrc exist
+if test -e ./.nvmrc
+    nvm use
+end
+
 # set locale (used in tmux bar etc)
 export LC_ALL=en_US.UTF-8
 
@@ -48,35 +53,8 @@ alias tmuxt='tmux attach\; choose-tree -Zs'
 alias ssh='TERM=xterm-256color ssh'
 
 function glb -d "Fuzzy-find and checkout a branch"
-  git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+    git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
 end
-
-# Fish syntax highlighting
-# inspired by onedark
-set -g fish_color_normal 'white'
-set -g fish_color_command 'brmagenta'
-set -g fish_color_quote 'brgreen'
-set -g fish_color_redirection 'brcyan'
-set -g fish_color_end 'white'
-set -g fish_color_error 'brred'
-set -g fish_color_param 'brred'
-set -g fish_color_comment 'brblack'
-set -g fish_color_match 'brcyan'
-set -g fish_color_search_match 'blue'
-set -g fish_color_operator 'brmagenta'
-set -g fish_color_escape 'brcyan'
-set -g fish_color_cwd 'brred'
-set -g fish_color_autosuggestion 'white'
-set -g fish_color_valid_path 'brred'
-set -g fish_color_history_current 'brcyan'
-set -g fish_color_selection 'brblack'
-set -g fish_color_user 'brblue'
-set -g fish_color_host 'brgreen'
-set -g fish_color_cancel 'brblack'
-set -g fish_pager_color_completion 'white'
-set -g fish_pager_color_prefix 'brgreen'
-set -g fish_pager_color_description 'white'
-set -g fish_pager_color_progress 'white'
 
 # The next line updates PATH for Netlify's Git Credential Helper.
 # test -f '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc' && source '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc'
