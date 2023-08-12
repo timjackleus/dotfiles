@@ -40,7 +40,6 @@ brew install tig
 brew install tmux
 brew install tree
 brew install yarn
-brew install zsh-syntax-highlighting
 
 # Remove outdated versions from the cellar
 brew cleanup
