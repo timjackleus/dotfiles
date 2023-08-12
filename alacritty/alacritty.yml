@@ -26,26 +26,26 @@ scrolling:
 # Blex = IBM Plex mono with Nerdfont patch
 font:
   normal:
-    family: BlexMono Nerd Font Mono
-    style: Text
+    family: Hack Nerd Font Propo
+    style: Regular
 
   bold:
-    family: BlexMono Nerd Font Mono
-    style: SemiBold
+    family: Hack Nerd Font Propo
+    style: Bold
 
   italic:
-    family: BlexMono Nerd Font Mono
+    family: Hack Nerd Font Propo
     style: Italic
 
   bold_italic:
-    family: BlexMono Nerd Font Mono
-    style: Italic
+    family: Hack Nerd Font Propo
+    style: Bold Italic
 
   size: 13
 
   offset:
     x: 0
-    y: 10
+    y: 14
 
   glyph_offset:
     x: 0
