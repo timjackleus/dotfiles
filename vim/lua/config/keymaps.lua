@@ -35,9 +35,6 @@ map("n", "<leader>Y", '"+Y')
 -- NEOGIT
 map("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
 
--- NEOTREE
-map("n", "<leader>e", "<cmd>Neotree float reveal<CR>", { silent = false })
-
 -- HARPOON
 map("n", "<Leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>", { desc = "harpoon - mark" })
 map("n", "<c-e>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = "harpoon - toggle menu" })

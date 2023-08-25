@@ -2,10 +2,10 @@ return {
   -- file explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
+    keys = {
+      { "<leader>e", "<cmd>Neotree toggle reveal float<cr>" },
+    },
     cmd = "Neotree",
-    init = function()
-      vim.g.neo_tree_remove_legacy_commands = 0
-    end,
     opts = {
       window = {
         position = "left",
@@ -20,13 +20,11 @@ return {
       },
       filesystem = {
         filtered_items = {
-          visible = true,
           hide_dotfiles = false,
           hide_gitignored = true,
         },
       },
       event_handlers = {
-
         {
           event = "file_opened",
           handler = function()
