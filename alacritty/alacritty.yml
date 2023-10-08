@@ -23,25 +23,24 @@ scrolling:
   history: 10000
   multiplier: 3
 
-# Blex = IBM Plex mono with Nerdfont patch
 font:
   normal:
-    family: Hack Nerd Font Propo
-    style: Regular
+    family: VictorMono Nerd Font Propo
+    style: SemiBold
 
   bold:
-    family: Hack Nerd Font Propo
+    family: VictorMono Nerd Font Propo
     style: Bold
 
   italic:
-    family: Hack Nerd Font Propo
+    family: VictorMono Nerd Font Propo
     style: Italic
 
   bold_italic:
-    family: Hack Nerd Font Propo
+    family: VictorMono Nerd Font Propo
     style: Bold Italic
 
-  size: 13
+  size: 14
 
   offset:
     x: 0

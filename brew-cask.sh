@@ -2,7 +2,6 @@
 
 # daily
 brew install --cask alfred
-brew install --cask dropbox
 brew install --cask enpass
 brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask franz
@@ -21,18 +20,21 @@ brew install --cask docker
 brew install --cask docker-toolbox
 brew install --cask imageoptim
 brew install --cask insomnia
-brew install --cask visual-studio-code
 
 # less often
 brew install --cask calibre
 brew install --cask freedome
 brew install --cask licecap
 brew install --cask vlc
+brew install --cask visual-studio-code
 
 # fonts
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
+brew install --cask font-fira-code-nerd-font
 brew install --cask font-hack
+brew install --cask font-hack-nerd-font
 brew install --cask font-ibm-plex
 brew install --cask font-input
 brew install --cask font-victor-mono
+brew install --cask font-victor-mono-nerd-font
