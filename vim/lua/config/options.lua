@@ -2,10 +2,14 @@ local vset = vim.opt
 
 vim.g.gitblame_enabled = 0
 
+-- avoid root directory suddenly change
+vim.g.root_spec = { "cwd" }
+
 vset.list = false
 vset.hidden = true
 vset.swapfile = false
 vset.clipboard = "" -- dont save to clipboard
+vset.conceallevel = 0
 
 -- remove trailing whitespaces
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
