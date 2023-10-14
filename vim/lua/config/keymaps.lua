@@ -35,6 +35,12 @@ v.keymap.set("n", "<leader>y", '"+y')
 v.keymap.set("v", "<leader>y", '"+y')
 v.keymap.set("n", "<leader>Y", '"+Y')
 
+-- multicursor alternative
+vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>/", { desc = "Replace word under cursor" })
+vim.keymap.set({ "n", "v" }, "<leader>rW", function()
+  return ":" .. vim.fn.line(".") .. "s/<C-r><C-w>/ /g<left><left><C-h>"
+end, { expr = true, desc = "Replace word under cursor on current line" })
+
 -- NEOGIT
 v.keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
 
