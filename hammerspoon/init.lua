@@ -65,6 +65,15 @@ local function positionCurrentWindow(position)
 	setMeasurements(win, position)
 end
 
+-- Helper function swap screen if using multiple monitors
+local function swapScreen()
+	local win = hs.window.focusedWindow()
+	local nextScreen = win:screen():next()
+	if nextScreen then
+		win:moveToScreen(nextScreen)
+	end
+end
+
 -- Window setup for large monitors
 hs.hotkey.bind({ "alt", "shift", "ctrl" }, "Q", function()
 	positionAppWindows("Google Chrome", "left")
@@ -75,6 +84,10 @@ hs.hotkey.bind({ "alt", "shift", "ctrl" }, "Q", function()
 	positionAppWindows("Notion", "right")
 	positionAppWindows("Teams", "right")
 	positionAppWindows("Slack", "right")
+end)
+
+hs.hotkey.bind({ "alt", "shift", "ctrl" }, "W", function()
+	swapScreen()
 end)
 
 hs.hotkey.bind({ "alt", "shift", "ctrl" }, "H", function()
