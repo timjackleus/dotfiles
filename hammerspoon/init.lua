@@ -1,6 +1,9 @@
 -- declare hammerspoon as a global
 local hs = hs
 
+-- use spothligt to find alternate names for apps
+hs.application.enableSpotlightForNameSearches(true)
+
 -- remove animations
 hs.window.animationDuration = 0
 
@@ -32,16 +35,32 @@ end
 
 -- Helper function to position app windows
 local function positionAppWindows(appName, position)
-	local appWindows = hs.appfinder.appFromName(appName):allWindows()
+	local app = hs.appfinder.appFromName(appName)
 
-	for _, win in pairs(appWindows) do
-		setMeasurements(win, position)
+	if not app then
+		print("App not found: " .. appName)
+		return
+	end
+
+	local appWindows = app:allWindows()
+
+	for _, window in pairs(appWindows) do
+		local screen = window:screen()
+		local screenFrame = screen:frame()
+
+		if screenFrame.w > 1440 then
+			setMeasurements(window, position)
+		else
+			setMeasurements(window, "center")
+		end
 	end
 end
 
 -- Helper function to position focused window
 local function positionCurrentWindow(position)
 	local win = hs.window.focusedWindow()
+	-- local nextScreen = win:screen():next();
+	-- print(nextScreen
 
 	setMeasurements(win, position)
 end
@@ -56,18 +75,6 @@ hs.hotkey.bind({ "alt", "shift", "ctrl" }, "Q", function()
 	positionAppWindows("Notion", "right")
 	positionAppWindows("Teams", "right")
 	positionAppWindows("Slack", "right")
-end)
-
--- Window setup for laptop
-hs.hotkey.bind({ "alt", "shift", "ctrl" }, "W", function()
-	positionAppWindows("Google Chrome", "center")
-	positionAppWindows("Firefox", "center")
-	positionAppWindows("Figma", "center")
-	positionAppWindows("Alacritty", "center")
-	positionAppWindows("Enpass", "center")
-	positionAppWindows("Notion", "center")
-	positionAppWindows("Teams", "center")
-	positionAppWindows("Slack", "center")
 end)
 
 hs.hotkey.bind({ "alt", "shift", "ctrl" }, "H", function()
