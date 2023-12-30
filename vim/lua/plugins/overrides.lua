@@ -1,74 +1,4 @@
 return {
-  -- file explorer
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    keys = {
-      { "<leader>e", "<cmd>Neotree toggle reveal float<cr>" },
-    },
-    cmd = "Neotree",
-    opts = {
-      window = {
-        position = "left",
-        toggle = true,
-        mappings = {
-          ["l"] = "open",
-          ["h"] = "open",
-          ["<c-s>"] = "open_split",
-          ["<c-v>"] = "open_vsplit",
-          ["<esc>"] = "close_window",
-        },
-      },
-      filesystem = {
-        filtered_items = {
-          hide_dotfiles = false,
-          hide_gitignored = true,
-        },
-      },
-      event_handlers = {
-        {
-          event = "file_opened",
-          handler = function()
-            --auto close
-            require("neo-tree").close_all()
-          end,
-        },
-      },
-    },
-  },
-
-  -- fuzzy finder
-  {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      { "<leader>gs", vim.NIL },
-    },
-    cmd = "Telescope",
-    opts = {
-      defaults = {
-        file_ignore_patterns = { "node_modules", ".git/*" },
-        mappings = {
-          i = {
-            ["<esc>"] = require("telescope.actions").close,
-          },
-        },
-      },
-      pickers = {
-        buffers = {
-          sort_lastused = true,
-          mappings = {
-            i = {
-              ["<c-d>"] = require("telescope.actions").delete_buffer,
-              ["<c-s>"] = require("telescope.actions").select_horizontal,
-            },
-            n = {
-              ["<c-d>"] = require("telescope.actions").delete_buffer,
-              ["<c-s>"] = require("telescope.actions").select_horizontal,
-            },
-          },
-        },
-      },
-    },
-  },
   {
     "nvim-lualine/lualine.nvim",
     opts = {
@@ -112,6 +42,35 @@ return {
       draw = {
         delay = 0,
         animation = require("mini.indentscope").gen_animation.none(),
+      },
+    },
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip.loaders.from_vscode").load({ paths = "~/.config/nvim//snippets/" })
+    end,
+  },
+  {
+    "ThePrimeagen/harpoon",
+    opts = {
+      tabline = true,
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = { eslint = {} },
+      setup = {
+        eslint = function()
+          require("lazyvim.util").lsp.on_attach(function(client)
+            if client.name == "eslint" then
+              client.server_capabilities.documentFormattingProvider = true
+            elseif client.name == "tsserver" then
+              client.server_capabilities.documentFormattingProvider = false
+            end
+          end)
+        end,
       },
     },
   },
