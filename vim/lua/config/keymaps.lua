@@ -61,8 +61,9 @@ v.keymap.set("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>",
 
 -- TELESCOPE
 v.keymap.set("n", "<leader>fk", "<cmd>Telescope grep_string<CR>", { noremap = true, silent = true })
-v.keymap.set("n", "<leader>pr", "<cmd>lua require('telescope').extensions.gh.pull_request()<CR>")
-v.keymap.set("n", "<leader>fq", "Telescope quickfix<CR>", { noremap = true, silent = true })
+-- v.keymap.set("n", "<leader>pr", "<cmd>lua require('telescope').extensions.gh.pull_request()<CR>")
+v.keymap.set("n", "<leader>p", "<cmd>Telescope neoclip<CR>", { noremap = true, silent = true })
+v.keymap.set("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", { noremap = true, silent = true })
 
 -- TMUX_NAVIGATOR
 v.keymap.set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })
