@@ -37,7 +37,7 @@ return {
     filesystem = {
       filtered_items = {
         hide_dotfiles = false,
-        hide_gitignored = false,
+        hide_gitignored = true, -- node_modules etc
       },
     },
     event_handlers = {

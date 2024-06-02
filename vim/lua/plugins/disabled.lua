@@ -8,4 +8,6 @@ return {
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
   { "ggandor/leap.nvim", enabled = false },
   { "folke/flash.nvim", enabled = true },
+  { "nvim-treesitter/nvim-treesitter-context", enabled = false },
+  { "MunifTanjim/nui.nvim", enabled = true }, -- unable to remove atm
 }
