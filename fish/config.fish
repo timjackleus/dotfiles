@@ -60,5 +60,16 @@ function glb -d "Fuzzy-find and checkout a branch"
     git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
 end
 
+function killport -d "Kill process running on the specified port"
+    set port $argv[1]
+    set pid (lsof -ti tcp:$port)
+    if test -n "$pid"
+        kill -9 $pid
+        echo "Killed process $pid running on port $port"
+    else
+        echo "No process running on port $port"
+    end
+end
+
 # The next line updates PATH for Netlify's Git Credential Helper.
 # test -f '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc' && source '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc'
