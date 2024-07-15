@@ -21,6 +21,7 @@ brew install bat
 brew install cmake
 brew install deno
 brew install fish
+brew install fd # better than find
 brew install fzf
 brew install gh
 brew install git

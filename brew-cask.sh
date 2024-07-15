@@ -13,6 +13,7 @@ brew install --cask notion
 brew install --cask signal
 brew install --cask slack
 brew install --cask spotify
+brew install --cask whatsapp
 
 # dev
 brew install --cask alacritty
@@ -24,9 +25,10 @@ brew install --cask insomnia
 # less often
 brew install --cask calibre
 brew install --cask freedome
+brew install --cask keycastr
 brew install --cask licecap
-brew install --cask vlc
 brew install --cask visual-studio-code
+brew install --cask vlc
 
 # fonts
 brew tap homebrew/cask-fonts
