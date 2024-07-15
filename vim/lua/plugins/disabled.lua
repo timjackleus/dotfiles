@@ -10,4 +10,5 @@ return {
   { "folke/flash.nvim", enabled = true },
   { "nvim-treesitter/nvim-treesitter-context", enabled = false },
   { "MunifTanjim/nui.nvim", enabled = true }, -- unable to remove atm
+  { "garymjr/nvim-snippets", enabled = false }, -- cannot get custom snippets to work yet
 }

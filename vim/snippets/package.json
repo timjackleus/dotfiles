@@ -1,5 +1,8 @@
 {
   "name": "customsnippets",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
   "contributes": {
     "snippets": [
       {
