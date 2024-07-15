@@ -1,5 +1,9 @@
-# Set fish path
-fish_add_path /opt/homebrew/bin
+function fish_greeting
+    echo ''(set_color D7ADED)(whoami)'@'(hostname)'
+'(set_color C2C4FC)'Uptime: '(set_color white)(uptime | sed 's/.*up \([^,]*\), .*/\1/')(set_color red)'
+'(set_color EFC6C7)'IP Address: '(set_color white)(ipconfig getifaddr en0)(set_color red)'
+'(set_color ADE4DC)'Fish version: '(set_color white)(echo $FISH_VERSION)(set_color red)''
+end
 
 # Use Starship theme
 starship init fish | source
