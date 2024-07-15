@@ -1,5 +1,5 @@
 live_config_reload = true
-import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/themes/selected-theme.toml"]
 
 [env]
 TERM = "xterm-256color"
