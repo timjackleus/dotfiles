@@ -39,23 +39,18 @@ vim.keymap.set({ "n", "v" }, "<leader>rW", function()
   return ":" .. vim.fn.line(".") .. "s/<C-r><C-w>/ /g<left><left><C-h>"
 end, { expr = true, desc = "Replace word under cursor on current line" })
 
--- NEOGIT
-vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
-
 -- HARPOON
-vim.keymap.set("n", "<Leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>", { desc = "harpoon - mark" })
-vim.keymap.set(
-  "n",
-  "<leader>he",
-  "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
-  { desc = "harpoon - toggle menu" }
-)
-vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", { desc = "harpoon - nav file 1" })
-vim.keymap.set("n", "<leader>hs", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", { desc = "harpoon - nav file 2" })
-vim.keymap.set("n", "<leader>hd", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", { desc = "harpoon - nav file 3" })
-vim.keymap.set("n", "<leader>hf", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", { desc = "harpoon - nav file 4" })
+vim.keymap.set("n", "<Leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>")
+vim.keymap.set("n", "<leader>he", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
+vim.keymap.set("n", "<C-z>", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", { desc = "harpoon - nav file 1" })
+vim.keymap.set("n", "<C-x>", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", { desc = "harpoon - nav file 2" })
+vim.keymap.set("n", "<C-c>", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", { desc = "harpoon - nav file 3" })
+vim.keymap.set("n", "<C-v>", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", { desc = "harpoon - nav file 4" })
 vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.ui').nav_next()<CR>", { desc = "harpoon - next file" })
 vim.keymap.set("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", { desc = "harpoon - prev file" })
+
+-- NEOGIT
+vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
 
 -- TELESCOPE
 vim.keymap.set("n", "<leader>fk", "<cmd>Telescope grep_string<CR>", { noremap = true, silent = true })

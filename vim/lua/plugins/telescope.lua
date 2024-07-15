@@ -6,7 +6,7 @@ return {
   cmd = "Telescope",
   opts = {
     defaults = {
-      file_ignore_patterns = { "package-lock.json" },
+      file_ignore_patterns = { "package-lock.json", "node_modules" },
       mappings = {
         i = {
           ["<esc>"] = require("telescope.actions").close,

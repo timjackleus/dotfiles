@@ -38,6 +38,7 @@ return {
       filtered_items = {
         hide_dotfiles = false,
         hide_gitignored = true, -- node_modules etc
+        hide_by_name = { "node_modules" },
       },
     },
     event_handlers = {
