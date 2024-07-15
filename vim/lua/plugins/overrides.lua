@@ -1,10 +1,4 @@
 return {
-  -- {
-  -- https://github.com/hrsh7th/nvim-cmp
-  --   "hrsh7th/nvim-cmp",
-  --   commit = "b356f2c",
-  --   pin = true,
-  -- },
   {
     "nvim-lualine/lualine.nvim",
     opts = {
@@ -48,17 +42,7 @@ return {
     dependencies = {
       "neotab.nvim",
     },
-    keys = {
-      -- {
-      --   "<Tab>",
-      --   function()
-      --     return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<Plug>(neotab-out)"
-      --   end,
-      --   expr = true,
-      --   silent = true,
-      --   mode = "i",
-      -- },
-    },
+    keys = {},
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snippets/" })
     end,
