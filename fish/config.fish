@@ -71,5 +71,15 @@ function killport -d "Kill process running on the specified port"
     end
 end
 
+# change cwd when exiting yazi
+function yy
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+
 # The next line updates PATH for Netlify's Git Credential Helper.
 # test -f '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc' && source '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc'
