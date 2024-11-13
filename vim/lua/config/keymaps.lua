@@ -22,7 +22,7 @@ vim.keymap.set("v", "K", ":m	'<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m	'>+1<CR>gv=gv")
 
 -- use m to scroll down, and keep cursor in middle
-vim.keymap.set("n", "<C-m>", "<C-d>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- keep cursor position after join line
@@ -38,16 +38,6 @@ vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>/", { desc = "Replace word unde
 vim.keymap.set({ "n", "v" }, "<leader>rW", function()
   return ":" .. vim.fn.line(".") .. "s/<C-r><C-w>/ /g<left><left><C-h>"
 end, { expr = true, desc = "Replace word under cursor on current line" })
-
--- HARPOON
-vim.keymap.set("n", "<Leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>")
-vim.keymap.set("n", "<leader>he", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
-vim.keymap.set("n", "<C-z>", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", { desc = "harpoon - nav file 1" })
-vim.keymap.set("n", "<C-x>", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", { desc = "harpoon - nav file 2" })
-vim.keymap.set("n", "<C-c>", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", { desc = "harpoon - nav file 3" })
-vim.keymap.set("n", "<C-v>", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", { desc = "harpoon - nav file 4" })
-vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.ui').nav_next()<CR>", { desc = "harpoon - next file" })
-vim.keymap.set("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", { desc = "harpoon - prev file" })
 
 -- NEOGIT
 vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
