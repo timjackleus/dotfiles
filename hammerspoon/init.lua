@@ -75,18 +75,21 @@ local function swapScreen()
 end
 
 -- Window setup for large monitors
-hs.hotkey.bind({ "alt", "shift", "ctrl" }, "Q", function()
+hs.hotkey.bind({ "alt", "shift", "ctrl" }, "O", function()
 	positionAppWindows("Google Chrome", "left")
+	positionAppWindows("Arc", "left")
 	positionAppWindows("Firefox", "left")
+	positionAppWindows("Linear", "left")
 	positionAppWindows("Figma", "center")
 	positionAppWindows("Alacritty", "right")
 	positionAppWindows("Enpass", "right")
 	positionAppWindows("Notion", "right")
 	positionAppWindows("Teams", "right")
 	positionAppWindows("Slack", "right")
+	positionAppWindows("Notion Calendar", "right")
 end)
 
-hs.hotkey.bind({ "alt", "shift", "ctrl" }, "W", function()
+hs.hotkey.bind({ "alt", "shift", "ctrl" }, "P", function()
 	swapScreen()
 end)
 

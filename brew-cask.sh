@@ -2,9 +2,9 @@
 
 # daily
 brew install --cask alfred
+brew install --cask arc
 brew install --cask enpass
 brew install --cask homebrew/cask-versions/firefox-developer-edition
-brew install --cask franz
 brew install --cask google-drive
 brew install --cask google-chrome
 brew install --cask karabiner-elements
@@ -16,7 +16,7 @@ brew install --cask spotify
 brew install --cask whatsapp
 
 # dev
-brew install --cask alacritty
+brew install --cask kitty
 brew install --cask docker
 brew install --cask docker-toolbox
 brew install --cask imageoptim
