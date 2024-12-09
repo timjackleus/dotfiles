@@ -31,10 +31,10 @@ $ ./brew-cask.sh
 $ ./fish/.init
 ```
 
-### Alacritty
+### Kitty term
 
 ```
-$ ./alacritty/.init
+$ ./kitty/.init
 ```
 
 ### Setup tmux and vim

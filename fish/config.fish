@@ -16,11 +16,25 @@ set -U FZF_TMUX 1
 
 export TERM=xterm-256color
 export BAT_THEME="TwoDark"
-# export PATH=/opt/homebrew/bin:$PATH
+export EDITOR=nvim
+export PATH="$HOME/.local/bin:$PATH"
 
-# set node version with nvm if .nvmrc exist
+function reloadkitty
+    kill -SIGUSR1 (pgrep kitty)
+end
+
+# 1. Check if `.nvmrc` file exists.
+# 2. If it exists, try to use the specified version.
+# 3. If the specified version is not installed, install it.
+# 4. If `.nvmrc` file does not exist, use the latest version of Node.js.
 if test -e ./.nvmrc
-    nvm use
+    set nvm_version (cat .nvmrc)
+    if not nvm use $nvm_version
+        nvm install $nvm_version
+        nvm use $nvm_version
+    end
+else
+    nvm use latest
 end
 
 # set locale (used in tmux bar etc)
@@ -29,8 +43,6 @@ export LC_ALL=en_US.UTF-8
 alias gs='git status'
 
 alias vim='nvim'
-
-alias npm='pnpm'
 
 # Common paths
 alias dl="cd ~/Downloads"
