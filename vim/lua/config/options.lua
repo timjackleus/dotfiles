@@ -41,6 +41,7 @@ return {
         "go",
         "html",
         "http",
+        "hurl",
         "javascript",
         "jsdoc",
         "json",
