@@ -104,3 +104,31 @@ end)
 hs.hotkey.bind({ "alt", "shift", "ctrl" }, "return", function()
 	positionCurrentWindow("center")
 end)
+
+-- Function to draw border around focused window
+local border = nil
+local function drawBorder()
+	if border then
+		border:delete()
+	end
+
+	local win = hs.window.focusedWindow()
+	if win then
+		local frame = win:frame()
+		border = hs.drawing.rectangle(frame)
+		border:setStrokeColor({
+			["red"] = 0 / 255,
+			["blue"] = 61 / 255,
+			["green"] = 193 / 255,
+			["alpha"] = 1,
+		})
+		border:setFill(false)
+		border:setStrokeWidth(10)
+		border:show()
+	end
+end
+
+-- Setup border for focused window
+hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function()
+	drawBorder()
+end)
