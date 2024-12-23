@@ -1,8 +1,0 @@
-# Symlink config (will force if file already exist)
-ln -s $PWD/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-ln -s $PWD/alacritty/themes ~/.config/alacritty/themes
-
-# Install catpuccin theme
-# it is being loaded in alacritty.toml
-curl -LO --output-dir $PWD/alacritty/themes/ https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
-curl -LO --output-dir $PWD/alacrittythemes/ https://github.com/catppuccin/alacritty/raw/main/catppuccin-latte.toml
