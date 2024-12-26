@@ -132,3 +132,7 @@ end
 hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function()
 	drawBorder()
 end)
+
+hs.window.filter.default:subscribe(hs.window.filter.windowMoved, function()
+	drawBorder()
+end)
