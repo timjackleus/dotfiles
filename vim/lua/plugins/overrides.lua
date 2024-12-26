@@ -36,21 +36,15 @@ return {
       extensions = {},
     },
   },
-  {
-    "L3MON4D3/LuaSnip",
-    build = "make install_jsregexp",
-    dependencies = {
-      "neotab.nvim",
-    },
-    keys = {},
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snippets/" })
-    end,
-  },
-  {
-    "ThePrimeagen/harpoon",
-    opts = {
-      tabline = true,
-    },
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   build = "make install_jsregexp",
+  --   dependencies = {
+  --     "neotab.nvim",
+  --   },
+  --   keys = {},
+  --   config = function()
+  --     require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snippets/" })
+  --   end,
+  -- },
 }
