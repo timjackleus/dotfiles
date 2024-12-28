@@ -40,12 +40,7 @@ vim.keymap.set({ "n", "v" }, "<leader>rW", function()
 end, { expr = true, desc = "Replace word under cursor on current line" })
 
 -- NEOGIT
-vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>", { silent = true })
-
--- TELESCOPE
-vim.keymap.set("n", "<leader>fk", "<cmd>Telescope grep_string<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>p", "<cmd>Telescope neoclip<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ng", "<cmd>Neogit<CR>", { silent = true })
 
 -- TMUX_NAVIGATOR
 vim.keymap.set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })
