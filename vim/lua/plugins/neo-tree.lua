@@ -1,5 +1,5 @@
-local theme = require("catppuccin.palettes.macchiato")
-local windowBg = theme.crust
+local theme = require("..helpers.rosepine")
+local windowBg = theme.Surface
 
 vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", {
   fg = windowBg,
@@ -12,7 +12,7 @@ vim.api.nvim_set_hl(0, "NeoTreeTitleBar", {
 })
 
 vim.api.nvim_set_hl(0, "NeoTreeNormal", {
-  fg = theme.text,
+  fg = theme.Text,
   bg = windowBg,
 })
 

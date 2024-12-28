@@ -40,7 +40,7 @@ vim.keymap.set({ "n", "v" }, "<leader>rW", function()
 end, { expr = true, desc = "Replace word under cursor on current line" })
 
 -- NEOGIT
-vim.keymap.set("n", "<leader>ng", "<cmd>Neogit<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<CR>", { silent = true })
 
 -- TMUX_NAVIGATOR
 vim.keymap.set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })

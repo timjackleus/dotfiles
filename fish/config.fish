@@ -8,6 +8,9 @@ end
 # Use Starship theme
 starship init fish | source
 
+# Use Rose pine theme
+fish_config theme choose "Rosé Pine Dawn"
+
 # Set default editor
 set -U EDITOR nvim
 
