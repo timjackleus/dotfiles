@@ -16,7 +16,7 @@ brew install --cask spotify
 brew install --cask whatsapp
 
 # dev
-brew install --cask kitty
+brew install --cask ghostty
 brew install --cask docker
 brew install --cask docker-toolbox
 brew install --cask imageoptim
