@@ -1,0 +1,7 @@
+# Symlink neovim config specific for vsc/cursor
+ln -s -f $PWD/cursor/nvim/init.lua ~/.config/vsc-nvim/init.lua
+ln -s -f $PWD/cursor/nvim/lazy-lock.json ~/.config/vsc-nvim/lazy-lock.json
+
+# Symlink nvim/cursor settings to dotfiles
+ln -s -f ~/Library/Application\ Support/Cursor/User/keybindings.json $PWD/cursor/keybindings.json
+ln -s -f ~/Library/Application\ Support/Cursor/User/settings.json $PWD/cursor/settings.json
