@@ -1,1 +1,38 @@
-/Users/timjackleus/Library/Application Support/Cursor/User/settings.json
+{
+    "workbench.colorTheme": "Rosé Pine",
+    "editor.guides.indentation": false,
+    "editor.guides.highlightActiveIndentation": true,
+    "editor.lineNumbers": "relative",
+    "editor.tabSize": 2,
+    "editor.lineHeight": 2,
+    "editor.fontSize": 13,
+    "editor.stickyTabStops": true,
+    "editor.tabCompletion": "on",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "zenMode.restore": true,
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": false,
+    "explorer.autoReveal": false,
+    "zenMode.showTabs": "single",
+    "zenMode.hideLineNumbers": false,
+    "workbench.settings.applyToAllProfiles": [
+        "vscode-neovim.neovimInitVimPaths.darwin"
+    ],
+    "terminal.integrated.defaultProfile.osx": "tmux-shell",
+    "terminal.integrated.profiles.osx": {
+        "tmux-shell": {
+            "path": "tmux",
+            "args": [
+                "new-session",
+                "-A",
+                "-s",
+                "vscode:${workspaceFolder}"
+            ]
+        }
+    },
+    "editor.formatOnSave": true,
+    "explorer.openEditors.visible": 1,
+    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/vsc-nvim/init.lua"
+}
