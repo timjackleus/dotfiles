@@ -5,8 +5,9 @@ font-family-bold-italic = VictorMono Nerd Font Propo Bold Italic
 
 theme = light:rose-pine-dawn,dark:rose-pine
 
-font-size = 14
+font-size = 13
 
 macos-titlebar-style = hidden
 window-padding-y = 14
+window-padding-x = 14
 adjust-cell-height = 20

@@ -136,3 +136,66 @@ end)
 hs.window.filter.default:subscribe(hs.window.filter.windowMoved, function()
 	drawBorder()
 end)
+
+local function openYaziInGhostty()
+	-- Open Ghostty with Yazi
+	hs.execute("open -na Ghostty.app --args -e yazi", true)
+
+	-- Create a function to check and resize windows
+	local function checkAndResizeWindows()
+		-- Get all Ghostty windows
+		local ghosttyWindows = hs.window.filter.new("Ghostty")
+		local windows = ghosttyWindows:getWindows()
+
+		print("Number of Ghostty windows: " .. #windows)
+
+		-- Find the window that is not in tmux
+		local yaziWindow = nil
+		for _, window in pairs(windows) do
+			local title = window:title() or ""
+			print("Window Title: " .. title)
+			print("Window Frame: " .. hs.inspect(window:frame()))
+
+			-- Look for a window that does not contain 'tmux'
+			if not string.match(title:lower(), "tmux") then
+				yaziWindow = window
+				break
+			end
+		end
+
+		if yaziWindow then
+			local screen = yaziWindow:screen():frame()
+
+			-- Calculate window size with margins (10% margin on each side)
+			local width = screen.w * 0.8
+			local height = screen.h * 0.8
+
+			-- Position the window centered
+			local x = screen.x + (screen.w - width) / 2
+			local y = screen.y + (screen.h - height) / 2
+
+			local newFrame = {
+				x = x,
+				y = y,
+				w = width,
+				h = height,
+			}
+
+			-- Try to set the frame
+			yaziWindow:setFrame(newFrame)
+
+			print("Resized window: " .. (yaziWindow:title() or "No Title"))
+			print("New Window Frame: " .. hs.inspect(yaziWindow:frame()))
+		else
+			print("No non-tmux Ghostty window found")
+		end
+	end
+
+	-- Try to resize after increasing delays
+	hs.timer.doAfter(0.5, checkAndResizeWindows)
+	hs.timer.doAfter(1, checkAndResizeWindows)
+	hs.timer.doAfter(2, checkAndResizeWindows)
+end
+
+-- Setup keymap for yazi (to replace finder)
+hs.hotkey.bind({ "cmd", "shift" }, "e", openYaziInGhostty)
