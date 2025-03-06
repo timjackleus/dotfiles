@@ -4,7 +4,6 @@ return {
     opts = {
       options = {
         icons_enabled = true,
-        theme = "rose-pine",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {},
@@ -36,15 +35,24 @@ return {
       extensions = {},
     },
   },
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   build = "make install_jsregexp",
-  --   dependencies = {
-  --     "neotab.nvim",
-  --   },
-  --   keys = {},
-  --   config = function()
-  --     require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snippets/" })
-  --   end,
-  -- },
+  "stevearc/conform.nvim",
+  lazy = true,
+  event = { "BufReadPre", "BufNewFile" },
+  opts = {
+    formatters_by_ft = {
+      php = { "php-cs-fixer" },
+    },
+    formatters = {
+      ["php-cs-fixer"] = {
+        command = "php-cs-fixer",
+        args = {
+          "fix",
+          "--rules=@PSR12", -- Formatting preset. Other presets are available, see the php-cs-fixer docs.
+          "$FILENAME",
+        },
+        stdin = false,
+      },
+    },
+    notify_on_error = true,
+  },
 }

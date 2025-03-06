@@ -7,7 +7,12 @@ vim.keymap.set("n", "vs", "<cmd>vs<CR>")
 vim.keymap.set("n", "sp", "<cmd>sp<CR>")
 vim.keymap.set("n", "<C-S>", ":%s/")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
-vim.keymap.set("n", "<C-P>", "<C-^>")
+vim.keymap.set("n", "<C-P>", function()
+  if vim.bo.filetype ~= "qf" then
+    return "<C-^>"
+  end
+  return "<C-P>"
+end, { expr = true })
 
 -- remove lazyvim bindings
 vim.keymap.del("n", "<S-h>")

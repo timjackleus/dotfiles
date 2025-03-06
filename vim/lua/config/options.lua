@@ -6,8 +6,9 @@ vim.opt.hidden = true
 vim.opt.swapfile = false
 vim.opt.clipboard = "" -- dont save to clipboard
 vim.opt.conceallevel = 0
+vim.opt.laststatus = 2
 
-vim.g.ai_cmp = false -- disable showing copilot complitions in blink, it will be shown with ghost text instead
+-- vim.g.ai_cmp = false -- disable showing copilot complitions in blink, it will be shown with ghost text instead
 
 vim.g.snacks_animate = false -- stop scroll animation
 
@@ -69,35 +70,65 @@ return {
     opts = {
       ensure_installed = {
         "angular-language-server",
-        " bash-debug-adapter",
-        " bash-language-server",
-        " chrome-debug-adapter",
-        " css-lsp",
-        " docker-compose-language-service",
-        " dockerfile-language-server dockerls",
-        " emmet-ls",
-        " eslint-lsp",
-        " eslint_d",
-        " firefox-debug-adapter",
-        " go-debug-adapter",
-        " gofumpt",
-        " goimports",
-        " gopls",
-        " html-lsp",
-        " jq",
-        " js-debug-adapter",
-        " json-lsp",
-        " lua-language-server",
-        " markdownlint",
-        " marksman",
-        " mdx-analyzer",
-        " prettier",
-        " shfmt",
-        " stylua",
-        " svelte-language-server",
-        " typescript-language-server",
-        " yaml-language-server",
+        "bash-debug-adapter",
+        "bash-language-server",
+        "chrome-debug-adapter",
+        "css-lsp",
+        "docker-compose-language-service",
+        "dockerfile-language-server dockerls",
+        "eslint-lsp",
+        "eslint_d",
+        "firefox-debug-adapter",
+        "go-debug-adapter",
+        "gofumpt",
+        "goimports",
+        "gopls",
+        "html-lsp",
+        "jq",
+        "js-debug-adapter",
+        "json-lsp",
+        "lua-language-server",
+        "markdownlint",
+        "marksman",
+        "mdx-analyzer",
+        "prettier",
+        "shfmt",
+        "stylua",
+        "svelte-language-server",
+        "typescript-language-server",
+        "yaml-language-server",
       },
     },
   },
+  -- "williamboman/mason-lspconfig.nvim",
+  -- opts = {
+  --   automatic_installation = false,
+  -- },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --       ["php-cs-fixer"] = {
+  --         mason = false,
+  --         enabled = false,
+  --       },
+  --       phpactor = {
+  --         mason = false,
+  --         enabled = false,
+  --       },
+  --       phpcs = {
+  --         mason = false,
+  --         enabled = false,
+  --       },
+  --       intelephense = {
+  --         mason = false,
+  --         enabled = false,
+  --       },
+  --       phpcbf = {
+  --         mason = false,
+  --         enabled = false,
+  --       },
+  --     },
+  --   },
+  -- },
 }
