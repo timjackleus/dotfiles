@@ -1,15 +1,16 @@
-# Install native apps
+# install native apps
 
 # daily
 brew install --cask alfred
 brew install --cask arc
 brew install --cask enpass
-brew install --cask homebrew/cask-versions/firefox-developer-edition
-brew install --cask google-drive
 brew install --cask google-chrome
+brew install --cask google-drive
+brew install --cask homebrew/cask-versions/firefox-developer-edition
 brew install --cask karabiner-elements
 brew install --cask microsoft-edge
 brew install --cask notion
+brew install --cask obsidian
 brew install --cask signal
 brew install --cask slack
 brew install --cask spotify
@@ -25,8 +26,6 @@ brew install --cask insomnia
 
 # less often
 brew install --cask calibre
-brew install --cask freedome
-brew install --cask keycastr
 brew install --cask licecap
 brew install --cask vlc
 

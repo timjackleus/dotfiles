@@ -1,24 +1,17 @@
-# Install command-line tools using Homebrew
-
-# Make sure we’re using the latest Homebrew
-brew update
-
-# Upgrade any already-installed formulae
-brew upgrade
+# install command-line tools using Homebrew
 
 # GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 brew install moreutils
 
-# Install more recent versions of some macOS tools.
+# install more recent versions of some macOS tools.
 brew install openssh
 brew install grep
 
-# Install other useful binaries.
+# install other useful binaries.
 brew install archey
 brew install awscli
 brew install bat
-brew install cmake
 brew install deno
 brew install fish
 brew install gh
@@ -53,6 +46,3 @@ brew install ripgrep
 brew install sevenzip
 brew install yazi
 brew install zoxide
-
-# Remove outdated versions from the cellar
-brew cleanup

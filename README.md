@@ -20,21 +20,19 @@
 ### Install Homebrew then run all installations
 
 ```
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-$ ./brew.sh
-$ ./brew-cask.sh
+./homebrew/index.sh
 ```
 
 ### Setup fish
 
 ```
-$ ./fish/.init
+./fish/.init
 ```
 
 ### Ghostty term
 
 ```
-$ ./ghostty/.init
+./ghostty/.init
 ```
 
 ### Setup tmux and vim
@@ -42,27 +40,27 @@ $ ./ghostty/.init
 Currently based on [LazyVim](https://www.lazyvim.org/).
 
 ```
-$ ./tmux/.init
-$ ./vim/.init
+./tmux/.init
+./vim/.init
 ```
 
 ### Setup keyboard
 
 ```
-$ ./keyboard/.init
-$ ./karabiner/.init
+./keyboard/.init
+./karabiner/.init
 ```
 
 ### Setup hammerspoon
 
 ```
-$ ./hammerspoon/.init
+./hammerspoon/.init
 ```
 
 ### Setup Git
 
 ```
-$ ./.extra (not included in repo)
+./.extra (not included in repo)
 ```
 
 Follow [this guide](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent) to setup SSH
