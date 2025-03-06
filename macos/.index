@@ -1,8 +1,5 @@
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
-
-# Adjust toolbar title rollover delay
-defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
+sudo nvram StartupMute=%01
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
@@ -20,17 +17,24 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 # Disable the crash reporter
-defaults write com.apple.CrashReporter DialogType -string "none"
+defaults write com.apple.CrashReporter DialogType none
 
 # Disable auto-correct
-# defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-###############################################################################
-# SSD-specific tweaks                                                         #
-###############################################################################
+# Strip down animations
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
-# Disable hibernation (speeds up entering sleep mode)
-sudo pmset -a hibernatemode 0
+# Disable Spotlight
+sudo mdutil -a -i off
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+
+# Disable Siri
+defaults write com.apple.assistant.support "Assistant Enabled" -bool false
+launchctl unload -w /System/Library/LaunchAgents/com.apple.Siri.plist 2> /dev/null
+
+# Disable Apple pay prompts
+defaults write com.apple.Passbook AutoPresent -bool false
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -109,6 +113,9 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Use column view in all Finder windows by default
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
+# Disable macOS native window management
+defaults write com.apple.WindowManager EnableStandardClickToMove -bool false
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
@@ -128,7 +135,10 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Wipe all (default) app icons from the Dock
 defaults write com.apple.dock persistent-apps -array
 
-# Don’t animate opening applications from the Dock
+# Remove all animations
+defaults write com.apple.dock expose-animation-duration -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock launchanim -bool false
 
 # Disable Dashboard
@@ -145,6 +155,8 @@ defaults write com.apple.dock showhidden -bool true
 
 # Disable the Launchpad gesture (pinch with thumb and three fingers)
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
+
+killall Dock
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -216,13 +228,17 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Misc
 ###############################################################################
 #
-# Fix some wierd errors that can be ignored
-# https://github.com/nodejs/node-gyp/issues/569
-xcode-select --install # Install Command Line Tools if you haven't already.
-sudo xcode-select --switch /Library/Developer/CommandLineTools # Enable command line tools
+
+# Remove default macOS applications
+sudo rm -rf /Applications/GarageBand.app
+sudo rm -rf /Applications/Keynote.app
+sudo rm -rf /Applications/Numbers.app
+sudo rm -rf /Applications/Pages.app
 
 ###############################################################################
 # Last notes                                                                  #
 ###############################################################################
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+echo "All macOS notifications are switched off"

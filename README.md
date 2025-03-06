@@ -14,7 +14,7 @@
 ### Run all macos settings then reboot when complete
 
 ```
-$ ./.macos
+./macos/.index
 ```
 
 ### Install Homebrew then run all installations
