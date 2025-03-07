@@ -1,66 +1,50 @@
 # Tim's dotfiles
 
-### Setup Xcode
+A collection of configuration files and setup scripts for macOS development environment.
 
-- Download latest Xcode from App Store
-- `$ ./xcode/.init`
+## Quick Start
 
-#### Or just install the Xcode CLI
+Run the interactive setup script to configure your environment:
 
-- `$ sudo xcode-select --install`
-  This is usually not working due to failing connection to server... In that case manually download the latest Command Line Tools here
-- <https://developer.apple.com/download/more/>
-
-### Run all macos settings then reboot when complete
-
-```
-./macos/index.sh
+```bash
+./setup.sh
 ```
 
-### Install Homebrew then run all installations
+The script will guide you through setting up:
 
-```
-./homebrew/index.sh
-```
+- Xcode Command Line Tools
+- Full Xcode (optional)
+- macOS system preferences
+- Homebrew and essential packages
+- Fish shell
+- Ghostty terminal
+- Tmux
+- Neovim (based on [LazyVim](https://www.lazyvim.org/))
+- Custom keyboard layout
+- Hammerspoon
+- Cursor editor
+- Yazi file manager
+- Karabiner Elements
 
-### Setup fish
+## Manual Installation
 
-```
-./fish/.init
-```
+If you prefer to set up components individually, each directory contains its own setup script:
 
-### Ghostty term
-
-```
-./ghostty/.init
-```
-
-### Setup tmux and vim
-
-Currently based on [LazyVim](https://www.lazyvim.org/).
-
-```
-./tmux/.init
-./vim/.init
-```
-
-### Setup keyboard
-
-```
-./keyboard/.init
-./karabiner/.init
+```bash
+./macos/setup.sh      # Configure macOS defaults
+./homebrew/index.sh   # Install Homebrew and packages
+./fish/setup.sh       # Set up Fish shell
+# etc.
 ```
 
-### Setup hammerspoon
+## Git Setup
 
-```
-./hammerspoon/.init
-```
+For Git configuration:
 
-### Setup Git
+1. Create a `.extra` file (not included in repo) for personal credentials
+2. Set up SSH keys following [GitHub's guide](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-```
-./.extra (not included in repo)
-```
+## Troubleshooting
 
-Follow [this guide](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent) to setup SSH
+If Xcode CLI tools installation fails, manually download from:
+https://developer.apple.com/download/more/
