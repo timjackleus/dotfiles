@@ -1,26 +1,26 @@
 #!/bin/bash
 
-echo "Disabling notifications for Apple applications..."
+echo "Configuring notification settings for macOS..."
 
-# Modern approach to disable notifications using defaults command
-# Turn on Do Not Disturb
-defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean true
+# Modern approach for Focus mode (replaced Do Not Disturb in newer macOS versions)
+# Note: Full Focus mode configuration requires additional steps through System Settings UI
+# This sets some basic preferences via defaults
 
-# Set Do Not Disturb end date far in the future
-defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturbDate -date "`date -u +\"%Y-%m-%d %H:%M:%S +0000\" -d \"+9999 years\"`"
+# Reduce banner display time to minimum
+defaults write com.apple.notificationcenterui bannerTime 2
 
-# Disable notification center completely
-defaults write com.apple.notificationcenterui bannerTime 0
+# Note: Starting with macOS Ventura, notification settings are stored differently
+# and many of the old defaults commands no longer work as expected.
+# The following attempts to modify notification settings for common Apple apps,
+# but full control requires using System Settings UI.
 
-# Disable notification alerts for common Apple apps
+# List of common Apple apps to configure
 APPLE_APPS=(
   "com.apple.AppStore"
-  "com.apple.iCal"
   "com.apple.Calendar"
   "com.apple.AddressBook"
   "com.apple.FaceTime"
   "com.apple.findmy"
-  "com.apple.GameCenter"
   "com.apple.Home"
   "com.apple.mail"
   "com.apple.MobileSMS"
@@ -37,13 +37,20 @@ APPLE_APPS=(
   "com.apple.voicememos"
 )
 
+# Attempt to modify notification settings
+# Note: This approach may not work on all macOS versions
 for app in "${APPLE_APPS[@]}"; do
-  # Disable all notification types (badges, sounds, banners)
-  defaults write com.apple.ncprefs apps -array-add "{\"bundle-id\" = \"$app\"; \"enabled\" = 0;}"
+  # Try to reduce notification prominence where possible
+  defaults write "$app" NSUserNotificationAlertStyle -int 1 2>/dev/null || true
 done
 
+# Configure notification center preferences where possible
+defaults write com.apple.ncprefs.plist showInLockScreen -bool false
+
 # Restart Notification Center to apply changes
+# Note: Some changes may require a logout/login or restart to fully apply
 killall NotificationCenter 2>/dev/null || true
 killall usernoted 2>/dev/null || true
 
-echo "Notifications disabled for Apple applications!"
+echo "Notification settings configured! Some settings may require manual adjustment in System Settings > Notifications."
+echo "For complete control over notifications, use System Settings > Notifications & Focus."
