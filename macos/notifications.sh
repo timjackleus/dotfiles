@@ -2,35 +2,48 @@
 
 echo "Disabling notifications for Apple applications..."
 
-# Create the com.apple.ncprefs.plist file with all applications disabled
-cat <<EOF > ~/Library/Preferences/com.apple.ncprefs.plist
-{
-  "apps" = (
-    { "bundle-id" = "com.apple.AppStore"; "flags" = 0; },
-    { "bundle-id" = "com.apple.iCal"; "flags" = 0; },
-    { "bundle-id" = "com.apple.AddressBook"; "flags" = 0; },
-    { "bundle-id" = "com.apple.FaceTime"; "flags" = 0; },
-    { "bundle-id" = "com.apple.findmy"; "flags" = 0; },
-    { "bundle-id" = "com.apple.GameCenter"; "flags" = 0; },
-    { "bundle-id" = "com.apple.Home"; "flags" = 0; },
-    { "bundle-id" = "com.apple.mail"; "flags" = 0; },
-    { "bundle-id" = "com.apple.MobileSMS"; "flags" = 0; },
-    { "bundle-id" = "com.apple.Music"; "flags" = 0; },
-    { "bundle-id" = "com.apple.news"; "flags" = 0; },
-    { "bundle-id" = "com.apple.Notes"; "flags" = 0; },
-    { "bundle-id" = "com.apple.Photos"; "flags" = 0; },
-    { "bundle-id" = "com.apple.podcasts"; "flags" = 0; },
-    { "bundle-id" = "com.apple.reminders"; "flags" = 0; },
-    { "bundle-id" = "com.apple.Safari"; "flags" = 0; },
-    { "bundle-id" = "com.apple.shortcuts"; "flags" = 0; },
-    { "bundle-id" = "com.apple.stocks"; "flags" = 0; },
-    { "bundle-id" = "com.apple.tv"; "flags" = 0; },
-    { "bundle-id" = "com.apple.voicememos"; "flags" = 0; }
-  );
-}
-EOF
+# Modern approach to disable notifications using defaults command
+# Turn on Do Not Disturb
+defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean true
 
-# Kill NotificationCenter to apply changes
-killall NotificationCenter
+# Set Do Not Disturb end date far in the future
+defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturbDate -date "`date -u +\"%Y-%m-%d %H:%M:%S +0000\" -d \"+9999 years\"`"
+
+# Disable notification center completely
+defaults write com.apple.notificationcenterui bannerTime 0
+
+# Disable notification alerts for common Apple apps
+APPLE_APPS=(
+  "com.apple.AppStore"
+  "com.apple.iCal"
+  "com.apple.Calendar"
+  "com.apple.AddressBook"
+  "com.apple.FaceTime"
+  "com.apple.findmy"
+  "com.apple.GameCenter"
+  "com.apple.Home"
+  "com.apple.mail"
+  "com.apple.MobileSMS"
+  "com.apple.Music"
+  "com.apple.news"
+  "com.apple.Notes"
+  "com.apple.Photos"
+  "com.apple.podcasts"
+  "com.apple.reminders"
+  "com.apple.Safari"
+  "com.apple.shortcuts"
+  "com.apple.stocks"
+  "com.apple.tv"
+  "com.apple.voicememos"
+)
+
+for app in "${APPLE_APPS[@]}"; do
+  # Disable all notification types (badges, sounds, banners)
+  defaults write com.apple.ncprefs apps -array-add "{\"bundle-id\" = \"$app\"; \"enabled\" = 0;}"
+done
+
+# Restart Notification Center to apply changes
+killall NotificationCenter 2>/dev/null || true
+killall usernoted 2>/dev/null || true
 
 echo "Notifications disabled for Apple applications!"

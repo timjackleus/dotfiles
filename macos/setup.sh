@@ -25,12 +25,15 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Strip down animations
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
-# Disable Spotlight
-sudo mdutil -a -i off
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+# Disable Spotlight indexing (modern method)
+sudo mdutil -i off -a
+# Note: Complete disabling via launchctl is no longer reliable in recent macOS versions
 
-# Disable Siri
+# Disable Siri (modern method)
+defaults write com.apple.Siri StatusMenuVisible -bool false
+defaults write com.apple.Siri UserHasDeclinedEnable -bool true
 defaults write com.apple.assistant.support "Assistant Enabled" -bool false
+launchctl disable gui/$(id -u)/com.apple.Siri.agent
 launchctl unload -w /System/Library/LaunchAgents/com.apple.Siri.plist 2> /dev/null
 
 # Disable Apple pay prompts
@@ -156,6 +159,10 @@ defaults write com.apple.dock showhidden -bool true
 # Disable the Launchpad gesture (pinch with thumb and three fingers)
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
+# Disable other gestures that might interfere with workflow
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+
 killall Dock
 
 ###############################################################################
@@ -229,11 +236,17 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ###############################################################################
 #
 
-# Remove default macOS applications
-sudo rm -rf /Applications/GarageBand.app
-sudo rm -rf /Applications/Keynote.app
-sudo rm -rf /Applications/Numbers.app
-sudo rm -rf /Applications/Pages.app
+# Hide default macOS applications (safer than removal)
+# Modern macOS protects system apps with SIP (System Integrity Protection)
+# Instead of removing, we'll hide them
+mkdir -p ~/.hidden-apps
+for app in GarageBand Keynote Numbers Pages; do
+  if [ -d "/Applications/$app.app" ]; then
+    echo "Hiding $app.app"
+    defaults write com.apple.finder AppleShowAllFiles -bool true
+    chflags hidden "/Applications/$app.app"
+  fi
+done
 
 ###############################################################################
 # Last notes                                                                  #
