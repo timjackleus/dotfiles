@@ -8,6 +8,14 @@ return {
     "neovim/nvim-lspconfig",
   },
   opts = {
-    -- you're options coes here
+    lspconfig = {
+      enabled = true,
+      options = {
+        -- Disable diagnostics while keeping other LSP features
+        init_options = {
+          diagnostics = false,
+        },
+      },
+    },
   },
 }
