@@ -121,5 +121,5 @@ function fish_user_key_bindings
     bind \cp 'commandline -i (pbpaste)'
 end
 
-# Use default key bindings as base, but with our custom ones
-fish_default_key_bindings
+# Apply our custom key bindings
+fish_user_key_bindings
