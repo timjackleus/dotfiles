@@ -1,5 +1,8 @@
 #!/usr/bin/env fish
 
+# Configuration
+set -g next_day_lines 8  # Number of lines to display for next day (set to -1 for all)
+
 # Function to format the price with color based on value
 function format_price
     set price $argv[1]
@@ -119,10 +122,14 @@ function fetch_and_process_prices
             format_price $display_price
             echo ""
         else if test "$is_next_day" = "true"
-            # For next day, show all hours
-            echo -n "          "$display_time" "
-            format_price $display_price
-            echo ""
+            # For next day, show limited number of hours based on configuration
+            # If next_day_lines is -1, show all hours
+            if test $next_day_lines -eq -1; or test $current_hour_index -lt $next_day_lines
+                echo -n "          "$display_time" "
+                format_price $display_price
+                echo ""
+                set current_hour_index (math $current_hour_index + 1)
+            end
         end
     end
     
@@ -148,6 +155,7 @@ set next_day_url "https://www.elprisetjustnu.se/api/v1/prices/$next_year/$next_m
 set current_hour (date +%H)
 set current_hour_index 0
 set found_current false
+set next_day_hour_index 0  # Separate counter for next day hours
 
 echo "Fetching electricity prices for SE3 region..."
 
@@ -155,7 +163,7 @@ echo "Fetching electricity prices for SE3 region..."
 fetch_and_process_prices $current_day_url "false" $current_hour $current_hour_index $found_current
 
 # Try to fetch and process next day
-fetch_and_process_prices $next_day_url "true" $current_hour $current_hour_index $found_current
+fetch_and_process_prices $next_day_url "true" $current_hour $next_day_hour_index $found_current
 
 echo ""
 echo "Tip: Lower prices are green, medium are yellow, high are red"
