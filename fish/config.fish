@@ -5,6 +5,9 @@ function fish_greeting
 '(set_color ADE4DC)'Fish version: '(set_color white)(echo $FISH_VERSION)(set_color red)''
 end
 
+# Source extras
+source $__fish_config_dir/extra.fish
+
 # Use Starship theme
 starship init fish | source
 
@@ -14,13 +17,16 @@ fish_config theme choose "Rosé Pine Dawn"
 # Set default editor
 set -U EDITOR nvim
 
+alias custom "NVIM_APPNAME=custom-nvim nvim"
 alias vscnvim "NVIM_APPNAME=vsc-nvim nvim"
+alias aider "aider --dark-mode"
+
 # Runs a tmux-friendly version of fzf
 set -U FZF_TMUX 1
 
 export TERM=xterm-256color
 export BAT_THEME="TwoDark"
-export EDITOR=nvim
+export AIDER_EDITOR=vim
 export PATH="$HOME/.local/bin:$PATH"
 
 function reloadkitty
@@ -97,5 +103,5 @@ function yy
     rm -f -- "$tmp"
 end
 
-# The next line updates PATH for Netlify's Git Credential Helper.
-# test -f '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc' && source '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc'
+# do not use vi bindings here
+fish_default_key_bindings
