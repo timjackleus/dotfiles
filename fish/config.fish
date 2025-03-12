@@ -5,6 +5,9 @@ function fish_greeting
 '(set_color ADE4DC)'Fish version: '(set_color white)(echo $FISH_VERSION)(set_color red)''
 end
 
+# Source extras
+source $__fish_config_dir/extra.fish
+
 # Use Starship theme
 starship init fish | source
 
@@ -14,34 +17,43 @@ fish_config theme choose "Rosé Pine Dawn"
 # Set default editor
 set -U EDITOR nvim
 
+alias custom "NVIM_APPNAME=custom-nvim nvim"
 alias vscnvim "NVIM_APPNAME=vsc-nvim nvim"
 alias energy "fish ~/.config/fish/bin/energy-price.fish"
+alias aider "aider --dark-mode"
 
 # Runs a tmux-friendly version of fzf
 set -U FZF_TMUX 1
 
 export TERM=xterm-256color
 export BAT_THEME="TwoDark"
-export EDITOR=nvim
+export AIDER_EDITOR=vim
+
 export PATH="$HOME/.local/bin:$PATH"
 
 function reloadkitty
     kill -SIGUSR1 (pgrep kitty)
 end
 
-# 1. Check if `.nvmrc` file exists.
-# 2. If it exists, try to use the specified version.
-# 3. If the specified version is not installed, install it.
-# 4. If `.nvmrc` file does not exist, use the latest version of Node.js.
-if test -e ./.nvmrc
-    set nvm_version (cat .nvmrc)
-    if not nvm use $nvm_version
-        nvm install $nvm_version
-        nvm use $nvm_version
+# Function to manage Node.js version using nvm
+function manage_node_version
+    # 1. Check if `.nvmrc` file exists.
+    # 2. If it exists, try to use the specified version.
+    # 3. If the specified version is not installed, install it.
+    # 4. If `.nvmrc` file does not exist but a `package.json` file does, use the latest version of Node.js.
+    if test -e ./.nvmrc
+        set nvm_version (cat .nvmrc)
+        if not nvm use $nvm_version
+            nvm install $nvm_version
+            nvm use $nvm_version
+        end
+    else if test -e ./package.json
+        nvm use latest
     end
-else
-    nvm use latest
 end
+
+# Call the function to manage Node.js version
+manage_node_version
 
 # set locale (used in tmux bar etc)
 export LC_ALL=en_US.UTF-8
@@ -99,5 +111,5 @@ function yy
     rm -f -- "$tmp"
 end
 
-# The next line updates PATH for Netlify's Git Credential Helper.
-# test -f '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc' && source '/Users/timjackleus/Library/Preferences/netlify/helper/path.fish.inc'
+# do not use vi bindings here
+fish_default_key_bindings
