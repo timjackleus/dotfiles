@@ -12,6 +12,7 @@ ln -s $PWD/fish/starship.toml ~/.config/starship.toml
 
 # create symlinks
 ln -s $PWD/fish/config.fish ~/.config/fish/config.fish
+ln -s $PWD/fish/bin/energy-price.fish ~/.config/fish/bin/energy-price.fish
 ln -s $PWD/fish/fish_plugins ~/.config/fish/fish_plugins
 ln -s $PWD/fish/extra.fish ~/.config/fish/extra.fish
 

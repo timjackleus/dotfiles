@@ -20,6 +20,7 @@ set -U EDITOR nvim
 alias custom "NVIM_APPNAME=custom-nvim nvim"
 alias vscnvim "NVIM_APPNAME=vsc-nvim nvim"
 alias aider "aider --dark-mode"
+alias energy "fish ~/.config/fish/bin/energy-price.fish"
 
 # Runs a tmux-friendly version of fzf
 set -U FZF_TMUX 1
