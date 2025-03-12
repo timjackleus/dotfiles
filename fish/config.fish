@@ -33,19 +33,24 @@ function reloadkitty
     kill -SIGUSR1 (pgrep kitty)
 end
 
-# 1. Check if `.nvmrc` file exists.
-# 2. If it exists, try to use the specified version.
-# 3. If the specified version is not installed, install it.
-# 4. If `.nvmrc` file does not exist, use the latest version of Node.js.
-if test -e ./.nvmrc
-    set nvm_version (cat .nvmrc)
-    if not nvm use $nvm_version
-        nvm install $nvm_version
-        nvm use $nvm_version
+# Function to manage Node.js version using nvm
+function manage_node_version
+    # 1. Check if `.nvmrc` file exists.
+    # 2. If it exists, try to use the specified version.
+    # 3. If the specified version is not installed, install it.
+    # 4. If `.nvmrc` file does not exist but a `package.json` file does, use the latest version of Node.js.
+    if test -e ./.nvmrc
+        set nvm_version (cat .nvmrc)
+        if not nvm use $nvm_version
+            nvm install $nvm_version
+            nvm use $nvm_version
+        end
+    else if test -e ./package.json
+        nvm use latest
     end
-else
-    nvm use latest
 end
+
+manage_node_version
 
 # set locale (used in tmux bar etc)
 export LC_ALL=en_US.UTF-8
