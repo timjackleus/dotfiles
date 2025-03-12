@@ -15,7 +15,7 @@ fish_config theme choose "Rosé Pine Dawn"
 set -U EDITOR nvim
 
 alias vscnvim "NVIM_APPNAME=vsc-nvim nvim"
-alias energy "~/.config/fish/energy-price.fish"
+alias energy "fish ~/.config/fish/bin/energy-price.fish"
 
 # Runs a tmux-friendly version of fzf
 set -U FZF_TMUX 1

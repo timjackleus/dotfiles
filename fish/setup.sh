@@ -12,6 +12,7 @@ ln -s $PWD/fish/starship.toml ~/.config/starship.toml
 
 # create symlinks
 ln -s $PWD/fish/config.fish ~/.config/fish/config.fish
+ln -s $PWD/fish/bin ~/.config/fish/bin
 ln -s $PWD/fish/fish_plugins ~/.config/fish/fish_plugins
 
 # Run fisher and install all plugins
