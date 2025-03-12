@@ -109,5 +109,17 @@ function yy
     rm -f -- "$tmp"
 end
 
-# do not use vi bindings here
+# Custom key bindings that are more intuitive for vim users
+function fish_user_key_bindings
+    # Clear line with Ctrl+D (delete)
+    bind \cd 'commandline -r ""'
+    
+    # Copy line to clipboard with Ctrl+Y (yank in vim)
+    bind \cy 'echo -n (commandline) | pbcopy'
+    
+    # Paste from clipboard with Ctrl+P (paste)
+    bind \cp 'commandline -i (pbpaste)'
+end
+
+# Use default key bindings as base, but with our custom ones
 fish_default_key_bindings
