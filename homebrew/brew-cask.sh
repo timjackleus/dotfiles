@@ -18,16 +18,14 @@ brew install --cask whatsapp
 
 # dev
 brew install --cask cursor
-brew install --cask docker
-brew install --cask docker-toolbox
 brew install --cask ghostty
 brew install --cask imageoptim
 brew install --cask insomnia
+brew install --cask orbstack
 
 # less often
 brew install --cask calibre
 brew install --cask licecap
-brew install --cask vlc
 
 # fonts
 brew tap homebrew/cask-fonts

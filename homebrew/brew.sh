@@ -20,6 +20,7 @@ brew install git-lfs
 brew install gnu-sed
 brew install go
 brew install hammerspoon
+brew install lazydocker
 brew install luarocks
 brew install neovim
 brew install npm
