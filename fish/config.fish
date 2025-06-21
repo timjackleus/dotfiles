@@ -31,10 +31,6 @@ export BAT_THEME="TwoDark"
 export AIDER_EDITOR=vim
 export PATH="$HOME/.local/bin:$PATH"
 
-function reloadkitty
-    kill -SIGUSR1 (pgrep kitty)
-end
-
 # Function to manage Node.js version using nvm
 function manage_node_version
     # 1. Check if `.nvmrc` file exists.
