@@ -7,6 +7,7 @@ end
 
 # Source extras
 source $__fish_config_dir/extra.fish
+echo $__fish_config_dir/extra.fish
 
 # Use Starship theme
 starship init fish | source
@@ -46,8 +47,8 @@ function manage_node_version
             nvm install $nvm_version
             nvm use $nvm_version
         end
-    else if test -e ./package.json
-        nvm use latest
+    else
+        nvm use latest installed
     end
 end
 
