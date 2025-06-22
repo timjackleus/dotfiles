@@ -4,9 +4,3 @@ ln -s -f $PWD/vim/lazy-lock.json ~/.config/nvim/lazy-lock.json
 ln -s -f $PWD/vim/lua/ ~/.config/nvim/lua
 ln -s -f $PWD/vim/snippets/ ~/.config/nvim/snippets
 ln -s -f $PWD/vim/lazyvim.json ~/.config/nvim/lazyvim.json
-
-# Support italics in vim everywhere
-# https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be
-tic -x .terminfo/xterm-256color-italic.terminfo
-tic -x .terminfo/tmux-256color.terminfo
-
