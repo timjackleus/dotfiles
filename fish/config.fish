@@ -57,6 +57,13 @@ alias gs='git status'
 
 alias vim='nvim'
 
+# Modern tool replacements
+alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
+alias ll='eza --color=always --long --git --icons=always'
+alias la='eza --color=always --long --git --icons=always --all'
+alias tree='eza --tree --color=always --icons=always'
+alias top='bottom'
+
 # Common paths
 alias dl="cd ~/Downloads"
 alias h='cd ~/.'

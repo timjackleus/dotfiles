@@ -33,7 +33,6 @@ brew install --cask font-fira-code
 brew install --cask font-fira-code-nerd-font
 brew install --cask font-hack
 brew install --cask font-hack-nerd-font
-brew install --cask font-ibm-plex
 brew install --cask font-input
 brew install --cask font-victor-mono
 brew install --cask font-victor-mono-nerd-font

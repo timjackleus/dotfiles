@@ -9,10 +9,12 @@ brew install openssh
 brew install grep
 
 # install other useful binaries.
-brew install archey
 brew install awscli
 brew install bat
+brew install bottom
+brew install delta
 brew install deno
+brew install eza
 brew install fish
 brew install gh
 brew install git
@@ -29,6 +31,7 @@ brew install p7zip
 brew install reattach-to-user-namespace
 brew install starship
 brew install stylua
+brew install svix
 brew install tig
 brew install tmux
 brew install tree
