@@ -5,4 +5,5 @@ return {
   { "SmiteshP/nvim-navic", enabled = false },
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
   { "ggandor/leap.nvim", enabled = false },
+  -- { "folke/noice.nvim", enabled = false },
 }

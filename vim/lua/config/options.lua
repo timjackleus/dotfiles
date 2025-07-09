@@ -6,7 +6,7 @@ vim.opt.hidden = true
 vim.opt.swapfile = false
 vim.opt.clipboard = "" -- dont save to clipboard
 vim.opt.conceallevel = 0
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 
 -- vim.g.ai_cmp = false -- disable showing copilot complitions in blink, it will be shown with ghost text instead
 
