@@ -63,6 +63,21 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Screen                                                                      #
 ###############################################################################
 
+# Test current power management settings
+pmset -g
+
+# Disable power nap (prevents background wake-ups that interfere with lock)
+sudo pmset -a powernap 0
+
+# Screen sleeps after 5 minutes
+sudo pmset -a displaysleep 5
+
+# Disable system sleep
+sudo pmset -a sleep 0
+
+# Secure hibernation
+sudo pmset -a hibernatemode 3
+
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
