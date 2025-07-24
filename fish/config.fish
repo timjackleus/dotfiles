@@ -63,6 +63,7 @@ alias ll='eza --color=always --long --git --icons=always'
 alias la='eza --color=always --long --git --icons=always --all'
 alias tree='eza --tree --color=always --icons=always'
 alias top='bottom'
+alias cat='bat'
 
 # Common paths
 alias dl="cd ~/Downloads"
