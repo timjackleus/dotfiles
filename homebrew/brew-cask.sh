@@ -17,6 +17,7 @@ brew install --cask spotify
 brew install --cask whatsapp
 
 # dev
+brew install --cask claude
 brew install --cask cursor
 brew install --cask ghostty
 brew install --cask imageoptim
