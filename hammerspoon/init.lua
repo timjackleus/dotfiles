@@ -7,6 +7,9 @@ hs.application.enableSpotlightForNameSearches(true)
 -- remove animations
 hs.window.animationDuration = 0
 
+-- Import modules
+local appShortcuts = require("utils/app-shortcuts")
+
 -- set measurements and position for window
 local function setMeasurements(win, position)
 	local f = win:frame()
@@ -167,3 +170,8 @@ end
 
 -- Setup keymap for yazi (to replace finder)
 hs.hotkey.bind({ "control", "option", "cmd" }, "e", openYaziInGhostty)
+
+-- === INITIALIZATION ===
+
+-- Setup app shortcuts
+appShortcuts.setup()
