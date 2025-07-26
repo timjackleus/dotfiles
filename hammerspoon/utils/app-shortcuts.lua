@@ -22,17 +22,21 @@ local function focusOrLaunch(appName)
 	end
 end
 
+local function addShortcut(key, appName)
+	hs.hotkey.bind({ "ctrl", "alt", "cmd" }, key, function()
+		focusOrLaunch(appName)
+	end)
+end
+
 -- Setup function to bind all shortcuts
 function M.setup()
-	hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "s", function()
-		focusOrLaunch("Slack")
-	end)
-	hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "c", function()
-		focusOrLaunch("Ghostty")
-	end)
-	hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "b", function()
-		focusOrLaunch("Arc")
-	end)
+	addShortcut("s", "Slack")
+	addShortcut("c", "Ghostty")
+	addShortcut("b", "Arc")
+	-- also try numbers for now
+	addShortcut("3", "Slack")
+	addShortcut("2", "Ghostty")
+	addShortcut("1", "Arc")
 end
 
 return M
