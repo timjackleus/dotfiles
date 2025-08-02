@@ -170,6 +170,7 @@ end
 
 -- Setup keymap for yazi (to replace finder)
 hs.hotkey.bind({ "control", "option", "cmd" }, "e", openYaziInGhostty)
+hs.hotkey.bind({ "control", "option", "cmd" }, "4", openYaziInGhostty)
 
 -- === INITIALIZATION ===
 
