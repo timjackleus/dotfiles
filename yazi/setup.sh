@@ -6,5 +6,6 @@ ln -s -f $PWD/yazi/keymap.toml ~/.config/yazi/keymap.toml
 ln -s -f $PWD/yazi/rose-pine.tmTheme ~/.config/yazi/rose-pine.tmTheme
 
 # Plugins
+mkdir -p ~/.config/yazi/plugins
 git clone https://github.com/orhnk/system-clipboard.yazi.git ~/.config/yazi/plugins/
 
