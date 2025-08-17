@@ -27,6 +27,14 @@ alias energy "fish ~/.config/fish/bin/energy-price.fish"
 function lp -d "List PATH entries"
     string split ':' $PATH | nl
 end
+
+# use pnpm instead of npm
+alias npm="pnpm"
+alias npx="pnpm dlx"
+# ... but if we still need npm:
+alias realnpm="command npm"
+alias realnpx="command npx"
+
 # Runs a tmux-friendly version of fzf
 set -U FZF_TMUX 1
 
@@ -126,13 +134,20 @@ end
 function fish_user_key_bindings
     # Clear line with Ctrl+D (delete)
     bind \cd 'commandline -r ""'
-    
+
     # Copy line to clipboard with Ctrl+Y (yank in vim)
     bind \cy 'echo -n (commandline) | pbcopy'
-    
+
     # Paste from clipboard with Ctrl+P (paste)
     bind \cp 'commandline -i (pbpaste)'
 end
 
 # Apply our custom key bindings
 fish_user_key_bindings
+
+# pnpm
+set -gx PNPM_HOME /Users/timjackleus/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

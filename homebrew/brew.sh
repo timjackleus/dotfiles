@@ -28,6 +28,7 @@ brew install neovim
 brew install npm
 brew install nvm
 brew install p7zip
+brew install pnpm
 brew install reattach-to-user-namespace
 brew install starship
 brew install stylua
