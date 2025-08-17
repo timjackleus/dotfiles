@@ -23,13 +23,21 @@ alias vscnvim "NVIM_APPNAME=vsc-nvim nvim"
 alias aider "aider --dark-mode"
 alias energy "fish ~/.config/fish/bin/energy-price.fish"
 
+# List all paths
+function lp -d "List PATH entries"
+    string split ':' $PATH | nl
+end
 # Runs a tmux-friendly version of fzf
 set -U FZF_TMUX 1
 
 export TERM=xterm-256color
 export BAT_THEME="TwoDark"
 export AIDER_EDITOR=vim
-export PATH="$HOME/.local/bin:$PATH"
+
+# add PATHs
+fish_add_path ~/.local/bin
+fish_add_path ~/.rbenv/shims
+fish_add_path ~/.rbenv/bin
 
 # Function to manage Node.js version using nvm
 function manage_node_version
