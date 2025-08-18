@@ -2,6 +2,6 @@
 show_hidden = true
 show_symlink = true
 
-[[mgr.prepend_keymap]]
-on = "<C-y>"
-run = ["plugin system-clipboard"]
+# [[mgr.prepend_keymap]]
+# on = "<C-y>"
+# run = ["plugin system-clipboard"]
