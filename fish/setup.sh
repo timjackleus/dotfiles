@@ -1,4 +1,4 @@
-# Save fish path to /etc/shells list
+# save fish path to /etc/shells list
 sudo sh -c "echo $(which fish) >> /etc/shells"
 
 # change default shell to fish
@@ -19,5 +19,5 @@ ln -s $PWD/fish/bin/energy-price.fish ~/.config/fish/bin/energy-price.fish
 ln -s $PWD/fish/fish_plugins ~/.config/fish/fish_plugins
 ln -s $PWD/fish/extra.fish ~/.config/fish/extra.fish
 
-# Run fisher and install all plugins
+# run fisher and install all plugins
 fisher update
