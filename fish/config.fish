@@ -2,7 +2,7 @@ function fish_greeting
     echo ''(set_color D7ADED)(whoami)'@'(hostname)'
 '(set_color C2C4FC)'Uptime: '(set_color white)(uptime | sed 's/.*up \([^,]*\), .*/\1/')(set_color red)'
 '(set_color EFC6C7)'IP Address: '(set_color white)(ipconfig getifaddr en0)(set_color red)'
-'(set_color ADE4DC)'Fish version: '(set_color white)(echo $FISH_VERSION)(set_color red)''
+'(set_color ADE4DC)'Node.js: '(set_color white)(node --version 2>/dev/null || echo "none")(set_color red)''
 end
 
 # Source extras
@@ -47,24 +47,8 @@ fish_add_path ~/.local/bin
 fish_add_path ~/.rbenv/shims
 fish_add_path ~/.rbenv/bin
 
-# Function to manage Node.js version using nvm
-function manage_node_version
-    # 1. Check if `.nvmrc` file exists.
-    # 2. If it exists, try to use the specified version.
-    # 3. If the specified version is not installed, install it.
-    # 4. If `.nvmrc` file does not exist but a `package.json` file does, use the latest version of Node.js.
-    if test -e ./.nvmrc
-        set nvm_version (cat .nvmrc)
-        if not nvm use $nvm_version
-            nvm install $nvm_version
-            nvm use $nvm_version
-        end
-    else
-        nvm use latest installed
-    end
-end
-
-manage_node_version
+# Load NVM configuration
+source $__fish_config_dir/nvm.fish
 
 # set locale (used in tmux bar etc)
 export LC_ALL=en_US.UTF-8
