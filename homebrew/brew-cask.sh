@@ -4,6 +4,7 @@
 brew install --cask alfred
 brew install --cask arc
 brew install --cask enpass
+brew install --cask figma
 brew install --cask google-chrome
 brew install --cask google-drive
 brew install --cask homebrew/cask-versions/firefox-developer-edition
