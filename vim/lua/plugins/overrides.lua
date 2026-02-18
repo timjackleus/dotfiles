@@ -4,7 +4,7 @@ return {
     opts = {
       options = {
         icons_enabled = true,
-        component_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {},
         always_divide_middle = true,
@@ -35,24 +35,26 @@ return {
       extensions = {},
     },
   },
-  "stevearc/conform.nvim",
-  lazy = true,
-  event = { "BufReadPre", "BufNewFile" },
-  opts = {
-    formatters_by_ft = {
-      php = { "php-cs-fixer" },
-    },
-    formatters = {
-      ["php-cs-fixer"] = {
+  {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      -- Extend the existing LazyVim conform configuration instead of replacing it
+      opts.formatters_by_ft = opts.formatters_by_ft or {}
+      opts.formatters = opts.formatters or {}
+
+      -- Add your PHP formatter to the existing configuration
+      opts.formatters_by_ft.php = { "php-cs-fixer" }
+      opts.formatters["php-cs-fixer"] = {
         command = "php-cs-fixer",
         args = {
           "fix",
-          "--rules=@PSR12", -- Formatting preset. Other presets are available, see the php-cs-fixer docs.
+          "--rules=@PSR12",
           "$FILENAME",
         },
         stdin = false,
-      },
-    },
-    notify_on_error = true,
+      }
+
+      return opts
+    end,
   },
 }

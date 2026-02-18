@@ -1,11 +1,10 @@
 return {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
   opts = {
     ensure_installed = {
-      "angular-language-server",
       "bash-debug-adapter",
       "bash-language-server",
-      "chrome-debug-adapter",
+      "copilot-language-server",
       "css-lsp",
       "docker-compose-language-service",
       "dockerfile-language-server",
