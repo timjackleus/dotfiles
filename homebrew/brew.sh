@@ -25,6 +25,7 @@ brew install hammerspoon
 brew install lazydocker
 brew install luarocks
 brew install neovim
+brew install opencode
 brew install p7zip
 brew install pnpm
 brew install reattach-to-user-namespace
