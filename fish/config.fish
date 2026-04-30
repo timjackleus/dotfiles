@@ -22,6 +22,7 @@ alias custom "NVIM_APPNAME=custom-nvim nvim"
 alias vscnvim "NVIM_APPNAME=vsc-nvim nvim"
 alias aider "aider --dark-mode"
 alias energy "fish ~/.config/fish/bin/energy-price.fish"
+alias upgradeopencode "brew upgrade anomalyco/tap/opencode"
 
 # List all paths
 function lp -d "List PATH entries"
@@ -41,6 +42,7 @@ set -U FZF_TMUX 1
 export TERM=xterm-256color
 export BAT_THEME="TwoDark"
 export AIDER_EDITOR=vim
+export PATH="$HOME/.local/bin:$PATH"
 
 # add PATHs
 fish_add_path ~/.local/bin
