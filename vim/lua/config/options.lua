@@ -7,6 +7,9 @@ vim.opt.swapfile = false
 vim.opt.clipboard = "" -- dont save to clipboard
 vim.opt.conceallevel = 0
 vim.opt.laststatus = 3
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 vim.g.snacks_animate = false -- stop scroll animation
 
 -- remove trailing whitespaces

@@ -29,6 +29,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- keep cursor position after join line
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- disable fold commands to avoid accidental code collapsing
+for _, key in ipairs({ "za", "zc", "zC", "zm", "zM", "zo", "zO", "zr", "zR", "zx", "zX" }) do
+  vim.keymap.set("n", key, "<Nop>", { silent = true })
+end
+
 -- yank to clipboard
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
