@@ -1,7 +1,7 @@
 # install native apps
 
 # daily
-brew install --cask alfred
+brew install --cask raycast
 brew install --cask arc
 brew install --cask enpass
 brew install --cask figma
