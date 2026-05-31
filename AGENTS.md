@@ -4,7 +4,7 @@ This is Tim's comprehensive macOS development environment dotfiles repository.
 
 ## Key Components
 
-- **Fish Shell**: Primary shell with Rose Pine theme, custom functions (`glb`, `killport`, `yy`), Starship prompt, nvm integration
+- **Fish Shell**: Primary shell with Rose Pine theme, custom functions (`glb`, `killport`, `yy`), Starship prompt, mise integration
 - **Neovim**: LazyVim-based setup with extensive language support (TypeScript, Go, PHP, Python), Mason-managed LSPs
 - **Ghostty Terminal**: Modern terminal with VictorMono Nerd Font, Rose Pine theme, auto dark/light switching
 - **Tmux**: Advanced multiplexer with vim-style navigation, Rose Pine theme, system info status bar
@@ -38,4 +38,3 @@ This is Tim's comprehensive macOS development environment dotfiles repository.
 - Performance-focused: Minimal animations, optimized settings
 - Developer productivity tools for web development, Go, and other languages
 - Terminal-based workflow with file manager (Yazi), multiplexer (Tmux), and editor (Neovim)
-

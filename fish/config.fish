@@ -7,7 +7,6 @@ end
 
 # Source extras
 source $__fish_config_dir/extra.fish
-echo $__fish_config_dir/extra.fish
 
 # Use Starship theme
 starship init fish | source
@@ -49,8 +48,10 @@ fish_add_path ~/.local/bin
 fish_add_path ~/.rbenv/shims
 fish_add_path ~/.rbenv/bin
 
-# Load NVM configuration
-source $__fish_config_dir/nvm.fish
+# Activate mise for tool version management
+if type -q mise
+    mise activate fish | source
+end
 
 # set locale (used in tmux bar etc)
 export LC_ALL=en_US.UTF-8
@@ -131,9 +132,6 @@ end
 # Apply our custom key bindings
 fish_user_key_bindings
 
-# pnpm
-set -gx PNPM_HOME /Users/timjackleus/Library/pnpm
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :

@@ -24,10 +24,10 @@ brew install go
 brew install hammerspoon
 brew install lazydocker
 brew install luarocks
+brew install mise
 brew install neovim
 brew install opencode
 brew install p7zip
-brew install pnpm
 brew install reattach-to-user-namespace
 brew install starship
 brew install stylua
