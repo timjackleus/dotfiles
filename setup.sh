@@ -72,6 +72,11 @@ if confirm "Install Homebrew and packages?"; then
     fi
 fi
 
+# Mise
+if confirm "Set up Mise?"; then
+    run_setup "mise/setup.sh" "Mise"
+fi
+
 # Fish shell
 if confirm "Set up Fish shell?"; then
     run_setup "fish/setup.sh" "Fish shell"
