@@ -26,7 +26,7 @@ Override repo path if needed:
 DOTFILES_DIR=/path/to/dotfiles ./omarchy/setup.sh
 ```
 
-The setup script installs the keyd config, Omarchy tmux overlay, and Omarchy Neovim overlay.
+The setup script installs the keyd config, Hyprland nightlight schedule, Omarchy tmux overlay, and Omarchy Neovim overlay.
 
 ## Tmux
 
@@ -105,6 +105,38 @@ The setup also installs a post-update hook at:
 That hook re-adds the symlinks after normal Omarchy updates.
 
 ## Hyprland
+
+Nightlight is configured with `hyprsunset`:
+
+```text
+omarchy/hypr/hyprsunset.conf -> ~/.config/hypr/hyprsunset.conf
+```
+
+The schedule warms the display from 20:00 until 06:00:
+
+```conf
+profile {
+    time = 06:00
+    identity = true
+}
+
+profile {
+    time = 20:00
+    temperature = 4000
+}
+```
+
+`omarchy/hypr/setup.sh` also ensures `~/.config/hypr/autostart.conf` starts `hyprsunset` on login:
+
+```conf
+exec-once = uwsm-app -- hyprsunset
+```
+
+Manual toggle remains available with `Super + Ctrl + N` or:
+
+```bash
+omarchy toggle nightlight
+```
 
 Edit `~/.config/hypr/input.conf`:
 
