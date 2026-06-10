@@ -33,3 +33,9 @@ if [[ -x "$DOTFILES_DIR/omarchy/tmux/setup.sh" ]]; then
 else
   bash "$DOTFILES_DIR/omarchy/tmux/setup.sh"
 fi
+
+if [[ -x "$DOTFILES_DIR/omarchy/nvim/setup.sh" ]]; then
+  "$DOTFILES_DIR/omarchy/nvim/setup.sh"
+else
+  bash "$DOTFILES_DIR/omarchy/nvim/setup.sh"
+fi

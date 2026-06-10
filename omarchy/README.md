@@ -26,7 +26,7 @@ Override repo path if needed:
 DOTFILES_DIR=/path/to/dotfiles ./omarchy/setup.sh
 ```
 
-The setup script installs both the keyd config and the Omarchy tmux overlay.
+The setup script installs the keyd config, Omarchy tmux overlay, and Omarchy Neovim overlay.
 
 ## Tmux
 
@@ -59,6 +59,50 @@ The setup also installs a post-update hook at:
 That hook re-adds the source line after normal Omarchy updates.
 
 Tmux plugins are managed by TPM. After the first setup, press `Ctrl-a I` inside tmux to install plugin dependencies.
+
+## Neovim
+
+The Omarchy Neovim setup keeps Omarchy's LazyVim base config and theme integration, then symlinks Tim-specific options, keymaps, plugins, snippets, and LazyVim extras into the existing config.
+
+Personal files live in:
+
+```text
+omarchy/nvim/
+```
+
+They are symlinked into:
+
+```text
+~/.config/nvim/
+```
+
+Omarchy still owns theme integration through:
+
+```text
+~/.config/nvim/lua/plugins/theme.lua
+```
+
+That file should remain a symlink to:
+
+```text
+~/.config/omarchy/current/theme/neovim.lua
+```
+
+The overlay intentionally does not include the macOS `colors.lua` Rose Pine switcher or theme-specific Neo-tree highlight overrides.
+
+If `omarchy-nvim-setup`, `omarchy reinstall`, or an Omarchy update replaces `~/.config/nvim`, rerun:
+
+```bash
+./omarchy/nvim/setup.sh
+```
+
+The setup also installs a post-update hook at:
+
+```text
+~/.config/omarchy/hooks/post-update.d/ensure-nvim-symlinks
+```
+
+That hook re-adds the symlinks after normal Omarchy updates.
 
 ## Hyprland
 
