@@ -26,6 +26,40 @@ Override repo path if needed:
 DOTFILES_DIR=/path/to/dotfiles ./omarchy/setup.sh
 ```
 
+The setup script installs both the keyd config and the Omarchy tmux overlay.
+
+## Tmux
+
+The Omarchy tmux setup keeps Omarchy's base config at `~/.config/tmux/tmux.conf`, then sources a repo-owned personal layer from the end of that file:
+
+```tmux
+source-file -q ~/.config/tmux/tim.conf
+```
+
+`~/.config/tmux/tim.conf` is symlinked to:
+
+```text
+omarchy/tmux/tim.conf
+```
+
+This overlay intentionally owns the tmux statusbar, prefix, pane/window bindings, Vim-aware pane navigation, and tmux plugins. Because it is sourced after Omarchy's default config, Tim's statusbar overrides Omarchy's tmux statusbar.
+
+If `omarchy refresh tmux` or an Omarchy update replaces `~/.config/tmux/tmux.conf`, rerun:
+
+```bash
+./omarchy/tmux/setup.sh
+```
+
+The setup also installs a post-update hook at:
+
+```text
+~/.config/omarchy/hooks/post-update.d/ensure-tmux-sourced
+```
+
+That hook re-adds the source line after normal Omarchy updates.
+
+Tmux plugins are managed by TPM. After the first setup, press `Ctrl-a I` inside tmux to install plugin dependencies.
+
 ## Hyprland
 
 Edit `~/.config/hypr/input.conf`:

@@ -27,3 +27,9 @@ sudo keyd reload
 
 printf 'Installed keyd config: %s -> %s\n' "$KEYD_TARGET" "$KEYD_SOURCE"
 printf 'Ensure ~/.config/hypr/input.conf contains: kb_options =\n'
+
+if [[ -x "$DOTFILES_DIR/omarchy/tmux/setup.sh" ]]; then
+  "$DOTFILES_DIR/omarchy/tmux/setup.sh"
+else
+  bash "$DOTFILES_DIR/omarchy/tmux/setup.sh"
+fi

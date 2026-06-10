@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/Code/dotfiles}"
+exec "$DOTFILES_DIR/omarchy/tmux/ensure-sourced.sh"
