@@ -34,6 +34,12 @@ else
   bash "$DOTFILES_DIR/omarchy/hypr/setup.sh"
 fi
 
+if [[ -x "$DOTFILES_DIR/omarchy/xkb/setup.sh" ]]; then
+  "$DOTFILES_DIR/omarchy/xkb/setup.sh"
+else
+  bash "$DOTFILES_DIR/omarchy/xkb/setup.sh"
+fi
+
 if [[ -x "$DOTFILES_DIR/omarchy/tmux/setup.sh" ]]; then
   "$DOTFILES_DIR/omarchy/tmux/setup.sh"
 else

@@ -26,7 +26,7 @@ Override repo path if needed:
 DOTFILES_DIR=/path/to/dotfiles ./omarchy/setup.sh
 ```
 
-The setup script installs the keyd config, Hyprland nightlight schedule, Omarchy tmux overlay, and Omarchy Neovim overlay.
+The setup script installs the keyd config, Hyprland nightlight schedule, custom keyboard layout, Omarchy tmux overlay, and Omarchy Neovim overlay.
 
 ## Tmux
 
@@ -105,6 +105,44 @@ The setup also installs a post-update hook at:
 That hook re-adds the symlinks after normal Omarchy updates.
 
 ## Hyprland
+
+Custom keyboard layout is configured through XKB and keyd:
+
+```text
+omarchy/xkb/symbols/tim -> ~/.config/xkb/symbols/tim
+```
+
+The XKB layout keeps US keys and adds Swedish characters on the internal Right Alt level:
+
+```text
+Right Alt + [       -> å
+Right Alt + ;       -> ö
+Right Alt + '       -> ä
+Shift + Right Alt + [ -> Å
+Shift + Right Alt + ; -> Ö
+Shift + Right Alt + ' -> Ä
+```
+
+Keyd maps the Caps hold layer to those Right Alt combinations, while preserving homerow navigation:
+
+```text
+Tap Caps       -> Escape
+Hold Caps + h  -> Left
+Hold Caps + j  -> Down
+Hold Caps + k  -> Up
+Hold Caps + l  -> Right
+Hold Caps + [  -> å
+Hold Caps + ;  -> ö
+Hold Caps + '  -> ä
+```
+
+`omarchy/xkb/setup.sh` also updates `~/.config/hypr/input.conf`:
+
+```conf
+kb_layout = tim
+```
+
+The Caps layer lives in `omarchy/keyd/dell-internal.conf`.
 
 Nightlight is configured with `hyprsunset`:
 
