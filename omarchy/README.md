@@ -144,6 +144,15 @@ kb_layout = tim
 
 The Caps layer lives in `omarchy/keyd/dell-internal.conf`.
 
+Keyd also maps `/` as a tap/hold key:
+
+```text
+Tap /  -> /
+Hold / -> Right Ctrl
+```
+
+The physical Right Ctrl key is mapped to Super.
+
 Nightlight is configured with `hyprsunset`:
 
 ```text
