@@ -107,11 +107,6 @@ if confirm "Set up Hammerspoon?"; then
     run_setup "hammerspoon/setup.sh" "Hammerspoon"
 fi
 
-# Cursor editor
-if confirm "Set up Cursor editor?"; then
-    run_setup "cursor/setup.sh" "Cursor editor"
-fi
-
 # Yazi file manager
 if confirm "Set up Yazi file manager?"; then
     run_setup "yazi/setup.sh" "Yazi file manager"
