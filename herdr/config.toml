@@ -1,0 +1,58 @@
+onboarding = false
+[theme]
+name = "rose-pine"
+auto_switch = true
+dark_name = "rose-pine"
+light_name = "rose-pine-dawn"
+
+[keys]
+prefix = "ctrl+a"
+
+# Move between panes without the prefix.
+focus_pane_left = "ctrl+h"
+focus_pane_down = "ctrl+j"
+focus_pane_up = "ctrl+k"
+focus_pane_right = "ctrl+l"
+
+# Search workspaces, tabs, and panes.
+goto = "prefix+a"
+
+# Create panes and tabs in the current working directory.
+split_vertical = "prefix+v"
+split_horizontal = 'prefix+s'
+new_tab = "prefix+c"
+rename_tab = "prefix+comma"
+
+# Move between tabs and panes.
+previous_tab = "prefix+h"
+next_tab = "prefix+l"
+last_pane = ["prefix+space", 'ctrl+\']
+cycle_pane_next = "ctrl+space"
+
+reload_config = "prefix+r"
+close_pane = "prefix+x"
+
+# Resize panes by five cells
+[[keys.command]]
+key = "prefix+shift+h"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane resize --pane "$HERDR_ACTIVE_PANE_ID" --direction left --amount 5'
+description = "resize pane left"
+
+[[keys.command]]
+key = "prefix+shift+j"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane resize --pane "$HERDR_ACTIVE_PANE_ID" --direction down --amount 5'
+description = "resize pane down"
+
+[[keys.command]]
+key = "prefix+shift+k"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane resize --pane "$HERDR_ACTIVE_PANE_ID" --direction up --amount 5'
+description = "resize pane up"
+
+[[keys.command]]
+key = "prefix+shift+l"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane resize --pane "$HERDR_ACTIVE_PANE_ID" --direction right --amount 5'
+description = "resize pane right"
