@@ -6,8 +6,8 @@ KEYD_SOURCE="$DOTFILES_DIR/omarchy/keyd/dell-internal.conf"
 KEYD_TARGET="/etc/keyd/dell-internal.conf"
 
 if ! command -v keyd >/dev/null 2>&1; then
-  if command -v omarchy-pkg-add >/dev/null 2>&1; then
-    omarchy-pkg-add keyd
+  if command -v omarchy >/dev/null 2>&1; then
+    omarchy pkg add keyd
   else
     sudo pacman -S --needed keyd
   fi
@@ -26,7 +26,7 @@ sudo systemctl enable --now keyd
 sudo keyd reload
 
 printf 'Installed keyd config: %s -> %s\n' "$KEYD_TARGET" "$KEYD_SOURCE"
-printf 'Ensure ~/.config/hypr/input.conf contains: kb_options =\n'
+printf 'The Lua input config disables Hyprland keyboard options for keyd.\n'
 
 if [[ -x "$DOTFILES_DIR/omarchy/hypr/setup.sh" ]]; then
   "$DOTFILES_DIR/omarchy/hypr/setup.sh"
@@ -40,14 +40,20 @@ else
   bash "$DOTFILES_DIR/omarchy/xkb/setup.sh"
 fi
 
-if [[ -x "$DOTFILES_DIR/omarchy/tmux/setup.sh" ]]; then
-  "$DOTFILES_DIR/omarchy/tmux/setup.sh"
-else
-  bash "$DOTFILES_DIR/omarchy/tmux/setup.sh"
-fi
-
 if [[ -x "$DOTFILES_DIR/omarchy/nvim/setup.sh" ]]; then
   "$DOTFILES_DIR/omarchy/nvim/setup.sh"
 else
   bash "$DOTFILES_DIR/omarchy/nvim/setup.sh"
+fi
+
+if [[ -x "$DOTFILES_DIR/omarchy/herdr/setup.sh" ]]; then
+  "$DOTFILES_DIR/omarchy/herdr/setup.sh"
+else
+  bash "$DOTFILES_DIR/omarchy/herdr/setup.sh"
+fi
+
+if [[ -x "$DOTFILES_DIR/omarchy/ghostty/setup.sh" ]]; then
+  "$DOTFILES_DIR/omarchy/ghostty/setup.sh"
+else
+  bash "$DOTFILES_DIR/omarchy/ghostty/setup.sh"
 fi

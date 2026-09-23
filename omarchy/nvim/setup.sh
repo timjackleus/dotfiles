@@ -34,6 +34,12 @@ done
 
 link_file "$SOURCE_DIR/snippets" "$TARGET_DIR/snippets"
 
+retired_tmux_navigation="$TARGET_DIR/lua/plugins/tim-tmux-navigation.lua"
+if [[ -L $retired_tmux_navigation ]] &&
+  [[ $(readlink "$retired_tmux_navigation") == "$SOURCE_DIR/lua/plugins/tim-tmux-navigation.lua" ]]; then
+  rm "$retired_tmux_navigation"
+fi
+
 mkdir -p "$HOME/.config/omarchy/hooks/post-update.d"
 link_file "$HOOK_SOURCE" "$HOOK_TARGET"
 
