@@ -5,6 +5,8 @@ DOTFILES_DIR="${DOTFILES_DIR:-$HOME/Code/dotfiles}"
 KEYD_SOURCE="$DOTFILES_DIR/omarchy/keyd/dell-internal.conf"
 KEYD_TARGET="/etc/keyd/dell-internal.conf"
 
+bash "$DOTFILES_DIR/omarchy/shell/setup.sh"
+
 if ! command -v keyd >/dev/null 2>&1; then
   if command -v omarchy >/dev/null 2>&1; then
     omarchy pkg add keyd

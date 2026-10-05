@@ -28,7 +28,26 @@ Override repo path if needed:
 DOTFILES_DIR=/path/to/dotfiles ./omarchy/setup.sh
 ```
 
-The setup script installs the keyd config, Hyprland nightlight schedule, custom keyboard layout, Omarchy Neovim overlay, Omarchy Herdr config, and Omarchy Ghostty overlay.
+The setup script installs the Omarchy shell settings, keyd config, Hyprland nightlight schedule, custom keyboard layout, Omarchy Neovim overlay, Omarchy Herdr config, and Omarchy Ghostty overlay.
+
+## Bar and menus
+
+The shell uses a **15px** base size instead of the default 12px, making bar icons,
+menus, and panels roughly 25% larger without changing display scaling or application
+text. The theme-independent override is linked from the repository:
+
+```text
+omarchy/shell/shell.toml -> ~/.config/omarchy/shell.toml
+```
+
+To install just these settings, run:
+
+```bash
+bash omarchy/shell/setup.sh
+```
+
+Setup backs up an existing regular file before linking. Edit
+`omarchy/shell/shell.toml` to adjust the size; Omarchy applies changes live.
 
 ## Ghostty
 
