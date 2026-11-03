@@ -28,7 +28,33 @@ Override repo path if needed:
 DOTFILES_DIR=/path/to/dotfiles ./omarchy/setup.sh
 ```
 
-The setup script installs the Omarchy shell settings, keyd config, Hyprland nightlight schedule, custom keyboard layout, Omarchy Neovim overlay, Omarchy Herdr config, and Omarchy Ghostty overlay.
+The setup script installs Enpass in place of 1Password, the Omarchy shell settings, keyd config, Hyprland nightlight schedule, custom keyboard layout, Omarchy Neovim overlay, Omarchy Herdr config, and Omarchy Ghostty overlay.
+
+## Password manager
+
+Setup installs `enpass-bin` from the AUR before removing `1password` and
+`1password-cli`. It also removes the external Chromium extension registration
+created by Omarchy's 1Password installer, if present, and associates Enpass's
+link schemes and card files with `enpass.desktop`.
+
+To apply just the password-manager setup on an existing machine:
+
+```bash
+bash omarchy/enpass/setup.sh
+```
+
+The script is safe to rerun. Normal Omarchy updates upgrade installed packages
+and leave the removed 1Password packages uninstalled. Avoid selecting 1Password
+from Omarchy's installation menu or running `omarchy launch 1password`, which
+offers to install it again. If it is explicitly reinstalled, rerun this script.
+
+The Hyprland setup links the repository's password shortcut override, so
+**Super + Shift + /** launches Enpass instead of 1Password.
+
+In each browser, install the Enpass extension and remove any existing 1Password
+extension. Enable browser integration in Enpass, and disable the browser's built-in
+password saving/autofill if Enpass should handle it exclusively. Browser profiles
+and existing password vault data are not modified by setup.
 
 ## Bar and menus
 
@@ -236,7 +262,8 @@ o.bind("SUPER + SHIFT + SLASH", "Passwords", { launch = "enpass" })
 
 This replaces Omarchy's default 1Password binding on the same key.
 
-Install Enpass with `Install > AUR > enpass-bin`.
+Enpass installation and 1Password removal are handled by setup; see
+[Password manager](#password-manager).
 
 ## Useful Commands
 
