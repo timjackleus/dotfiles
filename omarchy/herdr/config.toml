@@ -4,6 +4,13 @@ onboarding = false
 name = "terminal"
 auto_switch = false
 
+[theme.custom]
+# Use the terminal palette so the Navigate-mode highlight follows Omarchy themes.
+selection_bg = "blue"
+
+[ui.toast]
+delivery = "herdr"
+
 [keys]
 prefix = "ctrl+a"
 
@@ -13,8 +20,11 @@ focus_pane_down = "ctrl+j"
 focus_pane_up = "ctrl+k"
 focus_pane_right = "ctrl+l"
 
+# Navigate spaces in the sidebar.
+workspace_picker = "prefix+a"
+
 # Search workspaces, tabs, and panes.
-goto = "prefix+a"
+goto = "prefix+g"
 
 # Create panes and tabs in the current working directory.
 split_vertical = "prefix+v"
