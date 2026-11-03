@@ -35,6 +35,9 @@ alias npx="pnpm dlx"
 alias realnpm="command npm"
 alias realnpx="command npx"
 
+# pnpm's generated completions suppress files for custom script arguments.
+complete -c pnpm -n '__fish_seen_subcommand_from logo:add' -l input -r -F -d 'Source logo file'
+
 # Runs a tmux-friendly version of fzf
 set -U FZF_TMUX 1
 
