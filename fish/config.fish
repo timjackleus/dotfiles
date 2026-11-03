@@ -35,9 +35,6 @@ alias npx="pnpm dlx"
 alias realnpm="command npm"
 alias realnpx="command npx"
 
-# pnpm's generated completions suppress files for custom script arguments.
-complete -c pnpm -n '__fish_seen_subcommand_from logo:add' -l input -r -F -d 'Source logo file'
-
 # Runs a tmux-friendly version of fzf
 set -U FZF_TMUX 1
 
@@ -120,8 +117,23 @@ function yy
     rm -f -- "$tmp"
 end
 
+# Explicit home paths should complete even when a command suppresses files.
+function complete_home_path
+    if string match -q -- '~/*' (commandline -ct)
+        set -l tokens (commandline -xpc)
+        if set -q tokens[1]
+            # Load command completions first; autoloading can erase existing rules.
+            complete -C (string escape -- "$tokens[1]")' ' >/dev/null
+            complete -c "$tokens[1]" -n 'string match -q -- "~/*" (commandline -ct)' -F
+        end
+    end
+    commandline -f complete
+end
+
 # Custom key bindings that are more intuitive for vim users
 function fish_user_key_bindings
+    bind tab complete_home_path
+
     # Clear line with Ctrl+D (delete)
     bind \cd 'commandline -r ""'
 
