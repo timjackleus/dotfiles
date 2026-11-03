@@ -12,11 +12,11 @@ into `~/.config`.
 sudo keyd monitor
 ```
 
-2. Replace `REPLACE_WITH_KEYD_MONITOR_ID` in `omarchy/keyd/dell-internal.conf`.
+1. Replace `REPLACE_WITH_KEYD_MONITOR_ID` in `omarchy/keyd/dell-internal.conf`.
 
 Do not add the `k:` prefix unless tested. On the Dell XPS setup, matching only worked without `k:`.
 
-3. Run setup:
+1. Run setup:
 
 ```bash
 ./omarchy/setup.sh
@@ -29,6 +29,19 @@ DOTFILES_DIR=/path/to/dotfiles ./omarchy/setup.sh
 ```
 
 The setup script installs Enpass in place of 1Password, the Omarchy shell settings, keyd config, Hyprland nightlight schedule, custom keyboard layout, Omarchy Neovim overlay, Omarchy Herdr config, and Omarchy Ghostty overlay.
+
+## Bash shortcuts
+
+Personal Bash shortcuts are linked from `omarchy/bash/aliases.bash` into
+`~/.config/bash/aliases.bash` and loaded after Omarchy's defaults in `~/.bashrc`.
+Setup preserves the existing Bash config and backs it up before adding the source line.
+
+To install only these shortcuts:
+
+```bash
+bash omarchy/bash/setup.sh
+source ~/.bashrc
+```
 
 ## Password manager
 
@@ -94,6 +107,10 @@ omarchy/herdr/config.toml -> ~/.config/herdr/config.toml
 ```
 
 It keeps the shared keybindings from `herdr/config.toml`, which remains the macOS config, while disabling automatic appearance switching. The `terminal` theme follows Ghostty's active Omarchy palette instead of choosing a separate light or dark Herdr theme. Herdr replaces the previous custom Tmux setup on this machine.
+
+`Ctrl+a`, then `a` opens a floating space picker backed by `fzf` and `jq`. Use `j`/`k` to move, Enter to select, and `/` to fuzzy-search space names. While searching, use arrows or `Ctrl+j`/`Ctrl+k` to move; Esc clears the search and returns to navigation, and Esc again cancels. The current space is marked with `*` and selected initially. `Ctrl+a`, then `w` keeps the built-in sidebar navigator available, and `Ctrl+a`, then `g` searches spaces, tabs, and panes.
+
+Setup registers `omarchy/herdr/` as the local `tim.spaces` plugin so the popup is titled **Spaces**, and also links `space-picker.sh` into `~/.config/herdr/`. The picker shows Name, Status, and Tabs columns; the name column reserves at least 40 characters and grows for longer names. This changes only space selection: Herdr currently has no supported setting to remove the Spaces section while keeping Agents visible.
 
 ## Neovim
 

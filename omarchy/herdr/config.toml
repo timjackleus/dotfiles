@@ -20,8 +20,8 @@ focus_pane_down = "ctrl+j"
 focus_pane_up = "ctrl+k"
 focus_pane_right = "ctrl+l"
 
-# Navigate spaces in the sidebar.
-workspace_picker = "prefix+a"
+# Keep the built-in sidebar navigator available as a fallback.
+workspace_picker = "prefix+w"
 
 # Search workspaces, tabs, and panes.
 goto = "prefix+g"
@@ -40,6 +40,13 @@ cycle_pane_next = "ctrl+space"
 
 reload_config = "prefix+r"
 close_pane = "prefix+x"
+
+# Choose a space without entering sidebar navigation.
+[[keys.command]]
+key = "prefix+a"
+type = "shell"
+command = '"$HERDR_BIN_PATH" plugin pane open --plugin tim.spaces --entrypoint picker'
+description = "choose space"
 
 # Resize panes by five cells
 [[keys.command]]
