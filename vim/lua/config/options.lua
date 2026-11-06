@@ -4,13 +4,15 @@ vim.g.root_spec = { "cwd" }
 vim.opt.list = false
 vim.opt.hidden = true
 vim.opt.swapfile = false
-vim.opt.clipboard = "" -- dont save to clipboard
+vim.opt.clipboard = "" -- don't save to clipboard
 vim.opt.conceallevel = 0
 vim.opt.laststatus = 3
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.g.snacks_animate = false -- stop scroll animation
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us", "sv_se" }
 
 -- remove trailing whitespaces
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
