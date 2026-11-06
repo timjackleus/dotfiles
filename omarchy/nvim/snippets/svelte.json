@@ -1,0 +1,33 @@
+{
+  "Svelte typescript component": {
+    "prefix": "stc",
+    "body": [
+      "<script lang='ts'>",
+      "\t${1:// your script goes here}",
+      "</script>",
+      "",
+      "<style>",
+      "\t${2:/* your styles go here */}",
+      "</style>",
+      ""
+    ],
+    "description": "Simple svelte component"
+  },
+  "Svelte SSR typescript component": {
+    "prefix": "sstc",
+    "body": [
+      "<script context='module' lang='ts'>",
+      "\t${1:// your script goes here}",
+      "</script>",
+      "<script lang='ts'>",
+      "\t${2:// your script goes here}",
+      "</script>",
+      "",
+      "<style>",
+      "\t${3:/* your styles go here */}",
+      "</style>",
+      ""
+    ],
+    "description": "Svelte SSR typescript component"
+  }
+}

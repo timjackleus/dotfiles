@@ -1,0 +1,14 @@
+id = "tim.spaces"
+name = "Spaces"
+version = "0.1.0"
+min_herdr_version = "0.9.1"
+description = "Floating space picker with Vim navigation and fuzzy search"
+platforms = ["linux", "macos"]
+
+[[panes]]
+id = "picker"
+title = "Spaces"
+placement = "popup"
+width = "70%"
+height = "60%"
+command = ["bash", "space-picker.sh"]
