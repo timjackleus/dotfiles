@@ -9,7 +9,7 @@ AUTOSTART_SOURCE="$DOTFILES_DIR/omarchy/hypr/autostart.lua"
 AUTOSTART_TARGET="$HYPR_CONFIG_DIR/autostart.lua"
 BINDINGS_SOURCE="$DOTFILES_DIR/omarchy/hypr/bindings.lua"
 BINDINGS_TARGET="$HYPR_CONFIG_DIR/bindings.lua"
-MONITORS_SOURCE="$DOTFILES_DIR/omarchy/hypr/monitors-local.lua"
+MONITORS_SOURCE="$DOTFILES_DIR/omarchy/hypr/monitors.lua"
 MONITORS_TARGET="$HYPR_CONFIG_DIR/monitors.lua"
 HYPRLAND_TARGET="$HYPR_CONFIG_DIR/hyprland.lua"
 
@@ -49,21 +49,17 @@ if grep -Fxq 'require("hypr.monitors-local")' "$HYPRLAND_TARGET"; then
   sed -i '/^-- Dotfiles hardware-specific display settings\.$/d; /^require("hypr\.monitors-local")$/d' "$HYPRLAND_TARGET"
 fi
 
-# The wake handler reads only literal connector rules in monitors.lua. Install
-# this block only on the matching machine: that parser cannot evaluate Lua ifs.
+# Link the hardware-specific config only on the matching laptop. Keep the
+# literal connector rule in monitors.lua for Omarchy's lid/wake handler.
 if [[ -r /sys/class/dmi/id/sys_vendor && -r /sys/class/dmi/id/product_name ]] &&
   [[ $(</sys/class/dmi/id/sys_vendor) == 'Dell Inc.' && $(</sys/class/dmi/id/product_name) == 'XPS 13 9380' ]]; then
-  monitor_tmp=$(mktemp "$HYPR_CONFIG_DIR/monitors.lua.XXXXXX")
-  sed '/^-- BEGIN dotfiles laptop monitor$/,/^-- END dotfiles laptop monitor$/d' "$MONITORS_TARGET" >"$monitor_tmp"
-  printf '%s\n' '-- BEGIN dotfiles laptop monitor' >>"$monitor_tmp"
-  cat "$MONITORS_SOURCE" >>"$monitor_tmp"
-  printf '%s\n' '-- END dotfiles laptop monitor' >>"$monitor_tmp"
-  if ! cmp -s "$monitor_tmp" "$MONITORS_TARGET"; then
-    cp -p "$MONITORS_TARGET" "$MONITORS_TARGET.pre-dotfiles.bak.$(date +%s)"
-    cat "$monitor_tmp" >"$MONITORS_TARGET"
+  link_file "$MONITORS_SOURCE" "$MONITORS_TARGET"
+  # Remove only the obsolete symlink installed by earlier setup versions.
+  if [[ -L $HYPR_CONFIG_DIR/monitors-local.lua ]] &&
+    [[ $(readlink "$HYPR_CONFIG_DIR/monitors-local.lua") == "$DOTFILES_DIR/omarchy/hypr/monitors-local.lua" ]]; then
+    unlink "$HYPR_CONFIG_DIR/monitors-local.lua"
   fi
-  rm "$monitor_tmp"
-  printf 'Installed laptop monitor override in %s\n' "$MONITORS_TARGET"
+  printf 'Installed monitor config: %s -> %s\n' "$MONITORS_TARGET" "$MONITORS_SOURCE"
 fi
 
 if command -v omarchy >/dev/null 2>&1; then
