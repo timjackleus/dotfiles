@@ -108,7 +108,7 @@ omarchy/herdr/config.toml -> ~/.config/herdr/config.toml
 
 It keeps the shared keybindings from `herdr/config.toml`, which remains the macOS config, while disabling automatic appearance switching. The `terminal` theme follows Ghostty's active Omarchy palette instead of choosing a separate light or dark Herdr theme. Herdr replaces the previous custom Tmux setup on this machine.
 
-`Ctrl+a`, then `a` opens a floating space picker backed by `fzf` and `jq`. Use `j`/`k` to move, Enter to select, and `/` to fuzzy-search space names. While searching, use arrows or `Ctrl+j`/`Ctrl+k` to move; Esc clears the search and returns to navigation, and Esc again cancels. The current space is marked with `*` and selected initially. `Ctrl+a`, then `w` keeps the built-in sidebar navigator available, and `Ctrl+a`, then `g` searches spaces, tabs, and panes.
+`Ctrl+a`, then `a` opens a floating space picker backed by `fzf` and `jq`, ready to fuzzy-search space names immediately. Type to filter, use arrows or `Ctrl+j`/`Ctrl+k` to move, and Enter to select. Esc clears the search and returns to `j`/`k` navigation; `/` reopens search, and Esc again cancels. The current space is marked with `*` and selected initially. `Ctrl+a`, then `w` keeps the built-in sidebar navigator available, and `Ctrl+a`, then `g` searches spaces, tabs, and panes.
 
 Setup registers `omarchy/herdr/` as the local `tim.spaces` plugin so the popup is titled **Spaces**, and also links `space-picker.sh` into `~/.config/herdr/`. The picker shows Name, Status, and Tabs columns; the name column reserves at least 40 characters and grows for longer names. This changes only space selection: Herdr currently has no supported setting to remove the Spaces section while keeping Agents visible.
 
@@ -158,14 +158,16 @@ That hook re-adds the symlinks after normal Omarchy updates.
 
 ## Hyprland
 
-### Laptop display scaling
+### Display configuration
 
 `omarchy/hypr/setup.sh` detects the Dell XPS 13 9380 using its DMI vendor/model
-and installs `monitors-local.lua` as a managed block in `~/.config/hypr/monitors.lua`.
+and symlinks `omarchy/hypr/monitors.lua` to `~/.config/hypr/monitors.lua`, backing
+up any existing file first.
 It applies **2.5×** scaling to the internal `eDP-1` 4K panel at
 **3840×2160, 60 Hz**, providing an effective **1536×864** workspace.
-The block is only installed on this laptop model; external displays retain
-their own settings or the general scale selected in Omarchy's menu.
+The Dell U2723QE external display uses **1.5×** scaling at **3840×2160, 60 Hz**.
+The config is only linked on this laptop model. Existing global GTK scaling
+is preserved; it is separate from each monitor's compositor scale.
 
 The literal, single-line connector rule is intentional: Omarchy's lid/wake
 handler parses `monitors.lua` directly without following Lua module imports.
@@ -173,9 +175,16 @@ Loading the rule here also lets Omarchy's later clamshell toggles disable the
 internal panel while docked with the lid closed.
 
 The override takes precedence over the Omarchy scale menu on config reload.
-To change the laptop's persistent scale, edit `omarchy/hypr/monitors-local.lua`
-and rerun `bash omarchy/hypr/setup.sh`, then `hyprctl reload`. Rerun setup after
-a refresh replaces `monitors.lua` to restore the managed block.
+Edit `omarchy/hypr/monitors.lua` to change persistent monitor settings. The Display
+panel's managed section can also be rewritten by that panel. Validate changes
+with `hyprctl reload config-only` and `hyprctl configerrors`; this validates the
+config without cycling displays. Runtime mode/scale changes need to be applied
+separately or at the next login.
+
+Before an Omarchy refresh, back up the file and move the symlink out of the way:
+refresh may otherwise overwrite the repository source through the link.
+Reconcile the refreshed settings, then rerun `bash omarchy/hypr/setup.sh` to
+restore the link.
 
 ### Keyboard and nightlight
 
@@ -281,6 +290,49 @@ This replaces Omarchy's default 1Password binding on the same key.
 
 Enpass installation and 1Password removal are handled by setup; see
 [Password manager](#password-manager).
+
+## Moonlander flashing with Oryx
+
+Oryx needs USB device permissions to flash the Moonlander from a Chromium-based
+browser on Omarchy. This is a one-time setup per computer; it does not change
+keyboard mappings or enable the laptop-specific keyd configuration on the Moonlander.
+
+Create the udev rules file:
+
+```bash
+sudoedit /etc/udev/rules.d/70-zsa.rules
+```
+
+Paste these rules:
+
+```udev
+# Moonlander: Oryx web flashing and live training
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3297", TAG+="uaccess"
+
+# Moonlander: STM32 bootloader for firmware flashing
+SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="df11", TAG+="uaccess"
+```
+
+The first rule grants access to ZSA's normal keyboard interface. The second
+grants access to the STM32 bootloader used when flashing the Moonlander.
+`uaccess` gives the active local desktop user access without creating a
+`plugdev` group. Keep the `70-` filename prefix so the rules run before
+systemd's `73-seat-late.rules`, which applies those permissions.
+
+Validate the file and reload the rules:
+
+```bash
+udevadm verify /etc/udev/rules.d/70-zsa.rules
+sudo udevadm control --reload-rules
+```
+
+Unplug and reconnect the Moonlander, refresh Oryx in the browser, and select the
+keyboard when prompted to flash. Follow Oryx's instructions to enter bootloader
+mode if requested. No reboot is required.
+
+These rules were tested with Oryx on Omarchy. ZSA's broader Linux instructions
+also cover other keyboard models, legacy firmware, and Snap browsers; those
+extra rules and Snap commands are not needed for this setup.
 
 ## Useful Commands
 

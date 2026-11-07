@@ -40,6 +40,7 @@ if selection=$(printf '%s\n' "$rows" | FZF_DEFAULT_OPTS= FZF_DEFAULT_OPTS_FILE= 
   --layout=reverse \
   --no-sort \
   --no-multi \
+  --highlight-line \
   --no-input \
   --delimiter=$'\t' \
   --tabstop=2 \
@@ -47,12 +48,13 @@ if selection=$(printf '%s\n' "$rows" | FZF_DEFAULT_OPTS= FZF_DEFAULT_OPTS_FILE= 
   --nth=2 \
   --prompt='Spaces> ' \
   --header-lines=1 \
+  --bind='start:trigger(/)' \
   --bind="load:pos($initial_position)" \
   --bind='j:down,k:up' \
   --bind='/:show-input+clear-query+change-prompt(/ )+unbind(j,k,/)' \
   --bind='esc:transform:if [ "$FZF_PROMPT" = "/ " ]; then printf "%s\n" "clear-query+search()+hide-input+change-prompt(Spaces> )+rebind(j,k,/)"; else printf "%s\n" abort; fi' \
   --bind='ctrl-c:abort' \
-  --color='bg:-1,bg+:-1,hl:4,hl+:4,pointer:4,prompt:4'); then
+  --color='bg:-1,bg+:8,fg+:15,hl:4,hl+:4,pointer:4,prompt:4'); then
   workspace_id=${selection%%$'\t'*}
   "$herdr_bin" workspace focus "$workspace_id" >/dev/null
 else
