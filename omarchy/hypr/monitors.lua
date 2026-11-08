@@ -6,6 +6,7 @@ local omarchy_monitor_scale = 3
 
 hl.env("GDK_SCALE", tostring(omarchy_gdk_scale))
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = omarchy_monitor_scale })
+hl.monitor({ output = "DP-1", mode = "3840x2160@60", position = "auto", scale = 1.5 })
 
 local function read_dmi(name)
   local file = io.open("/sys/class/dmi/id/" .. name, "r")
